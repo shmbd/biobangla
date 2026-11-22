@@ -1,0 +1,97 @@
+{
+  "slug": "immune-evasion-in-mucorales-species-from-stealth-spores-1cfa56",
+  "paper": {
+    "title": "Immune evasion in Mucorales species: From stealth spores to angioinvasive hyphae",
+    "abstract": "Mucormycosis is an invasive fungal infection caused by members of the order Mucorales, which employ stage- and species-specific mechanisms to evade host immunity. Resting spores of experimentally studied Rhizopus species can persist after macrophage uptake because macrophages restrict germination but do not efficiently kill all internalized resting spores. Germination is accompanied by cell-wall remodeling and increased β-glucan exposure in several experimentally examined Mucorales species; however, functional Dectin-1-dependent responses have been demonstrated most clearly in Rhizopus and its conservation across species and isolates remains incompletely defined. Studies predominantly in Rhizopus delemar identify fungal CotH proteins as ligands for host GRP78 or integrin α3β1, linking invasion to tissue-specific host pathways. Intracellular survival also varies across species: Rhizopus spores remain dormant and prevent phagosome maturation, whereas Mucor circinelloides can germinate within macrophages via stress-response and calcineurin-dependent mechanisms. Cunninghamella shows a significant resistance to neutrophil damage, while other Mucorales species suppress accumulation of nitric oxide in activated macrophages. Studies of Rhizopus reveal morphology-dependent dendritic-cell activation and Th17 polarization, and that Rhizopus-specific T cells can directly damage fungal hyphae. Whether such adaptive responses are present in other Mucorales species remains unknown. Understanding these immune evasion mechanisms could support the development of therapies focused on cytokines, adoptive T-cells, and CotH-targets.",
+    "authors": [
+      "Rajesh Palanisamy",
+      "Maldonado Gabriela",
+      "Soo Chan Lee"
+    ],
+    "journal": "PLOS Pathogens",
+    "published_date": "2026-11-20",
+    "source_url": "https://doi.org/10.1371/journal.ppat.1014813",
+    "source_adapter": "plos",
+    "doi": "10.1371/journal.ppat.1014813",
+    "pmid": null,
+    "pmcid": null,
+    "research_type": "original-research",
+    "peer_reviewed": true,
+    "publication_status": "peer-reviewed",
+    "license": "CC BY 4.0",
+    "is_open_access": true,
+    "category": "immunology",
+    "study_model": "multi-study",
+    "is_biological": true,
+    "allow_media_reuse": true,
+    "provenance": {
+      "source": "PLOS API",
+      "article_type": "Pearls"
+    }
+  },
+  "validation": {
+    "outcome": "REVIEW",
+    "checks": [
+      {
+        "name": "source_url",
+        "status": "PASS",
+        "message": "বৈধ HTTPS উৎস লিংক উপস্থিত।"
+      },
+      {
+        "name": "doi_format",
+        "status": "PASS",
+        "message": "বৈধ DOI: 10.1371/journal.ppat.1014813"
+      },
+      {
+        "name": "publication_date",
+        "status": "PASS",
+        "message": "প্রকাশের তারিখ বৈধ।"
+      },
+      {
+        "name": "duplicate_check",
+        "status": "PASS",
+        "message": "কোনো ডুপ্লিকেট পাওয়া যায়নি।"
+      },
+      {
+        "name": "preprint_integrity",
+        "status": "PASS",
+        "message": "পিয়ার-রিভিউ মর্যাদা সামঞ্জস্যপূর্ণ।"
+      },
+      {
+        "name": "license_compliance",
+        "status": "PASS",
+        "message": "কপিরাইটযুক্ত বাহ্যিক ছবি ব্যবহৃত হয়নি (মৌলিক CSS/SVG রেখাচিত্র ব্যবহৃত)।"
+      },
+      {
+        "name": "medical_safety",
+        "status": "PASS",
+        "message": "কোনো অননুমোদিত চিকিৎসা দাবি পাওয়া যায়নি।"
+      },
+      {
+        "name": "bangla_quality",
+        "status": "PASS",
+        "message": "বাংলা ভাষার অনুপাত সন্তোষজনক (0.92)।"
+      },
+      {
+        "name": "structure_and_length",
+        "status": "REVIEW",
+        "message": "নিবন্ধটি কিছুটা সংক্ষিপ্ত (219 < 220 শব্দ); মানব সম্পাদকের পর্যালোচনা প্রয়োজন।"
+      },
+      {
+        "name": "factual_citation_consistency",
+        "status": "PASS",
+        "message": "পাঠে উল্লিখিত DOI মূল উৎসের সাথে সম্পূর্ণ সামঞ্জস্যপূর্ণ।"
+      },
+      {
+        "name": "provider_verification",
+        "status": "REVIEW",
+        "message": "মক (offline template) প্রোভাইডার ব্যবহৃত হয়েছে; স্বয়ংক্রিয় লাইভ প্রকাশের বদলে REVIEW কিউতে সংরক্ষিত।"
+      }
+    ],
+    "reasons": [
+      "[REVIEW] structure_and_length: নিবন্ধটি কিছুটা সংক্ষিপ্ত (219 < 220 শব্দ); মানব সম্পাদকের পর্যালোচনা প্রয়োজন।",
+      "[REVIEW] provider_verification: মক (offline template) প্রোভাইডার ব্যবহৃত হয়েছে; স্বয়ংক্রিয় লাইভ প্রকাশের বদলে REVIEW কিউতে সংরক্ষিত।"
+    ],
+    "validated_at": "2026-11-22T21:22:55+00:00"
+  }
+}

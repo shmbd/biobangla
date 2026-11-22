@@ -1,0 +1,102 @@
+{
+  "slug": "gei-17-mediated-sumoylation-of-gdp-dissociation-inhibitor-750c03",
+  "paper": {
+    "title": "GEI-17-mediated SUMOylation of GDP dissociation inhibitor GDI-1 regulates apoptotic cell clearance",
+    "abstract": "by Lei Yuan, Peiyao Li, Aiying Ma, Chao Li, Fuqiao Liu, Yunmin Xie, Qian Zheng, Hui Wang, Hui Xiao Apoptotic cell clearance represents the final stage of apoptosis and involves phagosome formation, maturation, and digestion. Here, we found that SUMO modifications participate in apoptotic cell clearance by influencing phagosomal degradation activity in C. elegans . The SUMO E3 ligase, GEI-17, SUMOylates GDP dissociation inhibitor (GDI-1) at K270 to trigger phagosomal degradation. Upon SUMOylation, GDI-1 facilitates release of GDP-bound RAB-1, which is subsequently converted to the GTP-bound form in a manner dependent on GDI displacement factor, PRAF-3. RAB-1 conversion enables binding and translocation of RAB-7 from the endoplasmic reticulum to Golgi to promote phagosome maturation and degradation activity. In the absence of GDI-1 SUMOylation, GDI-1 binds to GDP-RAB-1, sequestering it in the cytoplasm, resulting in impaired phagosomal degradation. Furthermore, we found SUMOylation of GDI1 at a conserved site plays a crucial role in efferocytosis regulation in mammals. This study defines a previously unrecognized mechanism by which SUMOylation drives apoptotic cell clearance.",
+    "authors": [
+      "Lei Yuan",
+      "Peiyao Li",
+      "Aiying Ma",
+      "Chao Li",
+      "Fuqiao Liu",
+      "Yunmin Xie",
+      "Qian Zheng",
+      "Hui Wang",
+      "Hui Xiao"
+    ],
+    "journal": "PLOS Biology",
+    "published_date": "2026-11-19",
+    "source_url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3004123",
+    "source_adapter": "rss_feeds",
+    "doi": "10.1371/journal.pbio.3004123",
+    "pmid": null,
+    "pmcid": null,
+    "research_type": "original-research",
+    "peer_reviewed": true,
+    "publication_status": "peer-reviewed",
+    "license": "CC BY 4.0",
+    "is_open_access": true,
+    "category": "zoology",
+    "study_model": "multi-study",
+    "is_biological": true,
+    "allow_media_reuse": true,
+    "provenance": {
+      "source": "Atom Feed",
+      "feed_id": "plos_biology"
+    }
+  },
+  "validation": {
+    "outcome": "REVIEW",
+    "checks": [
+      {
+        "name": "source_url",
+        "status": "PASS",
+        "message": "বৈধ HTTPS উৎস লিংক উপস্থিত।"
+      },
+      {
+        "name": "doi_format",
+        "status": "PASS",
+        "message": "বৈধ DOI: 10.1371/journal.pbio.3004123"
+      },
+      {
+        "name": "publication_date",
+        "status": "PASS",
+        "message": "প্রকাশের তারিখ বৈধ।"
+      },
+      {
+        "name": "duplicate_check",
+        "status": "PASS",
+        "message": "কোনো ডুপ্লিকেট পাওয়া যায়নি।"
+      },
+      {
+        "name": "preprint_integrity",
+        "status": "PASS",
+        "message": "পিয়ার-রিভিউ মর্যাদা সামঞ্জস্যপূর্ণ।"
+      },
+      {
+        "name": "license_compliance",
+        "status": "PASS",
+        "message": "কপিরাইটযুক্ত বাহ্যিক ছবি ব্যবহৃত হয়নি (মৌলিক CSS/SVG রেখাচিত্র ব্যবহৃত)।"
+      },
+      {
+        "name": "medical_safety",
+        "status": "PASS",
+        "message": "কোনো অননুমোদিত চিকিৎসা দাবি পাওয়া যায়নি।"
+      },
+      {
+        "name": "bangla_quality",
+        "status": "PASS",
+        "message": "বাংলা ভাষার অনুপাত সন্তোষজনক (0.91)।"
+      },
+      {
+        "name": "structure_and_length",
+        "status": "PASS",
+        "message": "সকল আবশ্যিক শিরোনাম উপস্থিত এবং দৈর্ঘ্য উপযুক্ত (222 শব্দ)।"
+      },
+      {
+        "name": "factual_citation_consistency",
+        "status": "PASS",
+        "message": "পাঠে উল্লিখিত DOI মূল উৎসের সাথে সম্পূর্ণ সামঞ্জস্যপূর্ণ।"
+      },
+      {
+        "name": "provider_verification",
+        "status": "REVIEW",
+        "message": "মক (offline template) প্রোভাইডার ব্যবহৃত হয়েছে; স্বয়ংক্রিয় লাইভ প্রকাশের বদলে REVIEW কিউতে সংরক্ষিত।"
+      }
+    ],
+    "reasons": [
+      "[REVIEW] provider_verification: মক (offline template) প্রোভাইডার ব্যবহৃত হয়েছে; স্বয়ংক্রিয় লাইভ প্রকাশের বদলে REVIEW কিউতে সংরক্ষিত।"
+    ],
+    "validated_at": "2026-11-22T21:22:55+00:00"
+  }
+}

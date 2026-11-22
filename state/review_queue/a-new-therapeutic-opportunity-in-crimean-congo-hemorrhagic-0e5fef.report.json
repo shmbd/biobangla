@@ -1,0 +1,103 @@
+{
+  "slug": "a-new-therapeutic-opportunity-in-crimean-congo-hemorrhagic-0e5fef",
+  "paper": {
+    "title": "A new therapeutic opportunity in Crimean-Congo hemorrhagic fever: Targeting the stalk domain of viral nucleocapsid protein for therapeutic intervention",
+    "abstract": "Crimean-Congo hemorrhagic fever virus (CCHFV) is a high-consequence pathogen for which no approved antivirals or vaccines exist. The viral nucleocapsid protein (N protein) is central to the Nairovirus life cycle, coordinating genomic RNA encapsidation and selective enhancement of viral mRNA translation through its interaction with the panhandle-like hairpin structure in the S-segment mRNA 5′ untranslated region (UTR). Here, we developed a robust fluorescence polarization anisotropy (FPA) based high-throughput assay capable of quantitatively monitoring the interaction between purified N protein and the viral 5′UTR hairpin. The assay demonstrated excellent stability, DMSO tolerance, and performance metrics (average Z′ > 0.6), enabling the screening of 108,947 small molecules. Primary screening identified 122 inhibitors, 86 of which showed clear dose-responsive activity. Cluster analysis, medicinal chemistry filtering, and repurchase-based validation yielded 37 confirmed hits, from which compounds 11, 14, and 33 were prioritized for further testing. Biochemical analysis demonstrated that all three compounds noncompetitively inhibit N protein–UTR binding with IC₅₀ values of 11–41 μM. These compounds exhibited minimal cytotoxicity (CC₅₀ > 1–2 mM) and potent antiviral activity in cell culture against Hazara virus (HZV), a BSL-2 surrogate for CCHFV, with EC₅₀ values of ~23–51 μM and favorable selectivity indices (>34–86). Plaque assays further showed that compounds 11 and 14 reduced the production of infectious viral particles by over 100-fold, whereas compound 33 nearly eliminated detectable infectious virus in the media. Mechanistic assays revealed that these inhibitors act during post-entry steps and selectively block the N protein–mediated enhancement of viral mRNA translation without affecting the canonical host translation machinery. Molecular modeling and biochemical/translation assays support binding of compound 11 to the N protein stalk–head interface, involving residues Gln300, Glu240 and Lys473. Collectively, these findings identify the N protein–5′UTR interface as a tractable antiviral target and establish first-in-class small-molecule inhibitors that disrupt essential Nairovirus RNA–N protein interaction. These compounds provide strong leads for further optimization and development of urgently needed therapeutics for CCHFV. Author summary: Crimean-Congo hemorrhagic fever, a dangerous tick-borne virus illness has no approved treatments at present. The virus relies on a key nucleocapsid protein to efficiently translate its mRNA once it enters human cells. The main focus of this study was to find small molecule inhibitors for this protein that could essentially shut down the virus replication inside the cells. To do this, we developed a new high-throughput screening approach that allowed us to rapidly evaluate more than 100,000 chemical compounds. From this large search, we found three promising molecules that disrupt a crucial interaction between the viral nucleocapsid protein and a unique hairpin structure on the viral mRNA. What makes these compounds exciting is that they inhibit the virus replication after it has already entered cells, without being toxic to the host cells. These findings highlight an entirely new antiviral strategy: targeting the way a virus hijacks the host’s translation machinery for the preferential translation of its own mRNA. By blocking this early step in viral gene expression, we can potentially stop infection before it takes hold. This work not only advances antiviral drug discovery, but also deepens our understanding of how viruses manipulate host pathways during infection.",
+    "authors": [
+      "Hoangvi Le",
+      "Anuradha Roy",
+      "Ethan Mir",
+      "Xin Li",
+      "Saima Ali",
+      "Austin Royster",
+      "Songyang Ren",
+      "Yongcheng Song",
+      "Sheema Mir",
+      "Mohammad Mir"
+    ],
+    "journal": "PLOS Pathogens",
+    "published_date": "2026-11-20",
+    "source_url": "https://doi.org/10.1371/journal.ppat.1014772",
+    "source_adapter": "plos",
+    "doi": "10.1371/journal.ppat.1014772",
+    "pmid": null,
+    "pmcid": null,
+    "research_type": "original-research",
+    "peer_reviewed": true,
+    "publication_status": "peer-reviewed",
+    "license": "CC BY 4.0",
+    "is_open_access": true,
+    "category": "microbiology",
+    "study_model": "in-vitro",
+    "is_biological": true,
+    "allow_media_reuse": true,
+    "provenance": {
+      "source": "PLOS API",
+      "article_type": "Research Article"
+    }
+  },
+  "validation": {
+    "outcome": "REVIEW",
+    "checks": [
+      {
+        "name": "source_url",
+        "status": "PASS",
+        "message": "বৈধ HTTPS উৎস লিংক উপস্থিত।"
+      },
+      {
+        "name": "doi_format",
+        "status": "PASS",
+        "message": "বৈধ DOI: 10.1371/journal.ppat.1014772"
+      },
+      {
+        "name": "publication_date",
+        "status": "PASS",
+        "message": "প্রকাশের তারিখ বৈধ।"
+      },
+      {
+        "name": "duplicate_check",
+        "status": "PASS",
+        "message": "কোনো ডুপ্লিকেট পাওয়া যায়নি।"
+      },
+      {
+        "name": "preprint_integrity",
+        "status": "PASS",
+        "message": "পিয়ার-রিভিউ মর্যাদা সামঞ্জস্যপূর্ণ।"
+      },
+      {
+        "name": "license_compliance",
+        "status": "PASS",
+        "message": "কপিরাইটযুক্ত বাহ্যিক ছবি ব্যবহৃত হয়নি (মৌলিক CSS/SVG রেখাচিত্র ব্যবহৃত)।"
+      },
+      {
+        "name": "medical_safety",
+        "status": "PASS",
+        "message": "কোনো অননুমোদিত চিকিৎসা দাবি পাওয়া যায়নি।"
+      },
+      {
+        "name": "bangla_quality",
+        "status": "PASS",
+        "message": "বাংলা ভাষার অনুপাত সন্তোষজনক (0.88)।"
+      },
+      {
+        "name": "structure_and_length",
+        "status": "PASS",
+        "message": "সকল আবশ্যিক শিরোনাম উপস্থিত এবং দৈর্ঘ্য উপযুক্ত (228 শব্দ)।"
+      },
+      {
+        "name": "factual_citation_consistency",
+        "status": "PASS",
+        "message": "পাঠে উল্লিখিত DOI মূল উৎসের সাথে সম্পূর্ণ সামঞ্জস্যপূর্ণ।"
+      },
+      {
+        "name": "provider_verification",
+        "status": "REVIEW",
+        "message": "মক (offline template) প্রোভাইডার ব্যবহৃত হয়েছে; স্বয়ংক্রিয় লাইভ প্রকাশের বদলে REVIEW কিউতে সংরক্ষিত।"
+      }
+    ],
+    "reasons": [
+      "[REVIEW] provider_verification: মক (offline template) প্রোভাইডার ব্যবহৃত হয়েছে; স্বয়ংক্রিয় লাইভ প্রকাশের বদলে REVIEW কিউতে সংরক্ষিত।"
+    ],
+    "validated_at": "2026-11-22T21:22:55+00:00"
+  }
+}

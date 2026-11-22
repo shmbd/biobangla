@@ -1,0 +1,13 @@
+{
+  "processed_at": "2026-11-22T21:22:55+00:00",
+  "ai_provider": "mock",
+  "ai_model": "offline-deterministic-template-v1",
+  "dry_run": false,
+  "outcomes": {
+    "PASS": 0,
+    "REVIEW": 3,
+    "FAIL": 0,
+    "ERROR": 0,
+    "SKIPPED_EXISTING": 0
+  }
+}
