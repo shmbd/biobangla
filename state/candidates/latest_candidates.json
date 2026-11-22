@@ -1,6 +1,6 @@
 {
   "summary": {
-    "collected_at": "2026-11-22T21:05:00+00:00",
+    "collected_at": "2026-11-22T21:48:43+00:00",
     "total_raw_records": 52,
     "sources": {
       "europe_pmc": {
@@ -28,32 +28,266 @@
         "count": 10
       }
     },
-    "deduplicated_count": 52,
-    "duplicates_skipped": 0,
-    "non_biological_filtered": 5,
-    "ready_candidates_count": 20
+    "deduplicated_count": 51,
+    "duplicates_skipped": 1,
+    "non_biological_filtered": 7,
+    "stale_or_invalid_date_filtered": 0,
+    "ready_candidates_count": 44
   },
   "candidates": [
     {
-      "title": "A new therapeutic opportunity in Crimean-Congo hemorrhagic fever: Targeting the stalk domain of viral nucleocapsid protein for therapeutic intervention",
-      "abstract": "Crimean-Congo hemorrhagic fever virus (CCHFV) is a high-consequence pathogen for which no approved antivirals or vaccines exist. The viral nucleocapsid protein (N protein) is central to the Nairovirus life cycle, coordinating genomic RNA encapsidation and selective enhancement of viral mRNA translation through its interaction with the panhandle-like hairpin structure in the S-segment mRNA 5′ untranslated region (UTR). Here, we developed a robust fluorescence polarization anisotropy (FPA) based high-throughput assay capable of quantitatively monitoring the interaction between purified N protein and the viral 5′UTR hairpin. The assay demonstrated excellent stability, DMSO tolerance, and performance metrics (average Z′ > 0.6), enabling the screening of 108,947 small molecules. Primary screening identified 122 inhibitors, 86 of which showed clear dose-responsive activity. Cluster analysis, medicinal chemistry filtering, and repurchase-based validation yielded 37 confirmed hits, from which compounds 11, 14, and 33 were prioritized for further testing. Biochemical analysis demonstrated that all three compounds noncompetitively inhibit N protein–UTR binding with IC₅₀ values of 11–41 μM. These compounds exhibited minimal cytotoxicity (CC₅₀ > 1–2 mM) and potent antiviral activity in cell culture against Hazara virus (HZV), a BSL-2 surrogate for CCHFV, with EC₅₀ values of ~23–51 μM and favorable selectivity indices (>34–86). Plaque assays further showed that compounds 11 and 14 reduced the production of infectious viral particles by over 100-fold, whereas compound 33 nearly eliminated detectable infectious virus in the media. Mechanistic assays revealed that these inhibitors act during post-entry steps and selectively block the N protein–mediated enhancement of viral mRNA translation without affecting the canonical host translation machinery. Molecular modeling and biochemical/translation assays support binding of compound 11 to the N protein stalk–head interface, involving residues Gln300, Glu240 and Lys473. Collectively, these findings identify the N protein–5′UTR interface as a tractable antiviral target and establish first-in-class small-molecule inhibitors that disrupt essential Nairovirus RNA–N protein interaction. These compounds provide strong leads for further optimization and development of urgently needed therapeutics for CCHFV. Author summary: Crimean-Congo hemorrhagic fever, a dangerous tick-borne virus illness has no approved treatments at present. The virus relies on a key nucleocapsid protein to efficiently translate its mRNA once it enters human cells. The main focus of this study was to find small molecule inhibitors for this protein that could essentially shut down the virus replication inside the cells. To do this, we developed a new high-throughput screening approach that allowed us to rapidly evaluate more than 100,000 chemical compounds. From this large search, we found three promising molecules that disrupt a crucial interaction between the viral nucleocapsid protein and a unique hairpin structure on the viral mRNA. What makes these compounds exciting is that they inhibit the virus replication after it has already entered cells, without being toxic to the host cells. These findings highlight an entirely new antiviral strategy: targeting the way a virus hijacks the host’s translation machinery for the preferential translation of its own mRNA. By blocking this early step in viral gene expression, we can potentially stop infection before it takes hold. This work not only advances antiviral drug discovery, but also deepens our understanding of how viruses manipulate host pathways during infection.",
+      "title": "Plcg2 Deficiency Leads to Sex-Associated Divergent Effects on Glial Transcriptomes.",
+      "abstract": "Plcg2 encodes an intracellular phospholipase C signaling enzyme expressed predominately in microglia in the brain. Genome-wide association studies implicate PLCG2 in Alzheimer's disease (AD) risk and loss of Plcg2 alters amyloid pathology in mouse models. However, the physiological impact of Plcg2 loss remains unclear. To address this gap, we performed single-cell RNA sequencing (scRNA-seq) of wild-type, heterozygous, and homozygous Plcg2-deficient mouse brains in the absence of amyloid or tau pathology. Our analyses generated a comprehensive, publicly available atlas of glial transcriptomic states across genotypes and sexes. Genotype-associated changes in microglia and astrocytes were enriched in neurodegenerative disease-related pathways, as well as oxidative phosphorylation and proteostasis pathways. Genotype-by-sex interaction and sex-stratified analyses revealed divergent regulation of many of these pathways in males and females, while co-expression and cell-cell communication analyses identified additional sex-associated differences in glial signaling networks. Overall, these data provide a framework for understanding how variation in PLCG2 function may shape glial biology and modify pathways relevant to neurodegenerative disease in a sex-associated manner.",
       "authors": [
-        "Hoangvi Le",
-        "Anuradha Roy",
-        "Ethan Mir",
-        "Xin Li",
-        "Saima Ali",
-        "Austin Royster",
-        "Songyang Ren",
-        "Yongcheng Song",
-        "Sheema Mir",
-        "Mohammad Mir"
+        "Kelly A Hartigan",
+        "Luke C Dabin",
+        "Holly N Kersey",
+        "Nur Jury-Garfe",
+        "Ahmad Daniel Sharify",
+        "Byungwook Kim",
+        "Bruce T Lamb",
+        "Stephanie J Bissel",
+        "Cristian Lasagna-Reeves",
+        "Jungsu Kim"
       ],
-      "journal": "PLOS Pathogens",
-      "published_date": "2026-11-20",
-      "source_url": "https://doi.org/10.1371/journal.ppat.1014772",
-      "source_adapter": "plos",
-      "doi": "10.1371/journal.ppat.1014772",
+      "journal": "Glia",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.1002/glia.70252",
+      "source_adapter": "pubmed",
+      "doi": "10.1002/glia.70252",
+      "pmid": "43001663",
+      "pmcid": "PMC13746375",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": true,
+      "category": "genetics-genomics",
+      "study_model": "animal",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "43001663"
+      }
+    },
+    {
+      "title": "Reliability of a Two‐Stage Continuous Weighted K ‐out‐of‐ N System Based on the Residual Weight Rate Function",
+      "abstract": "ABSTRACT To evaluate the reliability of stochastic degradation systems, this study proposes a weighted ‐out‐of‐ hierarchical system composed of ‐out‐of‐ subsystems for . The ‐th subsystem is assembled from components, and each component exhibits two‐stage continuous weighting characteristics modeled by a newly defined residual weight rate function (RWRF). First, we establish the RWRF, which integrates component degradation quantity, service lifetime, and time‐varying weight into a unified modeling framework. Second, we formulate a weighted ‐out‐of‐ hierarchical system with multi‐type two‐stage weighted components and derive its corresponding reliability evaluation formula. Finally, by embedding the Wiener degradation process into the Weibull‐based two‐stage failure interference model, we perform theoretical analysis and numerical simulations to evaluate the performance of the proposed model.",
+      "authors": [
+        "Xiuyun Peng"
+      ],
+      "journal": "Quality and Reliability Engineering International",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.1002/qre.70513",
+      "source_adapter": "crossref",
+      "doi": "10.1002/qre.70513",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "http://onlinelibrary.wiley.com/termsAndConditions#vor",
+      "is_open_access": false,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "Crossref",
+        "license_url": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+      }
+    },
+    {
+      "title": "Enforcing continuous symmetry in physics-informed neural networks for solving the 1D wave equation",
+      "abstract": "Abstract As a typical application of deep learning, Physics-Informed Neural Networks (PINN) have gained significant attention in recent years as a mesh-free framework for solving partial differential equations (PDEs) under the paradigm of artificial intelligence for Science. However, improving their limited accuracy remains a major challenge for PINN. Symmetry-enhanced Physics-Informed Neural Networks (SPINN) embed the invariant surface conditions derived from the Lie symmetries of PDEs into the loss function of PINN, so as to improve the solution accuracy of PDEs. This paper is the first to extend SPINN to solve the 1D wave equation, and conducts a comparative analysis with PINN. Numerical experiments show that SPINN can effectively solve the 1D wave equation. Compared with the PINN method, SPINN demonstrates better performance and effectiveness, with its predictive accuracy improved by one to two orders of magnitude, exhibiting superior predictive precision and generalization capability.",
+      "authors": [
+        "Jiaqiang Hu",
+        "Tonglaga Bai"
+      ],
+      "journal": "The Computer Journal",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.1093/comjnl/bxag127",
+      "source_adapter": "crossref",
+      "doi": "10.1093/comjnl/bxag127",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "https://academic.oup.com/pages/standard-publication-reuse-rights",
+      "is_open_access": false,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "Crossref",
+        "license_url": "https://academic.oup.com/pages/standard-publication-reuse-rights"
+      }
+    },
+    {
+      "title": "Quantifying the Implied Monetary Value of Specific 2-BDR Residential Property Attributes using Hedonic Pricing Model in Uyo Metropolis",
+      "abstract": "This study measures the implied monetary value of structural, locational, and environmental attributes for 2-BDR residential properties in Uyo Metropolis, addressing a critical practical gap in local real estate valuation. Utilizing a crosssectional design and stratified random sampling of 387 households, the study employed Exploratory Factor Analysis (EFA), a disaggregated Hedonic Pricing Model (HPM), and Hierarchical Linear Modeling (HLM). Unlike constrained single-index models, the fully specified hedonic regression established that structural, locational, and environmental attributes collectively account for 71.4% (𝑹 𝟐 = 𝟎. 𝟕𝟏𝟒, 𝒑",
+      "authors": [
+        "Abdullahi, A. N",
+        "Ibanga, I. B"
+      ],
+      "journal": "International Journal of Modern Science and Research Technology",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.67317/ijmsrt26aug096",
+      "source_adapter": "crossref",
+      "doi": "10.67317/ijmsrt26aug096",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Publisher Copyright",
+      "is_open_access": false,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "Crossref",
+        "license_url": ""
+      }
+    },
+    {
+      "title": "Effectiveness of Transformer-Based Models for Detecting Depression-Related Language in Social Media: A Comparative Analysis.",
+      "abstract": "Depression is one of the most common mental health conditions worldwide, yet many affected people remain undiagnosed and untreated. Social media posts provide observable language patterns associated with depression, creating an opportunity for scalable screening, but most automated approaches classify single posts in isolation and ignore the user's posting history. The purpose of this study was therefore to examine the effectiveness of a context-aware transformer-based model for detecting depression-related language in social media posts. Specifically, the study evaluated a weight-shared RoBERTa dual encoder that jointly processes the current tweet and up to five prior posts by the same user, compared it with classical classifiers using term frequency–inverse document frequency (TF-IDF) features, and analysed its errors and prediction confidence. The study was anchored on transformer self-attention and transfer learning theory and supported by Beck's cognitive theory of depression and the bias–variance trade-off. A quantitative comparative experimental design based on secondary data was adopted. The publicly available Twitter Depression Dataset was cleaned through language, length and duplicate filters, yielding 7,370 tweets from 12 accounts posted between October 2012 and August 2021, and was partitioned at the user level. On the validation set, the RoBERTa model achieved an F1-score of 0.9286, above the best classical validation F1-score of 0.9080. On a held-out test set of 1,098 tweets from two accounts, it achieved an accuracy of 0.9891, precision of 0.9528, recall of 0.9352, F1-score of 0.9439 and ROC-AUC of 0.9991, compared with an F1-score of 0.8123 for logistic regression. The model misclassified 12 tweets (5 false positives and 7 false negatives) and was markedly less certain on its errors than on its correct predictions. The study concludes that context-aware transformer representations detect dataset-defined depression-related language more effectively than classical bag-of-words approaches. However, because the labels are automatically assigned and the test set contains only two accounts, the results do not establish clinical diagnoses or generalization to new users. The study recommends that such models be used only as screening aids with human review of low-confidence predictions, and that future work use clinician-verified labels, more diverse users and statistical significance testing.",
+      "authors": [
+        "James Gitari Muriithi",
+        "Muo Charles"
+      ],
+      "journal": "International Journal of Social Science and Humanities Research (IJSSHR) ISSN 2959-7056 (o); 2959-7048 (p)",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.61108/ijsshr.v4i3.357",
+      "source_adapter": "crossref",
+      "doi": "10.61108/ijsshr.v4i3.357",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0",
+      "is_open_access": false,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "Crossref",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0"
+      }
+    },
+    {
+      "title": "Exploring the Role of Metacognition in Science Achievement in K-16 Education: A Systematic Literature Review",
+      "abstract": "Metacognition has been the focus of various research disciplines and is generally referred to as thinking about thinking. Although metacognition is considered a crucial construct in the learning process, no systematic or meta-analytic review was found related to the comprehensive examination of the role of metacognition and its associated constructs (e.g., metacognitive awareness) in the context of science achievement in K-16 education. Therefore, this study aimed to systematically analyze the empirical research on metacognition and the associated constructs with regard to science achievement in K-16 settings. Following a systematic screening and quality assessment process conducted in accordance with the PRISMA guidelines, a total of 27 peer-reviewed journal articles were included in the final analysis. The Web of Science and Scopus databases were used for this process. According to the findings of this study, metacognition was found to be most effective in increasing exam scores and academic performance, and the most-widely used measurement tools were tests and assessments. Additionally, the three components (i.e., monitoring, planning, evaluation) of metacognitive regulation were addressed together in the majority of the reviewed studies. Lastly, none of the studies was conducted with primary school students. This review emphasizes the need for more science instruction integrated with metacognition and suggests avenues for further studies.",
+      "authors": [
+        "Duygu Kecici",
+        "Semiha Merve Balci",
+        "Osman Aksit"
+      ],
+      "journal": "International Journal of Education in Mathematics, Science and Technology",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.46328/ijemst.7952",
+      "source_adapter": "crossref",
+      "doi": "10.46328/ijemst.7952",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+      "is_open_access": false,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "Crossref",
+        "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0"
+      }
+    },
+    {
+      "title": "Acceptance-related perceptions of ChatGPT among first-year engineering students with prior academic use",
+      "abstract": "This study examined acceptance-related perceptions of ChatGPT among first-year engineering students at a Chilean university. Psychometric analyses included 206 respondents completing all 32 items; inferential analyses included 178 reporting study-related use. Drawing on an extended technology acceptance model as a descriptive framework, we analyzed perceived usefulness, perceived ease of use, perceived intelligence, perceived trust, awareness, and adoption intention in relation to gender, school sector, prior academic performance, and usage frequency. Internal consistency estimates were high, but exploratory factor analysis showed incomplete separation of the dimensions, limiting claims of construct validity. After Holm correction, no comparisons by gender, school sector, or prior academic performance remained statistically significant. More frequent use was associated with higher scores across all six dimensions. The findings provide preliminary psychometric evidence and identify usage frequency as the most consistent correlate of acceptance-related perceptions. However, the cross-sectional design does not permit conclusions about directionality, causality, or educational benefits.",
+      "authors": [
+        "Juan Tapia-Sobarzo",
+        "Bastián Peters-Rodríguez",
+        "Eduardo Peters",
+        "Matías Recabarren"
+      ],
+      "journal": "Eurasia Journal of Mathematics, Science and Technology Education",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.29333/ejmste/19992",
+      "source_adapter": "crossref",
+      "doi": "10.29333/ejmste/19992",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Publisher Copyright",
+      "is_open_access": false,
+      "category": "biomedical-science",
+      "study_model": "human-observational",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "Crossref",
+        "license_url": ""
+      }
+    },
+    {
+      "title": "A quinoa-associated Pantoea isolate displays salinity-responsive auxin production and promotes plant growth under salt stress",
+      "abstract": "Abstract Plant-associated bacteria can promote plant growth under saline conditions, but salinity-dependent changes in bacterial physiological traits remain insufficiently understood. Here, we isolated bacteria from surface-sterilized seedlings of the quinoa Kd line and evaluated their activity under saline conditions. A quinoa-associated Pantoea isolate, strain 6PN, promoted primary root elongation and whole-plant dry weight of Arabidopsis thaliana under salt stress, whereas no significant effect was observed under non-saline conditions. Comparative analyses with reference Pantoea agglomerans strains showed that strain 6PN exhibited salinity-responsive indole-3-acetic acid (IAA) production. Genome analysis identified a putative ipdC gene and additional genes related to stress responses, nutrient acquisition, polysaccharide biosynthesis and export, flagellar biosynthesis, and chemotaxis. Phylogenomic analysis indicated that strain 6PN was genomically distinct from representative Pantoea species examined here. In an Arabidopsis trench-plate assay, GFP-labeled strain 6PN was recovered from spatially separated plant tissues at higher levels than a GFP-labeled reference strain under saline conditions. These results identify strain 6PN as a quinoa-associated Pantoea isolate with salinity-responsive IAA production and plant growth-promoting activity under defined salt-stress conditions.",
+      "authors": [
+        "Yoshinori Murata",
+        "Takeshi Kashiwa",
+        "Hatairat Dangjarean",
+        "Yasufumi Kobayashi",
+        "Yasunari Fujita"
+      ],
+      "journal": "Scientific Reports",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.1038/s41598-026-80573-3",
+      "source_adapter": "crossref",
+      "doi": "10.1038/s41598-026-80573-3",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "botany",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Crossref",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      }
+    },
+    {
+      "title": "Human Mitochondrial HVRII as an Indicator of Island Groundwater Connectivity",
+      "abstract": "Abstract This study explores the use of human mitochondrial DNA (mtDNA) as a potential tracer for anthropogenic inputs in confined groundwater systems, building on our previous application in urban watersheds. mtDNA represents one of the most robust sources of eukaryotic environmental DNA (eDNA) due to its multimembrane protection, high copy number per cell, and persistence in the environment, resulting in a valuable resource for both detection and when examining sequences, tracing. We investigated mtDNA transport in the groundwater of Lord Howe Island, a small shield volcano remnant and UNESCO World Heritage site, whose modest population and limited tourist load yield a tractable number of haplotypes. By targeting the hypervariable region II (HVRII) of the human mitochondrial genome, we examined the impact of local human inputs, including septic tanks, on local groundwater. Groundwater samples were collected from wells and small groundwater discharges, PCR-amplified, and analyzed via high-throughput sequencing, revealing unique haplotype frequencies that identified zones of impact. These findings were supported by Bacteroides 16S tracking, using human, bovine, and canine specific markers as well as bacterial counts and other water quality parameters. This approach demonstrates several advantages over more traditional source tracking markers, most importantly, which impacts are uniquely anthropogenic and their origin. Unlike artificial DNA tracers, mtDNA is naturally present in septic tank leach fields and is temporally unambiguous, like plant-based viral markers. Our work highlights mtDNA’s potential to help map anthropogenic inputs within groundwater, which is a tool that may be particularly valuable for island communities with limited wastewater infrastructure resources.",
+      "authors": [
+        "Abhiraj Sharma",
+        "Niko Medvedovic",
+        "Margaret C. Naber",
+        "Elizabeth Wurtzler",
+        "Marc LeBlanc",
+        "David Wendell"
+      ],
+      "journal": "Environmental Science & Technology",
+      "published_date": "2026-11-22",
+      "source_url": "https://doi.org/10.1021/acs.est.6c06290",
+      "source_adapter": "crossref",
+      "doi": "10.1021/acs.est.6c06290",
       "pmid": null,
       "pmcid": null,
       "research_type": "original-research",
@@ -62,12 +296,12 @@
       "license": "CC BY 4.0",
       "is_open_access": true,
       "category": "microbiology",
-      "study_model": "in-vitro",
+      "study_model": "computational",
       "is_biological": true,
       "allow_media_reuse": true,
       "provenance": {
-        "source": "PLOS API",
-        "article_type": "Research Article"
+        "source": "Crossref",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
       }
     },
     {
@@ -97,6 +331,257 @@
       "provenance": {
         "source": "PLOS API",
         "article_type": "Pearls"
+      }
+    },
+    {
+      "title": "Mitochondrial Phylogeny Reveals Deep Intraspecific Divergence and Fine-Scale Regional Structure in Orangutans.",
+      "abstract": "Orangutans ( Pongo spp.) are a valuable model for investigating how past climatic and geological events have shaped population structure and species diversification. We reconstructed 237 complete mitochondrial genomes from whole-genome sequencing data and combined them with 50 available mitochondrial sequences, resulting in a dataset of 287 orangutans spanning the current range of Sumatran and Bornean orangutans. Among Sumatran orangutans ( P. abelii ), we identified five geographically distinct mitochondrial clades corresponding to Langkat, North Aceh, Tripa, West Leuser and Batu Ardan. These clades showed strong differentiation, indicating long-term persistence of distinct maternal lineages across the Leuser landscape. For the recently described species, P. tapanuliensis , we added 10 newly reconstructed mitogenomes, increasing representation from 3 to 13 individuals. P. tapanuliensis formed a monophyletic, deeply divergent clade, confirming strong mitochondrial differentiation and long-term isolation. In Bornean orangutans ( P. pygmaeus ), we identified seven major regional mitochondrial clades corresponding to Sarawak, Central Kalimantan, South Kalimantan, Southeast Kalimantan, East Kalimantan and the North and South Kinabatangan populations in Sabah. Within the subspecies P. p. morio , the North and South Kinabatangan, East Kalimantan and Southeast Kalimantan clades formed distinct maternal lineages, revealing substantial mitochondrial structure within the currently recognised subspecies. Our findings suggest that current geographic and taxonomic divisions may under-represent the extent of regional maternal diversity across orangutans. Female philopatry has preserved ancient mitochondrial structure across Sundaland, with its geographic distribution shaped by refugial persistence, major riverine barriers and long-term population fragmentation.",
+      "authors": [
+        "Mantovani V",
+        "Agapito A",
+        "Ruiz-Gartzia I",
+        "Rianti P",
+        "Perwitasari-Farajallah D",
+        "Goossens B",
+        "Marques-Bonet T",
+        "Krützen M."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.1002/ece3.74709",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1002/ece3.74709",
+      "pmid": "43061681",
+      "pmcid": "PMC13784820",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "evolution",
+      "study_model": "computational",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43061681"
+      }
+    },
+    {
+      "title": "Inbreeding in the genomics era: comparing IBD, drift, and homozygosity-based methods in a pig breeding population.",
+      "abstract": "Background The inbreeding and kinship methods can be classified into three approaches: (1) Identity-by-Descent (IBD) estimates the probability that alleles are identical by shared ancestry; (2) Drift-based methods measure deviations in allele frequencies from a base due to genetic drift; and (3) Homozygosity-based (HOM) methods estimate genome-wide homozygosity. The objective of this study was to compare the estimated inbreeding and kinship rates using those three approaches. Within each approach, different methods were investigated. The dataset consisted of purebred sires from artificial insemination centers born between 2014 and 2024, along with their relatives with genotype data, totaling 152,883 pigs. Animals were genotyped with various SNP panels and imputed to medium- and high-density panels (50 K and 660 K). Results For inbreeding estimates, correlations among IBD-based methods were high (0.88), while correlations among drift-based methods ranged from 0.74 to 0.91. Homozygosity-based estimates showed a wide range of correlations (- 0.03 to 1.00). This variability was mainly driven by low or negative correlations involving short runs of homozygosity (ROH) classes (2-4 Mb and 4-8 Mb), which showed poor agreement with longer ROH categories. Correlations between methods from different approaches were generally weak to high (- 0.09 to 0.81). Kinship estimates showed higher correlations than inbreeding estimates. Nevertheless, the same pattern was observed: correlations were consistently higher within the same approach (above 0.96) than across different approaches (above 0.70). Rates of inbreeding and kinship per generation, estimated as regression slopes across birth years and converted to a per-generation scale, were consistently higher for drift-based measures than for the other approaches. This indicates that drift-based and homozygosity-based measures are not equivalent under genomic selection. Their differences are proportional to the covariance between changes in allele frequency and initial allele frequencies. Consequently, minor alleles tend to increase in frequency more often than expected under neutrality in this pig breeding line. Conclusions Overall, the results show that different approaches to estimating inbreeding and kinship convey distinct biological information. Homozygosity-based measures yielded lower estimates than drift-based metrics, suggesting non-neutral dynamics of allele frequencies. These findings indicate that constraining inbreeding using a drift-based genomic relationship matrix within an optimum contribution selection scheme may improve the management of genetic diversity.",
+      "authors": [
+        "Kelles KR",
+        "Leite NG",
+        "van Son M",
+        "Wientjes YCJ",
+        "Haneneberg E",
+        "Grindflek E",
+        "Berg P",
+        "Meuwissen T."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.1186/s12711-026-01117-x",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1186/s12711-026-01117-x",
+      "pmid": "43058439",
+      "pmcid": "PMC13786524",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "genetics-genomics",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43058439"
+      }
+    },
+    {
+      "title": "Gray bats heighten their response to social cues when navigating group flight in environments with obstacles.",
+      "abstract": "Bats are fast fliers with great maneuverability. Many species sense and communicate through echolocation, relying on acoustic signals in the environment. Bats also form large colonies, which necessitates that they fly in groups. When group size increases or obstacles are in their flight paths, the acoustic space can become cluttered, posing a non-trivial challenge for navigation. How do they interact with their environment and conspecifics, and how do they balance social and environmental cues? Recent research has uncovered individual adaptations to calling and flight patterns when flying in the groups or avoiding obstacles. Studies also suggest coordination when foraging, as well as strategies used by the group to mitigate acoustic clutter. However, there has yet to be a study on how bats weigh different navigational tasks when flying in spatially complex environments. Here, we collected stereoscopic video data from a wild colony of gray bats, Myotis grisescens, navigating their usual foraging flight paths in the presence of novel obstacles. We find that bats tend to stay close to a wall, but space out when flying in groups. We develop a data-informed agent-based model which reveals that their social repulsive behavior is strengthened when challenged to navigate novel obstacles.",
+      "authors": [
+        "Aung E",
+        "Abaid N."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.1371/journal.pcbi.1014900",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1371/journal.pcbi.1014900",
+      "pmid": "43056314",
+      "pmcid": "PMC13784590",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "evolution",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43056314"
+      }
+    },
+    {
+      "title": "Explainable machine learning-assisted exploration of chromatin dynamics reveals chromosome-specific response to serum starvation.",
+      "abstract": "Chromatin is dynamic at all length scales, influencing chromatin-based processes, such as gene expression. Even large-scale reorganization of whole chromosome territories has been reported upon specific signals, but the lack of suitable methods has prevented analysis of the underlying dynamic processes. Here, we have used CRISPR-Sirius for time-lapse imaging of chromatin loci dynamics during serum starvation. We show that chromosome 1 loci move toward the nuclear envelope during the first hour of serum starvation in a chromosome-specific manner. Machine learning-assisted exploration of acquired multiparametric data combined with the Shapley values-based explanation approach allowed us to uncover the critical features that characterize chromatin dynamics during serum starvation. This analysis reveals that although serum starvation affects overall nuclear morphology and chromatin dynamics, chromosome 1 loci display a specific response that is characterized by maintenance of dynamics in a constrained environment, and long 'jumps' at the nuclear periphery. Interestingly, the two homologous chromosomes display differential behaviors, with the more peripheral homolog being more responsive to the signal than the internal one. Overall, the presented machine learning-assisted dataset exploration helps us navigate the multidimensional data to understand the underlying dynamic processes and can be applied to a wide variety of research questions in imaging and cell biology in general.",
+      "authors": [
+        "Redchuk T",
+        "Pennanen AP",
+        "Jaalinoja H",
+        "Natri O",
+        "Paavolainen L",
+        "Vartiainen MK."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.7554/elife.108797",
+      "source_adapter": "europe_pmc",
+      "doi": "10.7554/elife.108797",
+      "pmid": "43055753",
+      "pmcid": "PMC13784771",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "genetics-genomics",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43055753"
+      }
+    },
+    {
+      "title": "Rethinking laboratory sustainability.",
+      "abstract": "Green lab initiatives like My Green Lab and LEAF (Laboratory Efficiency Assessment Framework), are paving the way towards sustainable research by promoting resource efficiency, energy conservation, and waste reduction through behavioral changes. However, these initiatives focus almost exclusively on material consumption, overlooking deeper facets of scientific waste that stem from questionable research practices: the environmental cost of unnecessary or poorly designed experiments, discarded null results, unreproducible research, and distorted reporting. I argue that a more meaningful discussion of scientific sustainability must look beyond physical resource management to examine the scientific process itself; to rethink the questions we ask, the experiments we do, and how we communicate our findings. To build a truly sustainable scientific ecosystem, Green Lab initiatives must join forces with Open Science and research integrity movements to update not only the hardware, but also the software of science.",
+      "authors": [
+        "Kelly K."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.7554/elife.113403",
+      "source_adapter": "europe_pmc",
+      "doi": "10.7554/elife.113403",
+      "pmid": "43055738",
+      "pmcid": "PMC13784770",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "environment-biodiversity",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43055738"
+      }
+    },
+    {
+      "title": "Winding-up of fibrin fibers as a novel mechanism of platelet-mediated fiber compaction.",
+      "abstract": "This study reveals an unrecognized mechanism by which platelets retract and compact fibrin fibers. Using a newly developed 2D fiber-retraction assay, we observed a 'gearwheel' pattern of actomyosin in spread platelets with associated, extracellular fibrin patches that appear to initiate fibrin fiber attachment and rearrangement. The outcome of this process results in two morphologically different platelet populations. Spread platelets with coiled fibers around and above their pseudo-nucleus. Other, only partially spread platelets have tightly packed fibers around bulbous protrusions ('bulbs'), mirroring the architecture of platelets and adjacent fibers within a retracted clot. Thus, the observed compaction process might take place during clot retraction to reduce clot volume, stiffen the clot, and enhance wound repair. Apart from pulling on fibers like on a rope, platelets actively wrap them into compact structures, similar to balls of wool. Using a combination of 3D clot- and 2D fiber-retraction assays, expansion and electron microscopy, live imaging, and mathematical modeling, we show that platelets use an actomyosin-driven motion to loop fibrin fibers around the base of bulbs, which form when platelets get trapped between fibrin fibers during 3D clot- or 2D fiber-retraction assays. These findings complement existing models of platel-mediated fibrin retraction, offering new insight into how platelets mechanically organize fibrin fibers.",
+      "authors": [
+        "Grichine A",
+        "Kovalenko T",
+        "Appaix F",
+        "Ribba AS",
+        "Eckly A",
+        "Rinckel JY",
+        "Panteleev MA",
+        "Lafanechère L",
+        "Sadoul K."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.7554/elife.110286",
+      "source_adapter": "europe_pmc",
+      "doi": "10.7554/elife.110286",
+      "pmid": "43055225",
+      "pmcid": "PMC13784774",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43055225"
+      }
+    },
+    {
+      "title": "Diurnal rhythmicity in metabolism and salivary effector expression shapes aphid performance on host plants.",
+      "abstract": "Diurnal rhythms influence insect behavior, physiology, and metabolism, optimizing their performance by adapting to daily changes in the environment. While their impact on agricultural pests has been briefly explored, our understanding of how these rhythms drive adaptive responses in pest biology and influence host colonization remains elusive. Here, we show that a notorious global aphid pest, Rhopalosiphum padi , exhibits distinct diurnal patterns in feeding behavior, with elevated honeydew excretion at night and extended phloem salivation during early nighttime. Temporal aphid transcriptome profiling reveals four diurnally rhythmic clusters, two of which peak at night, exhibiting enrichment in carbohydrate and amino acid metabolism. Beyond the established role in manipulating host responses and allowing sustained feeding, our study reveals novel evidence of cyclical fluctuations in salivary effector expression in an insect species. Silencing key effector genes, peaking in expression during the increased nighttime salivation, results in a more pronounced reduction in aphid excretion activity on host plants during the night compared to the day, a phenomenon not observed on artificial diets. A better understanding of aphid diurnal rhythms and their roles in shaping aphid performance provides a promising avenue to refine and optimize pest management, granting a strategic advantage for minimizing crop damage.",
+      "authors": [
+        "Han J",
+        "Kunk D",
+        "Cui M",
+        "Goldstein Y",
+        "Tzin V",
+        "Nalam VJ."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.7554/elife.97986",
+      "source_adapter": "europe_pmc",
+      "doi": "10.7554/elife.97986",
+      "pmid": "43055222",
+      "pmcid": "PMC13784773",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "botany",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43055222"
+      }
+    },
+    {
+      "title": "Adaptive sampling: information-guided selection for targeted long-read sequencing and epigenetic studies.",
+      "abstract": "Adaptive sampling (AS) is a unique feature of nanopore sequencing that enables real-time enrichment or depletion of target molecules during the sequencing run based on their initial sequence information. AS provides a flexible and scalable alternative to conventional capture- and amplification-based approaches, while preserving long reads and the ability to detect epigenetic modifications of native DNA/RNA molecules. In this review, we summarize the principles of AS-based sequencing, explain the enrichment- and depletion-mode strategies and discuss factors affecting its performance. We further highlight the growing body of studies demonstrating the utility of AS across a diverse range of applications, such as metagenomic and microbiome research, structural variant characterization and discovery, studying repeat expansion disorders, integrated genetic and epigenetic profiling or transcriptome analysis. In these and other contexts, AS enables efficient allocation of sequencing capacity toward biologically relevant molecules, while accelerating data generation, which also makes it applicable to rapid molecular diagnostics and real-time genomic analyses in clinical practice. As nanopore sequencing continues to mature and become a standard analysis approach in many laboratories, AS is likely to evolve from a specialized enrichment strategy into a routine component of genomic, epigenomic, and transcriptomic workflows.",
+      "authors": [
+        "Lapka H",
+        "Poniatowska-Rynkiewicz P",
+        "Zmienko A."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-19",
+      "source_url": "https://doi.org/10.1007/s10142-026-02134-1",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1007/s10142-026-02134-1",
+      "pmid": "43052478",
+      "pmcid": "PMC13782047",
+      "research_type": "review",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "genetics-genomics",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43052478"
       }
     },
     {
@@ -163,6 +648,67 @@
       "provenance": {
         "source": "Atom Feed",
         "feed_id": "plos_biology"
+      }
+    },
+    {
+      "title": "Which Fruit Traits Correlate Reliably With Sugar Content, and Does This Vary With Dispersal Syndrome?",
+      "abstract": "Deciding which fruits to eat, and when, is a key decisions made by frugivores, with implications for animal nutrition, seed dispersal, and other ecosystem interactions. It has long been hypothesized that fruit traits, including color, odor, and hardness, are adapted to attract different guilds of frugivores (e.g., birds versus mammals) and facilitate fruit foraging through signaling of ripeness and nutritional reward via different sensory modalities. Yet how various traits change during ripening in fruits with different putative dispersal syndromes is poorly understood. We predicted visual traits to be more correlated with changes in sugar content during ripening in a bird-consumed fruit and odor and hardness traits to be correlated with sugar content in mammal-consumed fruits. We measured color via image analysis, odor via solid-phase microextraction GC-MS, hardness via a portable mechanical tester, and sugar content using a digital refractometer in n = 100 bananas ( Musa acuminata ) and n = 160 mangoes ( Mangifera indica ), two large, climacteric fruits as models of mammal-dispersed fruits, and in n = 80 black currants ( Ribes nigrum ), a small, non-climacteric berry as a model for bird-dispersed fruit. Bananas, and to a lesser extent mangoes, tend to get softer, have higher red-green and lower blue-yellow chromaticity values, and become more odorous as they get sweeter. Currants get softer, darker, have lower red-green and higher blue-yellow chromaticity values, and become less odorous as they become sweeter. Our results suggest that some traits, such as color and odor, may vary among plant taxa with different dispersal syndromes, while other traits, such as fruit softening, may be more consistently associated with fruit ripening when they occur. We have developed a tractable framework for assessing multimodal plant cues and signals and hope this research inspires future studies of greater taxonomic diversity.",
+      "authors": [
+        "Poirier AC",
+        "Luzardo AC",
+        "Moreira LAA",
+        "DePasquale AN",
+        "Hussein N",
+        "Nguyen LMN",
+        "Nevo O",
+        "Melin AD."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-18",
+      "source_url": "https://doi.org/10.1002/ece3.74770",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1002/ece3.74770",
+      "pmid": "43061341",
+      "pmcid": "PMC13782743",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "botany",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43061341"
+      }
+    },
+    {
+      "title": "The Maladaptive Stress State: A Systems Framework for Chronic Disease Persistence.",
+      "abstract": "Chronic degenerative diseases are traditionally explained in terms of disease-specific initiating lesions and molecular pathways. Although this approach has substantially advanced understanding of disease mechanisms, it does not fully explain why biologically diverse disorders often converge on persistent states marked by chronic inflammation, impaired repair, altered nutrient sensing, reduced adaptive flexibility, and incomplete recovery after the initiating insult subsides. This Perspective proposes the Maladaptive Stress State (MSS), a systems-level framework that distinguishes disease initiation from persistence. Rather than proposing a new molecular pathway, the MSS framework integrates established knowledge from geroscience, stress biology, lysosomal signaling, nutrient sensing, and systems biology. It posits that chronic disease persists when adaptive stress programs become stabilized and the capacity to exit the stress-adapted state is impaired. Within this framework, systems-level interactions sustain evolutionarily conserved adaptive responses despite partial resolution of the original stressor. The framework also generates experimentally testable predictions and outlines translational implications for assessing therapeutic recovery through restored adaptive flexibility rather than normalization of isolated molecular biomarkers. By complementing pathway-based biology with a state-based systems perspective, the MSS framework offers a biologically grounded conceptual model for investigating persistence across diverse chronic disorders.",
+      "authors": [
+        "Erol A."
+      ],
+      "journal": "Europe PMC Indexed Journal",
+      "published_date": "2026-11-18",
+      "source_url": "https://doi.org/10.1002/cdt3.70077",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1002/cdt3.70077",
+      "pmid": "43061000",
+      "pmcid": "PMC13781816",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "cc by-nc",
+      "is_open_access": true,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43061000"
       }
     },
     {
@@ -649,90 +1195,294 @@
       }
     },
     {
-      "title": "High-dimensionality approaches to the understanding and therapeutic manipulation of autoimmunity.",
-      "abstract": "Autoimmune disease may arise from disruptions in immune architecture rather than isolated molecular defects. High-dimensional immunology now reveals dynamic cellular states, regulatory circuits, and tissue-specific immune niches, but translation into therapy remains limited. We propose an Architecture-Anomaly-Target-Lead framework that contextualises therapeutic targets within immune organisation and complements Reset-Rebuild strategies. Together, these concepts provide a framework for developing and evaluating more sustained, tolerance-focused treatment approaches for autoimmune disease.",
+      "title": "Polaris: A toolkit for standardized construction, integration, and quantitative testing in Escherichia coli and Saccharomyces cerevisiae.",
+      "abstract": "Existing synthetic biology toolkits have expanded part libraries and assembly capabilities. However, new users may still encounter ambiguity in construct definitions, hierarchical transitions, genomic integration routes, and quantitative testing procedures. Here, we present Polaris, a Golden Gate toolkit for Escherichia coli and Saccharomyces cerevisiae. Polaris uses a MoClo-derived three-level hierarchy. Level 1 stores reusable parts, Level 2 generates transcription units and other intermediate constructs, and Level 3 supports multigene assembly and switching between testing and integration backbones. The toolkit distinguishes part interfaces from transcription unit interfaces, uses BpiI and BsaI in successive assembly stages, and provides parallel ccdB and mScarletI3 screening options. Integration modules and quantitative characterization frameworks were implemented in both hosts and demonstrated using representative genetic parts and activation and repression systems. A companion digital platform further encodes the Level 1 to Level 3 rules for assembly planning. Polaris connects hierarchical construction, stable genetic implementation, and quantitative testing within a common execution framework, providing a practical basis for data accumulation, part standardization, and future automation.",
       "authors": [
-        "Chellamuthu VR",
-        "Zhao Y",
-        "Albani S."
+        "Ronghui Xie",
+        "Ran Wang",
+        "Yi Zhan",
+        "Boyan Wei",
+        "Siyang Xu",
+        "Ye Chen",
+        "Lili Liu"
       ],
-      "journal": "Europe PMC Indexed Journal",
-      "published_date": "2026-10-31",
-      "source_url": "https://doi.org/10.1038/s44483-026-00007-0",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1038/s44483-026-00007-0",
-      "pmid": "42973447",
-      "pmcid": "PMC13723410",
-      "research_type": "review",
+      "journal": "Synthetic and systems biotechnology",
+      "published_date": "2026-11-14",
+      "source_url": "https://doi.org/10.1016/j.synbio.2026.10.012",
+      "source_adapter": "pubmed",
+      "doi": "10.1016/j.synbio.2026.10.012",
+      "pmid": "43065867",
+      "pmcid": "PMC13786225",
+      "research_type": "original-research",
       "peer_reviewed": true,
       "publication_status": "peer-reviewed",
-      "license": "cc by-nc-nd",
+      "license": "Metadata & Abstract via NCBI PubMed",
       "is_open_access": true,
-      "category": "immunology",
+      "category": "biotechnology",
       "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": false,
       "provenance": {
-        "source": "Europe PMC",
-        "id": "42973447"
+        "source": "PubMed",
+        "pmid": "43065867"
       }
     },
     {
-      "title": "rchime: an R package for detecting chimeras in amplicon sequencing data.",
-      "abstract": "A longstanding challenge in analyzing amplicon sequencing data is the presence of chimeras, which are PCR products that are formed by two or more templates. rchime is an R package that implements the UCHIME algorithm, which efficiently screens amplicon sequence collections for chimeras.",
+      "title": "Scar Treatments in Hand Surgery.",
+      "abstract": "Scar formation after hand surgery poses unique functional and aesthetic challenges because of the hand's complex anatomy, dense sensory innervation, and reliance on supple skin and tendon glide. Hypertrophic scars, keloids, adherent scars, and contractures can cause pain, hypersensitivity, restricted motion, and impaired activities of daily living, yet evidence guiding scar management in hand surgery remains limited and largely extrapolated from burn and general surgical populations. This review synthesizes current evidence on the biology, classification, prevention, and treatment of scars as they pertain to hand surgery. Nonoperative management, including silicone gel sheeting, compression therapy, intralesional corticosteroid injection, laser therapy, and hand therapy, forms the foundation of care. Operative interventions, ranging from scar excision and Z-plasty to skin grafting, local flap reconstruction, dermal substitutes, and tenolysis, address established contracture and adhesion when conservative measures fail. Emerging therapies, such as autologous fat grafting, growth factor modulation, platelet-rich plasma, and botulinum toxin A, show early promise but require validation in hand-specific trials. Optimal outcomes depend on a collaborative, individualized approach integrating patient risk stratification, meticulous surgical technique, and close coordination with hand therapy throughout the care continuum.",
       "authors": [
-        "Westcott SL",
-        "Schloss PD."
+        "Hannah M Chi",
+        "Lacey M Smith",
+        "Nicole S Schroeder",
+        "Gopal R Lalchandani"
       ],
-      "journal": "Europe PMC Indexed Journal",
-      "published_date": "2026-10-21",
-      "source_url": "https://doi.org/10.1128/mra.01048-26",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1128/mra.01048-26",
-      "pmid": "42904697",
-      "pmcid": "PMC13757462",
-      "research_type": "original-research",
+      "journal": "Journal of hand surgery global online",
+      "published_date": "2026-11-14",
+      "source_url": "https://doi.org/10.1016/j.jhsg.2026.101197",
+      "source_adapter": "pubmed",
+      "doi": "10.1016/j.jhsg.2026.101197",
+      "pmid": "43065798",
+      "pmcid": "PMC13786207",
+      "research_type": "review",
       "peer_reviewed": true,
       "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "genetics-genomics",
-      "study_model": "computational",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "42904697"
-      }
-    },
-    {
-      "title": "Protocol for high-throughput identification of genes involved in pyroptotic cell death by live microscopy.",
-      "abstract": "Intracellular lipopolysaccharide activates caspase-4/5 triggering pyroptotic cell death. We present a protocol for a high-throughput loss-of-function screening approach to identify interferon-gamma-stimulated genes regulating this pathway. We detail procedures for cell reverse-transfection with a custom-made small interfering RNA (siRNA) library in 384-well plates and priming with interferon-gamma. We then describe steps for transfection with lipopolysaccharide to induce pyroptosis and live-cell fluorescence microscopy using the IncuCyte S3 system to quantify cell death in real time without fixation. This approach enables reliable, high-throughput screening of cell death.",
-      "authors": [
-        "Bajger A",
-        "Borowski LS",
-        "Szczesny RJ",
-        "Wandel MP."
-      ],
-      "journal": "Europe PMC Indexed Journal",
-      "published_date": "2026-10-07",
-      "source_url": "https://doi.org/10.1016/j.xpro.2026.104884",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1016/j.xpro.2026.104884",
-      "pmid": "42848516",
-      "pmcid": "PMC13676704",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "cc by-nc-nd",
+      "license": "Metadata & Abstract via NCBI PubMed",
       "is_open_access": true,
       "category": "biomedical-science",
       "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": false,
       "provenance": {
-        "source": "Europe PMC",
-        "id": "42848516"
+        "source": "PubMed",
+        "pmid": "43065798"
+      }
+    },
+    {
+      "title": "Unsolved problems with ENaC: From molecules to mammals.",
+      "abstract": "The epithelial Na channel (ENaC) mediates transport of Na+ in the kidney, the colon, the lung, and the sweat and salivary ducts. The activity of these channels is highly regulated and contributes to the maintenance of total body Na+, extracellular fluid volume, and plasma K+. Defects in the channel itself or in its regulation are implicated in hypertension and in other diseases. Despite progress in revealing many aspects of ENaC biology, many important questions remain unanswered. These include the following: What determines the remarkable ion selectivity of the channel? How is the channel directed to the apical plasma membrane? How does aldosterone regulate the channel? What is its role in producing urine with minimal Na+? And to what extent does the channel contribute to essential hypertension, cystic fibrosis, nephrotic syndrome, and liver failure? Here, I will discuss these questions and how they relate to our current understanding of the roles of ENaC in health and disease.",
+      "authors": [
+        "Lawrence G Palmer"
+      ],
+      "journal": "The Journal of general physiology",
+      "published_date": "2026-11-04",
+      "source_url": "https://doi.org/10.1085/jgp.202614077",
+      "source_adapter": "pubmed",
+      "doi": "10.1085/jgp.202614077",
+      "pmid": "42980615",
+      "pmcid": null,
+      "research_type": "review",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": false,
+      "category": "zoology",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "42980615"
+      }
+    },
+    {
+      "title": "Genetic and environmental predictors of seasonality and seasonal affective disorder in individuals with depression.",
+      "abstract": "The etiology and nosological status of seasonal affective disorder (SAD) as a specifier of depressive episodes versus a transdiagnostic disorder are the subject of debate. In this study, we investigated the underlying etiology of SAD and dimensional seasonality by examining their association with latitude and genetic risk for a range of traits, and investigated gene-environment interactions. This study included 12,460 adults (76% female, aged 18-90) with a history of depression from the Australian Genetics of Depression Study. Regression models included predictors for latitude (distance from equator) and polygenic scores for eight traits: major depressive disorder, bipolar disorder, anxiety disorders, chronotype, sleep duration, body mass index, vitamin D levels, and educational attainment. Outcomes were SAD status and general seasonality score. SAD was positively associated with latitude (OR[95%CI] = 1.05[1.03-1.06], padjusted < 0.001), and there was nominal evidence of additive and multiplicative interactions between chronotype genetic risk and latitude (β = -0.0014[-0.0024,-0.0003], padjusted = 0.122; OR = 0.98[0.97-1.00], padjusted = 0.122). General seasonality score was associated with latitude (IRR = 1.01[1.01-1.01], padjusted < 0.001) and genetic risk for major depressive disorder (IRR =1.03[1.02-1.04], padjusted < 0.001), bipolar disorder (IRR = 1.02[1.01-1.03], padjusted = 0.001), anxiety disorders (IRR = 1.03[1.01-1.04], padjusted < 0.001), vitamin D levels (OR = 0.89[0.83-0.96], padjusted = 0.048), and educational attainment (IRR = 0.97[0.96-0.98], padjusted < 0.001). These findings enhance understanding of SAD etiology, highlighting contributions of psychiatric genetic risk and geographic measures on seasonal behavior, and support examining seasonality as a continuous dimension.",
+      "authors": [
+        "Floris Huider",
+        "Jacob J Crouse",
+        "Sarah E Medland",
+        "Ian B Hickie",
+        "Nicholas G Martin",
+        "Jodi T Thomas",
+        "Brittany L Mitchell"
+      ],
+      "journal": "Journal of affective disorders",
+      "published_date": "2026-10-26",
+      "source_url": "https://doi.org/10.1016/j.jad.2026.122672",
+      "source_adapter": "pubmed",
+      "doi": "10.1016/j.jad.2026.122672",
+      "pmid": "42933578",
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": false,
+      "category": "genetics-genomics",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "42933578"
+      }
+    },
+    {
+      "title": "Characterizing hypertension in activated PI3K delta syndrome: Findings from Epic Cosmos.",
+      "abstract": "APDS is a rare inborn error of immunity with comorbidity patterns that have yet to be characterized at a large scale. Using Epic Cosmos, a de-identified electronic health record database, we conducted a retrospective, cross-sectional analysis of 866 patients identified by structured diagnosis codes (ICD-10: D84.81; SNOMED: 793412000). Findings revealed that hypertension was coded as affecting 28.5% of the cohort, with age-stratified analyses demonstrating higher prevalence among younger APDS patients compared with age-matched non-APDS peers. Among patients aged ≤50 years, hypertension prevalence was 24.05% in the APDS group compared with 10.89% in the age-matched non-APDS population (prevalence ratio 2.21, 95% CI, 1.90-2.57, P < 0.0001). This association remained prominent in a more specific APDS sensitivity cohort in which the base population required an APDS diagnosis, alongside an allergy and immunology encounter. The findings of this paper provide large-scale characterization of APDS and identify hypertension, particularly among younger APDS patients, as a potentially underrecognized comorbidity that warrants further investigation.",
+      "authors": [
+        "Brianna Santiago",
+        "Jennifer Keelin",
+        "Xiaoqi Sun",
+        "Christopher Chang"
+      ],
+      "journal": "Journal of human immunity",
+      "published_date": "2026-10-26",
+      "source_url": "https://doi.org/10.70962/jhi.20250263",
+      "source_adapter": "pubmed",
+      "doi": "10.70962/jhi.20250263",
+      "pmid": "42929758",
+      "pmcid": "PMC13701131",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": true,
+      "category": "immunology",
+      "study_model": "human-observational",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "42929758"
+      }
+    },
+    {
+      "title": "Getting by \"With a Little Help From My Friends\": Collegial and peer support in allergy-immunology.",
+      "abstract": "Health care professionals face many challenges in practice for which collegial and peer support can be impactful. Some of the most seemingly insurmountable struggles result from medical error or an adverse patient outcome. Clinicians may experience remorse, guilt, sadness, burnout, depression, and isolation, potentially causing second victim syndrome. In addition, medical professionals face daily frustrations due to loss of clinical autonomy, operational pressures, shrinking margins, workforce shortages, misaligned institutional incentives, and corporatization of health systems that can lead to burnout and moral injury. It is therefore critically important to support clinicians and ensure that those who dedicate their lives to caring for others feel heard, have a safe and supportive sounding board to debrief stressful situations, and do not feel abandoned. Collegial networks and peer support are important and helpful resources. This article reviews key aspects of collegial and peer support programs that can benefit health care professionals in allergy-immunology and beyond.",
+      "authors": [
+        "Alexandra E Conway",
+        "Michael E Conti",
+        "Marylee Verdi",
+        "Alison Marshall",
+        "Maria VanPelt",
+        "Reto M Baertschiger",
+        "Alastair P Huntley",
+        "Juliette Madan",
+        "Theresa A Bingemann",
+        "Anil Nanda",
+        "Priya Bansal",
+        "Anita Wasan",
+        "Andrew White",
+        "John Oppenheimer",
+        "David Lang",
+        "Ashish D Parikh",
+        "Marcus S Shaker"
+      ],
+      "journal": "The journal of allergy and clinical immunology. Global",
+      "published_date": "2026-10-21",
+      "source_url": "https://doi.org/10.1016/j.jacig.2026.100804",
+      "source_adapter": "pubmed",
+      "doi": "10.1016/j.jacig.2026.100804",
+      "pmid": "43066102",
+      "pmcid": "PMC13786145",
+      "research_type": "review",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": true,
+      "category": "immunology",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "43066102"
+      }
+    },
+    {
+      "title": "Reprogramming tumor vasculature: Integrating normalization biology with vascularized tumor-on-chip models.",
+      "abstract": "Abnormal tumor vasculature is a hallmark of the tumor microenvironment that promotes hypoxia, therapeutic resistance, and disease progression while limiting the delivery of anticancer therapy. Although early anti-angiogenic therapies were designed to starve tumors by eliminating their blood supply, excessive vessel pruning often aggravated hypoxia and selected for more aggressive phenotypes. These observations led to the concept of vascular normalization, whereby judicious modulation of angiogenic signaling transiently restores vessel structure and function, improving perfusion, oxygenation, drug delivery, and anti-tumor immunity. In this review, we discuss the mechanisms governing tumor vessel formation, maturation, and dysfunction, and examine therapeutic strategies aimed at normalizing the tumor vasculature. We further highlight the major challenges limiting clinical translation, including the transient and heterogeneous nature of the normalization window, adaptive resistance mechanisms, and the lack of robust tools for longitudinal monitoring. We then integrate vascular normalization biology with vascularized tumor-on-chip platforms, examining how key features of the tumor microenvironment, including tissue architecture, extracellular matrix remodeling, hemodynamic forces, metabolic gradients, and multicellular interactions, can be recreated and quantitatively monitored. We critically evaluate how engineering design, biomaterial selection, vascularization strategies, perfusion, and integrated sensing influence the ability of these platforms to capture vascular normalization and therapeutic responses. By linking the hallmarks of vascular normalization to measurable on-chip phenotypes, vascularized tumor-on-chip systems provide controlled frameworks for investigating resistance mechanisms, optimizing treatment timing, and advancing precision oncology. However, challenges related to physiological fidelity, standardization, scalability, and clinical validation continue to limit their broader translation.",
+      "authors": [
+        "MohammadSadegh Zaman",
+        "Teodora Nazare",
+        "Anwesha Sarkar",
+        "Fatemeh Mirzapour-Shafiyi"
+      ],
+      "journal": "Biomaterials",
+      "published_date": "2026-10-17",
+      "source_url": "https://doi.org/10.1016/j.biomaterials.2026.124696",
+      "source_adapter": "pubmed",
+      "doi": "10.1016/j.biomaterials.2026.124696",
+      "pmid": "42925646",
+      "pmcid": null,
+      "research_type": "review",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": false,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "42925646"
+      }
+    },
+    {
+      "title": "Plug-and-Play or Plug-and-Pray? Impact of random versus targeted integration on the linearity and orthogonality of synthetic gene circuits in CHO cells.",
+      "abstract": "Predictable and tuneable gene expression is essential for advanced mammalian cell engineering yet remains challenged by genomic position effects and copy number variability. This study systematically compares random integration (RI) and targeted integration (TI) of two synthetic lineariser gene circuits, TetR/eGFP_Lin and PhlFd/mCherry_Lin, in CHO-S cells. Both circuits exhibited strong linearity and orthogonality across integration strategies, but integration method and repressor choice produced distinct performance trade-offs. RI increased achievable dynamic range for PhlFd but increased basal leakiness for TetR, whereas TI, via a dual-landing-pad system, constrained copy number, and reduced basal expression and PhlFd expression variability. These findings highlight integration context and circuit architecture as key design parameters informing rational design of synthetic regulators for biopharmaceutical applications.",
+      "authors": [
+        "Sheryl Li Yan Lim",
+        "Lars K Nielsen",
+        "Ioscani Jiménez Del Val",
+        "Jesús Lavado-García"
+      ],
+      "journal": "Synthetic and systems biotechnology",
+      "published_date": "2026-10-15",
+      "source_url": "https://doi.org/10.1016/j.synbio.2026.10.004",
+      "source_adapter": "pubmed",
+      "doi": "10.1016/j.synbio.2026.10.004",
+      "pmid": "42926929",
+      "pmcid": "PMC13694990",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": true,
+      "category": "genetics-genomics",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "42926929"
+      }
+    },
+    {
+      "title": "Enzymatic cross-linking collagen-based bioink for 3D bioprinting of endometrial model with endometrial epithelial organoids.",
+      "abstract": "The human endometrium, a dynamic tissue responsive to sex hormones, plays a pivotal role in female reproduction and menstrual cycling, comprising diverse cell populations including epithelial and stromal cells. The development of in vitro endometrial models holds substantial potential for tissue repair, drug discovery, and disease modeling. However, the construction of biomimetic structural in vitro models capable of supporting long-term culture and preserving relevant biological functions has been hindered by limitations in both material properties and fabrication strategies. Here, an enzymatically cross-linked collagen-based bioink was developed, enabling extrusion bioprinting with favorable printability, biocompatibility, and bioactivity. The enzyme-catalyzed cross-linking process was optimized through room-temperature pre-crosslinking, and its evolution was described using a storage modulus (G')-time kinetic model, enabling prediction of the printable window and reliable fabrication of three-dimensional (3D) constructs. Then, monoculture and co-culture systems of endometrial epithelial organoids (EEOs) and endometrial stromal cells (ESCs) embedded in collagen-based hydrogels were established. Utilizing the bioink and printing strategy, an in vitro endometrial model was 3D bioprinted, exhibiting sustained viability (≥11 days) and hormone-responsive functions comparable to or showing enhanced functional characteristics relative to commonly used Matrigel-based or collagen-based systems. This biomimetic platform provides a physiologically relevant in vitro model for investigating endometrial biology, elucidating pathological mechanisms, and facilitating drug screening applications.",
+      "authors": [
+        "Huimin Shi",
+        "Xin Xu",
+        "Qingru Huang",
+        "Mengying Liu",
+        "Xuechai Bai",
+        "Yana Ma",
+        "Yifan Wang",
+        "Xiaona Lin",
+        "Jun Yin"
+      ],
+      "journal": "Bioactive materials",
+      "published_date": "2026-10-14",
+      "source_url": "https://doi.org/10.1016/j.bioactmat.2026.10.017",
+      "source_adapter": "pubmed",
+      "doi": "10.1016/j.bioactmat.2026.10.017",
+      "pmid": "42909879",
+      "pmcid": "PMC13685455",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "Metadata & Abstract via NCBI PubMed",
+      "is_open_access": true,
+      "category": "biotechnology",
+      "study_model": "in-vitro",
+      "is_biological": true,
+      "allow_media_reuse": false,
+      "provenance": {
+        "source": "PubMed",
+        "pmid": "42909879"
       }
     }
   ]
