@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timedelta, timezone
 import json
 import logging
 import os
@@ -61,21 +62,36 @@ def main() -> int:
         raw_papers, existing_index=corpus_index
     )
 
-    ready_candidates = []
+    today_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    oldest_allowed_iso = (datetime.now(timezone.utc) - timedelta(days=90)).strftime("%Y-%m-%d")
+
+    ready_papers = []
     rejected_non_bio = 0
+    rejected_stale_or_bogus_date = 0
     for paper in unique_papers:
+        if paper.published_date > today_iso or paper.published_date < oldest_allowed_iso:
+            rejected_stale_or_bogus_date += 1
+            continue
         classify_paper(paper, configs["categories"])
         if not paper.is_biological:
             rejected_non_bio += 1
             continue
         evaluate_license(paper, configs["editorial_rules"])
-        ready_candidates.append(paper.to_dict())
+        ready_papers.append(paper)
+
+    # Sort newest research first (prioritizing peer-reviewed papers on same-day ties)
+    ready_papers.sort(
+        key=lambda p: (p.published_date, 1 if p.peer_reviewed else 0),
+        reverse=True,
+    )
+    ready_candidates = [p.to_dict() for p in ready_papers]
 
     summary = {
         **collection_report,
         "deduplicated_count": len(unique_papers),
         "duplicates_skipped": len(skipped_duplicates),
         "non_biological_filtered": rejected_non_bio,
+        "stale_or_invalid_date_filtered": rejected_stale_or_bogus_date,
         "ready_candidates_count": len(ready_candidates),
     }
 

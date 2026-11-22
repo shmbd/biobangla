@@ -15,6 +15,11 @@ on:
   schedule:
     # Daily scheduled build ensures articles committed by GITHUB_TOKEN in process.yml are published cleanly without recursive push loops
     - cron: "30 1 * * *"
+  workflow_run:
+    workflows:
+      - "২. বাংলা বিজ্ঞান নিবন্ধ প্রস্তুত ও মান নিয়ন্ত্রণ (Process & QC)"
+    types:
+      - completed
   workflow_dispatch:
 
 permissions:
@@ -29,6 +34,7 @@ concurrency:
 jobs:
   build:
     name: "Build Astro Site, Pagefind Index & Verify Links"
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

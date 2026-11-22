@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
 import os
 from typing import Any
 import xml.etree.ElementTree as ET
@@ -46,6 +47,8 @@ class PubMedCollector(BaseCollector):
                 "term": query,
                 "retmode": "json",
                 "sort": "pub_date",
+                "datetype": "edat",
+                "reldate": 30,
                 "retmax": retmax,
             },
             rate_limit_per_second=rate,
@@ -135,9 +138,14 @@ class PubMedCollector(BaseCollector):
                 peer_reviewed = True
                 pub_status = "peer-reviewed"
 
-            year = article_elem.findtext(".//Article/Journal/JournalIssue/PubDate/Year") or "2026"
-            month = article_elem.findtext(".//Article/Journal/JournalIssue/PubDate/Month") or "01"
-            day = article_elem.findtext(".//Article/Journal/JournalIssue/PubDate/Day") or "01"
+            # Prefer electronic publication date (<ArticleDate>) over ahead-of-print JournalIssue date
+            elec_year = article_elem.findtext(".//Article/ArticleDate/Year")
+            elec_month = article_elem.findtext(".//Article/ArticleDate/Month")
+            elec_day = article_elem.findtext(".//Article/ArticleDate/Day")
+
+            year = elec_year or article_elem.findtext(".//Article/Journal/JournalIssue/PubDate/Year") or "2026"
+            month = elec_month or article_elem.findtext(".//Article/Journal/JournalIssue/PubDate/Month") or "01"
+            day = elec_day or article_elem.findtext(".//Article/Journal/JournalIssue/PubDate/Day") or "01"
             month_map = {
                 "jan": "01", "feb": "02", "mar": "03", "apr": "04",
                 "may": "05", "jun": "06", "jul": "07", "aug": "08",
@@ -146,6 +154,9 @@ class PubMedCollector(BaseCollector):
             m_clean = month_map.get(month[:3].lower(), month.zfill(2) if month.isdigit() else "01")
             d_clean = day.zfill(2) if day.isdigit() else "01"
             iso_date = normalize_iso_date(f"{year}-{m_clean}-{d_clean}")
+            today_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            if iso_date > today_iso:
+                iso_date = today_iso
 
             source_url = (
                 f"https://doi.org/{doi}"

@@ -88,15 +88,36 @@ def main() -> int:
         dry_run=args.dry_run,
     )
 
-    counts = {"PASS": 0, "REVIEW": 0, "FAIL": 0, "ERROR": 0}
+    counts = {"PASS": 0, "REVIEW": 0, "FAIL": 0, "ERROR": 0, "SKIPPED_EXISTING": 0}
+    existing_review_dois = set()
+    if review_dir.exists():
+        for rep_file in review_dir.glob("*.report.json"):
+            try:
+                rep_data = json.loads(rep_file.read_text(encoding="utf-8"))
+                r_doi = (rep_data.get("paper") or {}).get("doi")
+                if r_doi:
+                    existing_review_dois.add(r_doi.lower())
+            except Exception:
+                pass
 
-    for item in raw_candidates[: args.max_articles]:
+    processed_so_far = 0
+    for item in raw_candidates:
+        if processed_so_far >= args.max_articles:
+            break
         paper = StandardizedPaper.from_dict(item)
+        already_pub, _ = corpus.contains(paper)
+        if already_pub or (paper.doi and paper.doi.lower() in existing_review_dois):
+            counts["SKIPPED_EXISTING"] += 1
+            continue
+
+        processed_so_far += 1
         try:
             draft = writer.write_article(paper)
             report = validator.validate(draft)
             publisher.process_validated_draft(draft, report)
             counts[report.outcome] += 1
+            if report.outcome == "PASS" and paper.doi:
+                corpus.dois.add(paper.doi.lower())
             logging.info(
                 "Processed '%s' -> %s (%s)",
                 paper.title[:60],

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from scripts.collectors.base import (
@@ -20,7 +21,10 @@ class EuropePmcCollector(BaseCollector):
         endpoint = self.config.get(
             "endpoint", "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
         )
-        query = self.config.get("default_query", "(OPEN_ACCESS:y) AND (SRC:MED)")
+        base_query = self.config.get("default_query", "(OPEN_ACCESS:y) AND (SRC:MED)")
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        start_date = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
+        query = f"({base_query}) AND (FIRST_PDATE:[{start_date} TO {today}]) sort_date:y"
         rate = float(self.config.get("rate_limit_per_second", 2.0))
         page_size = min(max_items, int(self.config.get("page_size", 15)))
 

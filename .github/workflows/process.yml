@@ -3,6 +3,11 @@ name: "২. বাংলা বিজ্ঞান নিবন্ধ প্র�
 on:
   schedule:
     - cron: "45 */12 * * *"
+  workflow_run:
+    workflows:
+      - "১. গবেষণা মেটাডেটা সংগ্রহ (Collect Research)"
+    types:
+      - completed
   workflow_dispatch:
     inputs:
       max_articles:
@@ -26,6 +31,7 @@ concurrency:
 jobs:
   process:
     name: "Generate Bangla Journalism & Enforce Quality Gates"
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:

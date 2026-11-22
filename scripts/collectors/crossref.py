@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from scripts.collectors.base import (
@@ -20,10 +21,13 @@ class CrossrefCollector(BaseCollector):
         endpoint = self.config.get("endpoint", "https://api.crossref.org/works")
         rate = float(self.config.get("rate_limit_per_second", 2.0))
         rows = min(max_items, int(self.config.get("rows", 15)))
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        start_date = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
+        base_filter = self.config.get("filter", "has-abstract:true,type:journal-article")
 
         params: dict[str, Any] = {
             "query": self.config.get("query", "biology genomics microbiology"),
-            "filter": self.config.get("filter", "has-abstract:true,type:journal-article"),
+            "filter": f"{base_filter},from-pub-date:{start_date},until-pub-date:{today}",
             "rows": rows,
             "sort": "published",
             "order": "desc",
