@@ -16,6 +16,7 @@ from scripts.ai.validator import ArticleQualityValidator
 from scripts.ai.writer import BanglaScienceWriter
 from scripts.config_loader import load_all_configs
 from scripts.models import StandardizedPaper, utc_now_iso
+from scripts.processors.classifier import classify_paper
 from scripts.processors.deduplicator import ExistingCorpusIndex
 from scripts.publishing.markdown_generator import ArticlePublisher
 
@@ -109,6 +110,9 @@ def main() -> int:
         if processed_so_far >= args.max_articles:
             break
         paper = StandardizedPaper.from_dict(item)
+        classify_paper(paper, configs["categories"])
+        if not paper.is_biological:
+            continue
         already_pub, _ = corpus.contains(paper)
         if already_pub or (paper.doi and paper.doi.lower() in existing_review_dois):
             counts["SKIPPED_EXISTING"] += 1

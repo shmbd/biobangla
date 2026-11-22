@@ -32,6 +32,7 @@ state/raw/
 state/cache/
 state/tmp/
 state/logs/*.tmp
+state/logs/last_process_report.json
 
 # OS & Editor files
 .DS_Store

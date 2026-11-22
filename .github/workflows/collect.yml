@@ -65,5 +65,5 @@ jobs:
             exit 0
           fi
           git commit -m "chore(collect): update standardized research candidates [skip ci]"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"

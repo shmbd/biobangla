@@ -97,3 +97,13 @@ def test_classifier_assigns_categories_study_models_and_filters_non_biology() ->
     )
     classify_paper(astro_paper, categories_cfg)
     assert astro_paper.is_biological is False
+
+    # Regression test: 'rna' inside 'journal' or 'gene' inside 'general' must NOT pass Crossref math papers
+    pinn_paper = _make_paper(
+        title="Enforcing continuous symmetry in physics-informed neural networks",
+        abstract="A general framework for differential equations in an international journal.",
+        journal="International Journal of Mechanics",
+        source_adapter="crossref",
+    )
+    classify_paper(pinn_paper, categories_cfg)
+    assert pinn_paper.is_biological is False

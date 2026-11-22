@@ -32,7 +32,7 @@
     "duplicates_skipped": 1,
     "non_biological_filtered": 7,
     "stale_or_invalid_date_filtered": 0,
-    "ready_candidates_count": 44
+    "ready_candidates_count": 34
   },
   "candidates": [
     {
@@ -69,176 +69,6 @@
       "provenance": {
         "source": "PubMed",
         "pmid": "43001663"
-      }
-    },
-    {
-      "title": "Reliability of a Two‐Stage Continuous Weighted K ‐out‐of‐ N System Based on the Residual Weight Rate Function",
-      "abstract": "ABSTRACT To evaluate the reliability of stochastic degradation systems, this study proposes a weighted ‐out‐of‐ hierarchical system composed of ‐out‐of‐ subsystems for . The ‐th subsystem is assembled from components, and each component exhibits two‐stage continuous weighting characteristics modeled by a newly defined residual weight rate function (RWRF). First, we establish the RWRF, which integrates component degradation quantity, service lifetime, and time‐varying weight into a unified modeling framework. Second, we formulate a weighted ‐out‐of‐ hierarchical system with multi‐type two‐stage weighted components and derive its corresponding reliability evaluation formula. Finally, by embedding the Wiener degradation process into the Weibull‐based two‐stage failure interference model, we perform theoretical analysis and numerical simulations to evaluate the performance of the proposed model.",
-      "authors": [
-        "Xiuyun Peng"
-      ],
-      "journal": "Quality and Reliability Engineering International",
-      "published_date": "2026-11-22",
-      "source_url": "https://doi.org/10.1002/qre.70513",
-      "source_adapter": "crossref",
-      "doi": "10.1002/qre.70513",
-      "pmid": null,
-      "pmcid": null,
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "http://onlinelibrary.wiley.com/termsAndConditions#vor",
-      "is_open_access": false,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "Crossref",
-        "license_url": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
-      }
-    },
-    {
-      "title": "Enforcing continuous symmetry in physics-informed neural networks for solving the 1D wave equation",
-      "abstract": "Abstract As a typical application of deep learning, Physics-Informed Neural Networks (PINN) have gained significant attention in recent years as a mesh-free framework for solving partial differential equations (PDEs) under the paradigm of artificial intelligence for Science. However, improving their limited accuracy remains a major challenge for PINN. Symmetry-enhanced Physics-Informed Neural Networks (SPINN) embed the invariant surface conditions derived from the Lie symmetries of PDEs into the loss function of PINN, so as to improve the solution accuracy of PDEs. This paper is the first to extend SPINN to solve the 1D wave equation, and conducts a comparative analysis with PINN. Numerical experiments show that SPINN can effectively solve the 1D wave equation. Compared with the PINN method, SPINN demonstrates better performance and effectiveness, with its predictive accuracy improved by one to two orders of magnitude, exhibiting superior predictive precision and generalization capability.",
-      "authors": [
-        "Jiaqiang Hu",
-        "Tonglaga Bai"
-      ],
-      "journal": "The Computer Journal",
-      "published_date": "2026-11-22",
-      "source_url": "https://doi.org/10.1093/comjnl/bxag127",
-      "source_adapter": "crossref",
-      "doi": "10.1093/comjnl/bxag127",
-      "pmid": null,
-      "pmcid": null,
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "https://academic.oup.com/pages/standard-publication-reuse-rights",
-      "is_open_access": false,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "Crossref",
-        "license_url": "https://academic.oup.com/pages/standard-publication-reuse-rights"
-      }
-    },
-    {
-      "title": "Quantifying the Implied Monetary Value of Specific 2-BDR Residential Property Attributes using Hedonic Pricing Model in Uyo Metropolis",
-      "abstract": "This study measures the implied monetary value of structural, locational, and environmental attributes for 2-BDR residential properties in Uyo Metropolis, addressing a critical practical gap in local real estate valuation. Utilizing a crosssectional design and stratified random sampling of 387 households, the study employed Exploratory Factor Analysis (EFA), a disaggregated Hedonic Pricing Model (HPM), and Hierarchical Linear Modeling (HLM). Unlike constrained single-index models, the fully specified hedonic regression established that structural, locational, and environmental attributes collectively account for 71.4% (𝑹 𝟐 = 𝟎. 𝟕𝟏𝟒, 𝒑",
-      "authors": [
-        "Abdullahi, A. N",
-        "Ibanga, I. B"
-      ],
-      "journal": "International Journal of Modern Science and Research Technology",
-      "published_date": "2026-11-22",
-      "source_url": "https://doi.org/10.67317/ijmsrt26aug096",
-      "source_adapter": "crossref",
-      "doi": "10.67317/ijmsrt26aug096",
-      "pmid": null,
-      "pmcid": null,
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "Publisher Copyright",
-      "is_open_access": false,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "Crossref",
-        "license_url": ""
-      }
-    },
-    {
-      "title": "Effectiveness of Transformer-Based Models for Detecting Depression-Related Language in Social Media: A Comparative Analysis.",
-      "abstract": "Depression is one of the most common mental health conditions worldwide, yet many affected people remain undiagnosed and untreated. Social media posts provide observable language patterns associated with depression, creating an opportunity for scalable screening, but most automated approaches classify single posts in isolation and ignore the user's posting history. The purpose of this study was therefore to examine the effectiveness of a context-aware transformer-based model for detecting depression-related language in social media posts. Specifically, the study evaluated a weight-shared RoBERTa dual encoder that jointly processes the current tweet and up to five prior posts by the same user, compared it with classical classifiers using term frequency–inverse document frequency (TF-IDF) features, and analysed its errors and prediction confidence. The study was anchored on transformer self-attention and transfer learning theory and supported by Beck's cognitive theory of depression and the bias–variance trade-off. A quantitative comparative experimental design based on secondary data was adopted. The publicly available Twitter Depression Dataset was cleaned through language, length and duplicate filters, yielding 7,370 tweets from 12 accounts posted between October 2012 and August 2021, and was partitioned at the user level. On the validation set, the RoBERTa model achieved an F1-score of 0.9286, above the best classical validation F1-score of 0.9080. On a held-out test set of 1,098 tweets from two accounts, it achieved an accuracy of 0.9891, precision of 0.9528, recall of 0.9352, F1-score of 0.9439 and ROC-AUC of 0.9991, compared with an F1-score of 0.8123 for logistic regression. The model misclassified 12 tweets (5 false positives and 7 false negatives) and was markedly less certain on its errors than on its correct predictions. The study concludes that context-aware transformer representations detect dataset-defined depression-related language more effectively than classical bag-of-words approaches. However, because the labels are automatically assigned and the test set contains only two accounts, the results do not establish clinical diagnoses or generalization to new users. The study recommends that such models be used only as screening aids with human review of low-confidence predictions, and that future work use clinician-verified labels, more diverse users and statistical significance testing.",
-      "authors": [
-        "James Gitari Muriithi",
-        "Muo Charles"
-      ],
-      "journal": "International Journal of Social Science and Humanities Research (IJSSHR) ISSN 2959-7056 (o); 2959-7048 (p)",
-      "published_date": "2026-11-22",
-      "source_url": "https://doi.org/10.61108/ijsshr.v4i3.357",
-      "source_adapter": "crossref",
-      "doi": "10.61108/ijsshr.v4i3.357",
-      "pmid": null,
-      "pmcid": null,
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "https://creativecommons.org/licenses/by-nc/4.0",
-      "is_open_access": false,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "Crossref",
-        "license_url": "https://creativecommons.org/licenses/by-nc/4.0"
-      }
-    },
-    {
-      "title": "Exploring the Role of Metacognition in Science Achievement in K-16 Education: A Systematic Literature Review",
-      "abstract": "Metacognition has been the focus of various research disciplines and is generally referred to as thinking about thinking. Although metacognition is considered a crucial construct in the learning process, no systematic or meta-analytic review was found related to the comprehensive examination of the role of metacognition and its associated constructs (e.g., metacognitive awareness) in the context of science achievement in K-16 education. Therefore, this study aimed to systematically analyze the empirical research on metacognition and the associated constructs with regard to science achievement in K-16 settings. Following a systematic screening and quality assessment process conducted in accordance with the PRISMA guidelines, a total of 27 peer-reviewed journal articles were included in the final analysis. The Web of Science and Scopus databases were used for this process. According to the findings of this study, metacognition was found to be most effective in increasing exam scores and academic performance, and the most-widely used measurement tools were tests and assessments. Additionally, the three components (i.e., monitoring, planning, evaluation) of metacognitive regulation were addressed together in the majority of the reviewed studies. Lastly, none of the studies was conducted with primary school students. This review emphasizes the need for more science instruction integrated with metacognition and suggests avenues for further studies.",
-      "authors": [
-        "Duygu Kecici",
-        "Semiha Merve Balci",
-        "Osman Aksit"
-      ],
-      "journal": "International Journal of Education in Mathematics, Science and Technology",
-      "published_date": "2026-11-22",
-      "source_url": "https://doi.org/10.46328/ijemst.7952",
-      "source_adapter": "crossref",
-      "doi": "10.46328/ijemst.7952",
-      "pmid": null,
-      "pmcid": null,
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
-      "is_open_access": false,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "Crossref",
-        "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0"
-      }
-    },
-    {
-      "title": "Acceptance-related perceptions of ChatGPT among first-year engineering students with prior academic use",
-      "abstract": "This study examined acceptance-related perceptions of ChatGPT among first-year engineering students at a Chilean university. Psychometric analyses included 206 respondents completing all 32 items; inferential analyses included 178 reporting study-related use. Drawing on an extended technology acceptance model as a descriptive framework, we analyzed perceived usefulness, perceived ease of use, perceived intelligence, perceived trust, awareness, and adoption intention in relation to gender, school sector, prior academic performance, and usage frequency. Internal consistency estimates were high, but exploratory factor analysis showed incomplete separation of the dimensions, limiting claims of construct validity. After Holm correction, no comparisons by gender, school sector, or prior academic performance remained statistically significant. More frequent use was associated with higher scores across all six dimensions. The findings provide preliminary psychometric evidence and identify usage frequency as the most consistent correlate of acceptance-related perceptions. However, the cross-sectional design does not permit conclusions about directionality, causality, or educational benefits.",
-      "authors": [
-        "Juan Tapia-Sobarzo",
-        "Bastián Peters-Rodríguez",
-        "Eduardo Peters",
-        "Matías Recabarren"
-      ],
-      "journal": "Eurasia Journal of Mathematics, Science and Technology Education",
-      "published_date": "2026-11-22",
-      "source_url": "https://doi.org/10.29333/ejmste/19992",
-      "source_adapter": "crossref",
-      "doi": "10.29333/ejmste/19992",
-      "pmid": null,
-      "pmcid": null,
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "Publisher Copyright",
-      "is_open_access": false,
-      "category": "biomedical-science",
-      "study_model": "human-observational",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "Crossref",
-        "license_url": ""
       }
     },
     {
@@ -420,7 +250,7 @@
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
-      "category": "evolution",
+      "category": "biomedical-science",
       "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": true,
@@ -489,41 +319,6 @@
       }
     },
     {
-      "title": "Winding-up of fibrin fibers as a novel mechanism of platelet-mediated fiber compaction.",
-      "abstract": "This study reveals an unrecognized mechanism by which platelets retract and compact fibrin fibers. Using a newly developed 2D fiber-retraction assay, we observed a 'gearwheel' pattern of actomyosin in spread platelets with associated, extracellular fibrin patches that appear to initiate fibrin fiber attachment and rearrangement. The outcome of this process results in two morphologically different platelet populations. Spread platelets with coiled fibers around and above their pseudo-nucleus. Other, only partially spread platelets have tightly packed fibers around bulbous protrusions ('bulbs'), mirroring the architecture of platelets and adjacent fibers within a retracted clot. Thus, the observed compaction process might take place during clot retraction to reduce clot volume, stiffen the clot, and enhance wound repair. Apart from pulling on fibers like on a rope, platelets actively wrap them into compact structures, similar to balls of wool. Using a combination of 3D clot- and 2D fiber-retraction assays, expansion and electron microscopy, live imaging, and mathematical modeling, we show that platelets use an actomyosin-driven motion to loop fibrin fibers around the base of bulbs, which form when platelets get trapped between fibrin fibers during 3D clot- or 2D fiber-retraction assays. These findings complement existing models of platel-mediated fibrin retraction, offering new insight into how platelets mechanically organize fibrin fibers.",
-      "authors": [
-        "Grichine A",
-        "Kovalenko T",
-        "Appaix F",
-        "Ribba AS",
-        "Eckly A",
-        "Rinckel JY",
-        "Panteleev MA",
-        "Lafanechère L",
-        "Sadoul K."
-      ],
-      "journal": "Europe PMC Indexed Journal",
-      "published_date": "2026-11-19",
-      "source_url": "https://doi.org/10.7554/elife.110286",
-      "source_adapter": "europe_pmc",
-      "doi": "10.7554/elife.110286",
-      "pmid": "43055225",
-      "pmcid": "PMC13784774",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43055225"
-      }
-    },
-    {
       "title": "Diurnal rhythmicity in metabolism and salivary effector expression shapes aphid performance on host plants.",
       "abstract": "Diurnal rhythms influence insect behavior, physiology, and metabolism, optimizing their performance by adapting to daily changes in the environment. While their impact on agricultural pests has been briefly explored, our understanding of how these rhythms drive adaptive responses in pest biology and influence host colonization remains elusive. Here, we show that a notorious global aphid pest, Rhopalosiphum padi , exhibits distinct diurnal patterns in feeding behavior, with elevated honeydew excretion at night and extended phloem salivation during early nighttime. Temporal aphid transcriptome profiling reveals four diurnally rhythmic clusters, two of which peak at night, exhibiting enrichment in carbohydrate and amino acid metabolism. Beyond the established role in manipulating host responses and allowing sustained feeding, our study reveals novel evidence of cyclical fluctuations in salivary effector expression in an insect species. Silencing key effector genes, peaking in expression during the increased nighttime salivation, results in a more pronounced reduction in aphid excretion activity on host plants during the night compared to the day, a phenomenon not observed on artificial diets. A better understanding of aphid diurnal rhythms and their roles in shaping aphid performance provides a promising avenue to refine and optimize pest management, granting a strategic advantage for minimizing crop damage.",
       "authors": [
@@ -546,7 +341,7 @@
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
-      "category": "botany",
+      "category": "biomedical-science",
       "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": true,
@@ -610,7 +405,7 @@
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
-      "category": "zoology",
+      "category": "biomedical-science",
       "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": true,
@@ -685,33 +480,6 @@
       }
     },
     {
-      "title": "The Maladaptive Stress State: A Systems Framework for Chronic Disease Persistence.",
-      "abstract": "Chronic degenerative diseases are traditionally explained in terms of disease-specific initiating lesions and molecular pathways. Although this approach has substantially advanced understanding of disease mechanisms, it does not fully explain why biologically diverse disorders often converge on persistent states marked by chronic inflammation, impaired repair, altered nutrient sensing, reduced adaptive flexibility, and incomplete recovery after the initiating insult subsides. This Perspective proposes the Maladaptive Stress State (MSS), a systems-level framework that distinguishes disease initiation from persistence. Rather than proposing a new molecular pathway, the MSS framework integrates established knowledge from geroscience, stress biology, lysosomal signaling, nutrient sensing, and systems biology. It posits that chronic disease persists when adaptive stress programs become stabilized and the capacity to exit the stress-adapted state is impaired. Within this framework, systems-level interactions sustain evolutionarily conserved adaptive responses despite partial resolution of the original stressor. The framework also generates experimentally testable predictions and outlines translational implications for assessing therapeutic recovery through restored adaptive flexibility rather than normalization of isolated molecular biomarkers. By complementing pathway-based biology with a state-based systems perspective, the MSS framework offers a biologically grounded conceptual model for investigating persistence across diverse chronic disorders.",
-      "authors": [
-        "Erol A."
-      ],
-      "journal": "Europe PMC Indexed Journal",
-      "published_date": "2026-11-18",
-      "source_url": "https://doi.org/10.1002/cdt3.70077",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1002/cdt3.70077",
-      "pmid": "43061000",
-      "pmcid": "PMC13781816",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "cc by-nc",
-      "is_open_access": true,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43061000"
-      }
-    },
-    {
       "title": "Migration as a key influence on ungulate eco-evolutionary history",
       "abstract": "by Gustavo Burin Species can overcome resource limitations by migrating to more favourable areas. A new study in PLOS Biology shows that migration has an important effect on the diversification dynamics of ungulates, that likely led to changes in ecosystem functioning. Species can overcome environmental limitations by migrating to more favorable areas. This Primer explores a new study in PLOS Biology showing that this behavior has an important effect on the diversification dynamics of ungulates, which in turn likely led to changes in ecosystem properties and functioning.",
       "authors": [
@@ -729,7 +497,7 @@
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
-      "category": "evolution",
+      "category": "zoology",
       "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": true,
@@ -766,7 +534,7 @@
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
-      "category": "genetics-genomics",
+      "category": "biomedical-science",
       "study_model": "animal",
       "is_biological": true,
       "allow_media_reuse": true,
@@ -836,7 +604,7 @@
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
-      "category": "microbiology",
+      "category": "genetics-genomics",
       "study_model": "animal",
       "is_biological": true,
       "allow_media_reuse": true,
@@ -877,7 +645,7 @@
       "publication_status": "preprint",
       "license": "cc_no",
       "is_open_access": false,
-      "category": "biomedical-science",
+      "category": "microbiology",
       "study_model": "animal",
       "is_biological": true,
       "allow_media_reuse": false,
@@ -1228,63 +996,6 @@
       }
     },
     {
-      "title": "Scar Treatments in Hand Surgery.",
-      "abstract": "Scar formation after hand surgery poses unique functional and aesthetic challenges because of the hand's complex anatomy, dense sensory innervation, and reliance on supple skin and tendon glide. Hypertrophic scars, keloids, adherent scars, and contractures can cause pain, hypersensitivity, restricted motion, and impaired activities of daily living, yet evidence guiding scar management in hand surgery remains limited and largely extrapolated from burn and general surgical populations. This review synthesizes current evidence on the biology, classification, prevention, and treatment of scars as they pertain to hand surgery. Nonoperative management, including silicone gel sheeting, compression therapy, intralesional corticosteroid injection, laser therapy, and hand therapy, forms the foundation of care. Operative interventions, ranging from scar excision and Z-plasty to skin grafting, local flap reconstruction, dermal substitutes, and tenolysis, address established contracture and adhesion when conservative measures fail. Emerging therapies, such as autologous fat grafting, growth factor modulation, platelet-rich plasma, and botulinum toxin A, show early promise but require validation in hand-specific trials. Optimal outcomes depend on a collaborative, individualized approach integrating patient risk stratification, meticulous surgical technique, and close coordination with hand therapy throughout the care continuum.",
-      "authors": [
-        "Hannah M Chi",
-        "Lacey M Smith",
-        "Nicole S Schroeder",
-        "Gopal R Lalchandani"
-      ],
-      "journal": "Journal of hand surgery global online",
-      "published_date": "2026-11-14",
-      "source_url": "https://doi.org/10.1016/j.jhsg.2026.101197",
-      "source_adapter": "pubmed",
-      "doi": "10.1016/j.jhsg.2026.101197",
-      "pmid": "43065798",
-      "pmcid": "PMC13786207",
-      "research_type": "review",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "Metadata & Abstract via NCBI PubMed",
-      "is_open_access": true,
-      "category": "biomedical-science",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "PubMed",
-        "pmid": "43065798"
-      }
-    },
-    {
-      "title": "Unsolved problems with ENaC: From molecules to mammals.",
-      "abstract": "The epithelial Na channel (ENaC) mediates transport of Na+ in the kidney, the colon, the lung, and the sweat and salivary ducts. The activity of these channels is highly regulated and contributes to the maintenance of total body Na+, extracellular fluid volume, and plasma K+. Defects in the channel itself or in its regulation are implicated in hypertension and in other diseases. Despite progress in revealing many aspects of ENaC biology, many important questions remain unanswered. These include the following: What determines the remarkable ion selectivity of the channel? How is the channel directed to the apical plasma membrane? How does aldosterone regulate the channel? What is its role in producing urine with minimal Na+? And to what extent does the channel contribute to essential hypertension, cystic fibrosis, nephrotic syndrome, and liver failure? Here, I will discuss these questions and how they relate to our current understanding of the roles of ENaC in health and disease.",
-      "authors": [
-        "Lawrence G Palmer"
-      ],
-      "journal": "The Journal of general physiology",
-      "published_date": "2026-11-04",
-      "source_url": "https://doi.org/10.1085/jgp.202614077",
-      "source_adapter": "pubmed",
-      "doi": "10.1085/jgp.202614077",
-      "pmid": "42980615",
-      "pmcid": null,
-      "research_type": "review",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "Metadata & Abstract via NCBI PubMed",
-      "is_open_access": false,
-      "category": "zoology",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "provenance": {
-        "source": "PubMed",
-        "pmid": "42980615"
-      }
-    },
-    {
       "title": "Genetic and environmental predictors of seasonality and seasonal affective disorder in individuals with depression.",
       "abstract": "The etiology and nosological status of seasonal affective disorder (SAD) as a specifier of depressive episodes versus a transdiagnostic disorder are the subject of debate. In this study, we investigated the underlying etiology of SAD and dimensional seasonality by examining their association with latitude and genetic risk for a range of traits, and investigated gene-environment interactions. This study included 12,460 adults (76% female, aged 18-90) with a history of depression from the Australian Genetics of Depression Study. Regression models included predictors for latitude (distance from equator) and polygenic scores for eight traits: major depressive disorder, bipolar disorder, anxiety disorders, chronotype, sleep duration, body mass index, vitamin D levels, and educational attainment. Outcomes were SAD status and general seasonality score. SAD was positively associated with latitude (OR[95%CI] = 1.05[1.03-1.06], padjusted < 0.001), and there was nominal evidence of additive and multiplicative interactions between chronotype genetic risk and latitude (β = -0.0014[-0.0024,-0.0003], padjusted = 0.122; OR = 0.98[0.97-1.00], padjusted = 0.122). General seasonality score was associated with latitude (IRR = 1.01[1.01-1.01], padjusted < 0.001) and genetic risk for major depressive disorder (IRR =1.03[1.02-1.04], padjusted < 0.001), bipolar disorder (IRR = 1.02[1.01-1.03], padjusted = 0.001), anxiety disorders (IRR = 1.03[1.01-1.04], padjusted < 0.001), vitamin D levels (OR = 0.89[0.83-0.96], padjusted = 0.048), and educational attainment (IRR = 0.97[0.96-0.98], padjusted < 0.001). These findings enhance understanding of SAD etiology, highlighting contributions of psychiatric genetic risk and geographic measures on seasonal behavior, and support examining seasonality as a continuous dimension.",
       "authors": [
@@ -1476,7 +1187,7 @@
       "publication_status": "peer-reviewed",
       "license": "Metadata & Abstract via NCBI PubMed",
       "is_open_access": true,
-      "category": "biotechnology",
+      "category": "evolution",
       "study_model": "in-vitro",
       "is_biological": true,
       "allow_media_reuse": false,
