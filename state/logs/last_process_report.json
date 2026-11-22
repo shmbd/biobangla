@@ -1,13 +1,13 @@
 {
-  "processed_at": "2026-11-22T21:22:55+00:00",
-  "ai_provider": "mock",
-  "ai_model": "offline-deterministic-template-v1",
+  "processed_at": "2026-11-22T21:43:15+00:00",
+  "ai_provider": "gemini",
+  "ai_model": "gemini-2.5-flash",
   "dry_run": false,
   "outcomes": {
     "PASS": 0,
-    "REVIEW": 3,
+    "REVIEW": 0,
     "FAIL": 0,
-    "ERROR": 0,
+    "ERROR": 3,
     "SKIPPED_EXISTING": 0
   }
 }
