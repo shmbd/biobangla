@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import ExplainerLayout from '../../layouts/ExplainerLayout.astro';
+
+export async function getStaticPaths() {
+  const explainers = (await getCollection('explainers')).filter(
+    (e) => e.data.status === 'published' || e.data.status === 'sample'
+  );
+  const articles = (await getCollection('articles'))
+    .filter((a) => a.data.status === 'published' || a.data.status === 'sample')
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  return explainers.map((explainer) => {
+    const sameCat = articles.filter((a) => a.data.category === explainer.data.category);
+    const others = articles.filter((a) => a.data.category !== explainer.data.category);
+    return {
+      params: { slug: explainer.id },
+      props: {
+        explainer,
+        relatedArticles: [...sameCat, ...others].slice(0, 3),
+      },
+    };
+  });
+}
+
+const { explainer, relatedArticles } = Astro.props;
+const { Content } = await render(explainer);
+---
+
+<ExplainerLayout explainer={explainer} relatedArticles={relatedArticles}>
+  <Content />
+</ExplainerLayout>

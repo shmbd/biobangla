@@ -1,0 +1,67 @@
+# জীববিজ্ঞান (biobangla) — সম্পাদনা নীতিমালা ও স্বয়ংক্রিয় মান নিয়ন্ত্রণ (Editorial & QC Rules)
+
+version: "1.0"
+
+article_requirements:
+  min_word_count: 220
+  max_word_count: 1800
+  min_bangla_character_ratio: 0.45
+  required_sections:
+    - "গবেষণার প্রেক্ষাপট"
+    - "গবেষণা পদ্ধতি"
+    - "প্রধান ফলাফল"
+    - "বৈজ্ঞানিক গুরুত্ব"
+    - "সীমাবদ্ধতা ও সতর্কতা"
+  require_valid_source_url: true
+  require_doi_for_journal_articles: true
+
+study_setting_labels:
+  in_vitro: "গবেষণাগারে কোষভিত্তিক পরীক্ষা (In-vitro)"
+  animal_model: "প্রাণী মডেলের গবেষণা (Animal study)"
+  human_observational: "মানব পর্যবেক্ষণমূলক গবেষণা (Observational)"
+  human_clinical: "মানব ক্লিনিক্যাল গবেষণা (Clinical study)"
+  computational: "কম্পিউটেশনাল ও জিনোমিক বিশ্লেষণ (In-silico / Genomic)"
+  field_ecology: "মাঠপর্যায়ের বাস্তুতান্ত্রিক গবেষণা (Field study)"
+
+license_policy:
+  # Metadata + original Bangla journalistic explanation is permitted for public abstracts,
+  # while image/media reuse STRICTLY requires an explicit open license below.
+  allowed_media_licenses:
+    - "CC0"
+    - "CC-BY"
+    - "CC BY"
+    - "CC BY 4.0"
+    - "CC BY 3.0"
+    - "CC-BY-SA"
+    - "CC BY-SA 4.0"
+    - "Public Domain"
+  forbid_publisher_images_without_open_license: true
+  forbid_verbatim_abstract_translation: true
+
+preprint_rules:
+  must_set_peer_reviewed_false: true
+  required_disclaimer_keywords_bn:
+    - "প্রিপ্রিন্ট"
+    - "পিয়ার-রিভিউ"
+  forbid_phrases_for_preprints:
+    - "পিয়ার-রিভিউকৃত জার্নালে চূড়ান্তভাবে প্রমাণিত"
+    - "সন্দেহাতীতভাবে প্রমাণিত চিকিৎসা"
+
+medical_safety_rules:
+  # কঠোর নিষেধাজ্ঞা: কোনো চিকিৎসা পরামর্শ, ওষুধ সেবনের নির্দেশ বা অসমর্থিত নিরাময় দাবি করা যাবে না।
+  prohibited_patterns:
+    - "এই ওষুধ সেবন করুন"
+    - "ডাক্তারের পরামর্শ ছাড়াই"
+    - "নিশ্চিতভাবে ক্যান্সার নিরাময় করে"
+    - "১০০% নিরাময়"
+    - "আজই গ্রহণ করুন"
+    - "রোগীরা এই ডোজ নিন"
+  overstatement_warning_patterns:
+    - "অলৌকিক আবিষ্কার"
+    - "চিরতরে নির্মূল"
+    - "সব রোগের সমাধান"
+
+quality_outcomes:
+  PASS: "সকল উৎস, ডিওআই, লাইসেন্স, বাংলা ভাষার মান, আবশ্যিক অনুচ্ছেদ এবং বৈজ্ঞানিক সতর্কতা যাচাই উত্তীর্ণ। স্বয়ংক্রিয় প্রকাশের উপযুক্ত।"
+  REVIEW: "মৌলিক তথ্য সঠিক হলেও মানব সম্পাদকের পর্যালোচনা প্রয়োজন (যেমন: প্রিপ্রিন্টের অতিরিক্ত যাচাই, অস্পষ্ট লাইসেন্স বা সংক্ষিপ্ত ব্যাখ্যা)।"
+  FAIL: "উৎস/ডিওআই ত্রুটি, ডুপ্লিকেট নিবন্ধ, কপিরাইট লঙ্ঘন, চিকিৎসা পরামর্শ প্রদান অথবা তথ্যগত অসংগতি—প্রকাশ বাতিল।"

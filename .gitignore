@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Astro build output
+dist/
+.astro/
+
+# Python virtual environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Environment variables & secrets (NEVER commit real secrets)
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# Pipeline transient/raw state (kept out of published site)
+state/raw/
+state/cache/
+state/tmp/
+state/logs/*.tmp
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

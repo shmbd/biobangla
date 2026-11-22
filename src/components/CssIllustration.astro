@@ -1,0 +1,205 @@
+---
+import type { IllustrationMotif } from '../lib/categories';
+
+interface Props {
+  motif?: IllustrationMotif;
+  title?: string;
+  compact?: boolean;
+  class?: string;
+}
+
+const {
+  motif = 'dna',
+  title = 'বৈজ্ঞানিক রেখাচিত্র (জীববিজ্ঞান মৌলিক চিত্রণ)',
+  compact = false,
+  class: className = '',
+} = Astro.props;
+
+const motifLabels: Record<IllustrationMotif, string> = {
+  dna: 'ডিএনএ দ্বিসূত্রক ও জিনোম কাঠামোর মৌলিক রেখাচিত্র',
+  crispr: 'CRISPR-Cas9 গাইড আরএনএ ও জিন সম্পাদনার মৌলিক রেখাচিত্র',
+  microbe: 'ব্যাকটেরিওফাজ ও অণুজীব কোষের মৌলিক রেখাচিত্র',
+  cell: 'ইউক্যারিওটিক কোষ ও নিউক্লিয়াসের মৌলিক রেখাচিত্র',
+  antibody: 'ইমিউনোগ্লোবুলিন অ্যান্টিবডি ও রিসেপ্টর বন্ধনের মৌলিক রেখাচিত্র',
+  ecosystem: 'বাস্তুতন্ত্র ও জৈবচক্রের মৌলিক রেখাচিত্র',
+  marine: 'সামুদ্রিক প্রবাল ও ফাইটোপ্ল্যাঙ্কটনের মৌলিক রেখাচিত্র',
+  leaf: 'উদ্ভিদ পত্ররন্ধ্র ও ক্লোরোপ্লাস্টের মৌলিক রেখাচিত্র',
+  zoology: 'প্রাণিজগতের অঙ্গসংস্থান ও কোষীয় পুনরুৎপাদনের মৌলিক রেখাচিত্র',
+  phylogeny: 'ফাইলোজেনেটিক বিবর্তন বৃক্ষের মৌলিক রেখাচিত্র',
+};
+---
+
+<figure
+  class:list={[
+    'relative overflow-hidden rounded-lg border border-slate-200 bg-slate-50 select-none',
+    compact ? 'aspect-[16/9]' : 'aspect-[16/9]',
+    className,
+  ]}
+>
+  <svg
+    viewBox="0 0 640 360"
+    class="h-full w-full"
+    role="img"
+    aria-label={title || motifLabels[motif]}
+  >
+    <defs>
+      <pattern id={`grid-${motif}`} width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#E2E8F0" stroke-width="0.8" />
+      </pattern>
+    </defs>
+
+    <rect width="640" height="360" fill="#F8FAFC" />
+    <rect width="640" height="360" fill={`url(#grid-${motif})`} />
+
+    {
+      motif === 'dna' && (
+        <g stroke-linecap="round">
+          <circle cx="320" cy="180" r="126" fill="none" stroke="#CBD5E1" stroke-dasharray="4 6" />
+          <path
+            d="M140 120 C200 120, 200 240, 260 240 C320 240, 320 120, 380 120 C440 120, 440 240, 500 240"
+            fill="none"
+            stroke="#0B1F3A"
+            stroke-width="5"
+          />
+          <path
+            d="M140 240 C200 240, 200 120, 260 120 C320 120, 320 240, 380 240 C440 240, 440 120, 500 120"
+            fill="none"
+            stroke="#0F766E"
+            stroke-width="5"
+          />
+          <g stroke="#64748B" stroke-width="2.5">
+            <line x1="170" y1="142" x2="170" y2="218" />
+            <line x1="230" y1="142" x2="230" y2="218" />
+            <line x1="290" y1="142" x2="290" y2="218" />
+            <line x1="350" y1="142" x2="350" y2="218" />
+            <line x1="410" y1="142" x2="410" y2="218" />
+            <line x1="470" y1="142" x2="470" y2="218" />
+          </g>
+          <circle cx="260" cy="120" r="6" fill="#0F766E" />
+          <circle cx="380" cy="120" r="6" fill="#0B1F3A" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'crispr' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="320" cy="180" rx="135" ry="92" fill="#E6FFFA" stroke="#0F766E" stroke-width="2.5" stroke-dasharray="6 5" />
+          <line x1="110" y1="162" x2="285" y2="162" stroke="#0B1F3A" stroke-width="4.5" />
+          <line x1="355" y1="162" x2="530" y2="162" stroke="#0B1F3A" stroke-width="4.5" />
+          <line x1="110" y1="198" x2="285" y2="198" stroke="#0B1F3A" stroke-width="4.5" />
+          <line x1="355" y1="198" x2="530" y2="198" stroke="#0B1F3A" stroke-width="4.5" />
+          <path d="M250 162 L250 118 L390 118 L390 142" fill="none" stroke="#0F766E" stroke-width="4" />
+          <circle cx="320" cy="162" r="10" fill="#FFFFFF" stroke="#0F766E" stroke-width="3" />
+          <circle cx="320" cy="198" r="10" fill="#FFFFFF" stroke="#0F766E" stroke-width="3" />
+          <text x="292" y="106" font-size="13" font-family="monospace" fill="#0F766E" font-weight="700">gRNA • Cas9</text>
+        </g>
+      )
+    }
+
+    {
+      motif === 'microbe' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="320,76 372,108 372,166 320,198 268,166 268,108" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="4" />
+          <path d="M295 122 C310 112, 330 142, 345 132 M295 148 C312 138, 328 158, 345 148" fill="none" stroke="#0F766E" stroke-width="3" />
+          <line x1="320" y1="198" x2="320" y2="255" stroke="#0B1F3A" stroke-width="5" />
+          <line x1="306" y1="215" x2="334" y2="215" stroke="#0F766E" stroke-width="2.5" />
+          <line x1="306" y1="232" x2="334" y2="232" stroke="#0F766E" stroke-width="2.5" />
+          <path d="M320 255 L260 292 L240 315 M320 255 L286 296 L276 318 M320 255 L380 292 L400 315 M320 255 L354 296 L364 318" fill="none" stroke="#0B1F3A" stroke-width="3" />
+          <circle cx="176" cy="145" r="28" fill="none" stroke="#0F766E" stroke-width="2.5" stroke-dasharray="4 4" />
+          <circle cx="472" cy="210" r="22" fill="none" stroke="#64748B" stroke-width="2" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'cell' && (
+        <g>
+          <ellipse cx="320" cy="180" rx="165" ry="112" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="4" />
+          <ellipse cx="320" cy="180" rx="154" ry="101" fill="none" stroke="#99F6E4" stroke-width="2" stroke-dasharray="5 5" />
+          <circle cx="295" cy="176" r="46" fill="#F0FDFA" stroke="#0F766E" stroke-width="3.5" />
+          <circle cx="295" cy="176" r="16" fill="#0B1F3A" />
+          <ellipse cx="408" cy="145" rx="26" ry="14" transform="rotate(-20 408 145)" fill="none" stroke="#0F766E" stroke-width="2.8" />
+          <path d="M390 148 Q408 136 424 146" fill="none" stroke="#0F766E" stroke-width="2" />
+          <ellipse cx="212" cy="215" rx="24" ry="13" transform="rotate(24 212 215)" fill="none" stroke="#0B1F3A" stroke-width="2.5" />
+          <circle cx="385" cy="222" r="9" fill="#CBD5E1" />
+          <circle cx="228" cy="134" r="7" fill="#99F6E4" stroke="#0F766E" stroke-width="2" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'antibody' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <path d="M320 292 L320 190 L248 118 M320 190 L392 118" fill="none" stroke="#0B1F3A" stroke-width="7" />
+          <path d="M276 174 L224 122 M364 174 L416 122" fill="none" stroke="#0F766E" stroke-width="5.5" />
+          <circle cx="236" cy="104" r="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="3" />
+          <circle cx="404" cy="104" r="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="3" />
+          <circle cx="176" cy="220" r="24" fill="#FFFFFF" stroke="#64748B" stroke-width="2.5" />
+          <circle cx="468" cy="215" r="20" fill="#FFFFFF" stroke="#64748B" stroke-width="2.5" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'ecosystem' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="320" cy="180" r="112" fill="#FFFFFF" stroke="#0F766E" stroke-width="3" />
+          <path d="M212 212 Q265 150 320 195 T428 176" fill="none" stroke="#0B1F3A" stroke-width="3.5" />
+          <path d="M292 238 C292 178, 348 145, 368 118 C368 168, 336 218, 292 238 Z" fill="#CCFBF1" stroke="#0F766E" stroke-width="3" />
+          <line x1="292" y1="238" x2="345" y2="154" stroke="#0B1F3A" stroke-width="2.5" />
+          <circle cx="268" cy="130" r="14" fill="none" stroke="#0B1F3A" stroke-width="2.5" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'marine' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <path d="M120 128 Q170 108 220 128 T320 128 T420 128 T520 128" fill="none" stroke="#0369A1" stroke-width="3" />
+          <path d="M140 162 Q190 144 240 162 T340 162 T440 162 T500 162" fill="none" stroke="#0F766E" stroke-width="2.2" stroke-dasharray="5 5" />
+          <path d="M320 295 L320 212 M320 248 C288 238, 274 210, 278 188 M320 232 C352 222, 368 196, 364 176 M320 212 C304 192, 304 172, 314 156" fill="none" stroke="#0B1F3A" stroke-width="5" />
+          <circle cx="278" cy="188" r="7" fill="#2DD4BF" />
+          <circle cx="364" cy="176" r="7" fill="#2DD4BF" />
+          <circle cx="314" cy="156" r="7" fill="#0F766E" />
+          <circle cx="215" cy="235" r="18" fill="none" stroke="#0F766E" stroke-width="2.5" />
+          <circle cx="430" cy="242" r="14" fill="none" stroke="#0369A1" stroke-width="2.5" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'leaf' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <path d="M195 255 C210 135, 325 90, 445 105 C430 225, 315 270, 195 255 Z" fill="#F0FDFA" stroke="#0F766E" stroke-width="4" />
+          <path d="M195 255 Q315 178 445 105" fill="none" stroke="#0B1F3A" stroke-width="3.5" />
+          <path d="M262 212 L252 162 M315 178 L302 128 M368 148 L358 112 M285 198 L338 208 M338 164 L388 174" fill="none" stroke="#0F766E" stroke-width="2.5" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'zoology' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="320" cy="172" r="72" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3.5" />
+          <path d="M248 172 C248 128, 392 128, 392 172" fill="#CCFBF1" stroke="#0F766E" stroke-width="3" />
+          <path d="M276 238 C272 268, 258 288, 246 304 M304 242 C302 274, 296 294, 290 312 M336 242 C338 274, 344 294, 350 312 M364 238 C368 268, 382 288, 394 304" fill="none" stroke="#0B1F3A" stroke-width="3" />
+          <circle cx="320" cy="156" r="14" fill="#0F766E" />
+        </g>
+      )
+    }
+
+    {
+      motif === 'phylogeny' && (
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <path d="M140 180 L230 180 M230 118 L230 242 M230 118 L335 118 M230 242 L310 242 M335 88 L335 148 M335 88 L475 88 M335 148 L475 148 M310 208 L310 276 M310 208 L475 208 M310 276 L410 276 M410 254 L410 298 M410 254 L475 254 M410 298 L475 298" fill="none" stroke="#0B1F3A" stroke-width="3.8" />
+          <circle cx="475" cy="88" r="6.5" fill="#0F766E" />
+          <circle cx="475" cy="148" r="6.5" fill="#0F766E" />
+          <circle cx="475" cy="208" r="6.5" fill="#0B1F3A" />
+          <circle cx="475" cy="254" r="6.5" fill="#0F766E" />
+          <circle cx="475" cy="298" r="6.5" fill="#0B1F3A" />
+        </g>
+      )
+    }
+  </svg>
+</figure>

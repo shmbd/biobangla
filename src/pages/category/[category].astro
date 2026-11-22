@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { CATEGORY_LIST, type CategoryMeta } from '../../lib/categories';
+import { toBanglaDigits } from '../../lib/formatters';
+import { withBase } from '../../lib/urls';
+
+export async function getStaticPaths() {
+  const allArticles = (await getCollection('articles'))
+    .filter((a) => a.data.status === 'published' || a.data.status === 'sample')
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  const allExplainers = (await getCollection('explainers')).filter(
+    (e) => e.data.status === 'published' || e.data.status === 'sample'
+  );
+
+  return CATEGORY_LIST.map((categoryMeta) => ({
+    params: { category: categoryMeta.slug },
+    props: {
+      categoryMeta,
+      articles: allArticles.filter((a) => a.data.category === categoryMeta.slug),
+      explainers: allExplainers.filter((e) => e.data.category === categoryMeta.slug),
+    },
+  }));
+}
+
+interface Props {
+  categoryMeta: CategoryMeta;
+  articles: Awaited<ReturnType<typeof getCollection<'articles'>>>;
+  explainers: Awaited<ReturnType<typeof getCollection<'explainers'>>>;
+}
+
+const { categoryMeta, articles, explainers } = Astro.props;
+---
+
+<BaseLayout
+  title={`${categoryMeta.nameBn} (${categoryMeta.nameEn})`}
+  description={categoryMeta.descriptionBn}
+  indexForSearch={true}
+>
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <nav aria-label="পৃষ্ঠা অবস্থান" class="mb-5 text-xs text-slate-500 sm:text-sm">
+      <ol class="flex items-center gap-2">
+        <li><a href={withBase('/')} class="hover:text-teal-800 hover:underline">মূল পাতা</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href={withBase('/categories')} class="hover:text-teal-800 hover:underline">বিভাগসমূহ</a></li>
+        <li aria-hidden="true">/</li>
+        <li class="font-medium text-slate-800" aria-current="page">{categoryMeta.nameBn}</li>
+      </ol>
+    </nav>
+
+    <header class="rounded-xl border border-slate-200 bg-slate-50/70 p-6 sm:p-8">
+      <span class="text-xs font-bold tracking-wider text-teal-800 uppercase">
+        বিভাগ • {categoryMeta.nameEn}
+      </span>
+      <h1 data-pagefind-meta="title" class="mt-1.5 text-3xl font-bold text-[#0B1F3A] sm:text-4xl">
+        {categoryMeta.nameBn}
+      </h1>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-slate-700">
+        {categoryMeta.descriptionBn}
+      </p>
+      <p class="mt-4 text-xs font-medium text-slate-500">
+        প্রকাশিত প্রতিবেদন সংখ্যা: {toBanglaDigits(articles.length)}টি
+      </p>
+    </header>
+
+    {
+      articles.length > 0 ? (
+        <section aria-label={`${categoryMeta.nameBn} গবেষণা তালিকা`} class="mt-8">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {articles.map((article) => (
+              <ArticleCard article={article} />
+            ))}
+          </div>
+        </section>
+      ) : (
+        <div class="mt-8 rounded-lg border border-slate-200 bg-white p-8 text-center">
+          <p class="text-base text-slate-600">এই বিভাগে নতুন প্রতিবেদন শীঘ্রই যুক্ত হবে।</p>
+        </div>
+      )
+    }
+
+    {
+      explainers.length > 0 && (
+        <section class="mt-14 border-t border-slate-200 pt-8">
+          <h2 class="text-xl font-bold text-[#0B1F3A]">
+            {categoryMeta.nameBn} বিষয়ক বিজ্ঞান সহায়িকা
+          </h2>
+          <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {explainers.map((exp) => (
+              <a
+                href={withBase(`/explainers/${exp.id}`)}
+                class="editorial-card block rounded-lg border border-teal-200 bg-teal-50/40 p-5"
+              >
+                <span class="text-xs font-semibold text-teal-800">বিজ্ঞান সহায়িকা • {exp.data.difficulty}</span>
+                <h3 class="mt-1 text-lg font-bold text-[#0B1F3A]">{exp.data.title}</h3>
+                <p class="mt-1.5 text-sm text-slate-600">{exp.data.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>

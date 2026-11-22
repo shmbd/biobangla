@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="জীববিজ্ঞান — বিজ্ঞানের নতুন আবিষ্কার, বাংলায় সহজ ব্যাখ্যা।">
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect x="36" y="36" width="1128" height="558" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+  <rect x="36" y="36" width="1128" height="12" fill="#0B1F3A"/>
+  <g transform="translate(920, 120)" opacity="0.9">
+    <circle cx="110" cy="195" r="145" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+    <circle cx="110" cy="195" r="98" fill="none" stroke="#99F6E4" stroke-width="2" stroke-dasharray="6 6"/>
+    <path d="M50 70 C110 70, 110 140, 170 140 C110 140, 110 210, 50 210 C110 210, 110 280, 170 280" fill="none" stroke="#0F766E" stroke-width="5" stroke-linecap="round"/>
+    <path d="M170 70 C110 70, 110 140, 50 140 C110 140, 110 210, 170 210 C110 210, 110 280, 50 280" fill="none" stroke="#0B1F3A" stroke-width="5" stroke-linecap="round"/>
+    <line x1="72" y1="105" x2="148" y2="105" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="72" y1="175" x2="148" y2="175" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="72" y1="245" x2="148" y2="245" stroke="#64748B" stroke-width="2.5"/>
+  </g>
+  <text x="96" y="160" font-family="'Noto Sans Bengali', sans-serif" font-size="22" font-weight="600" fill="#0F766E" letter-spacing="2">BIOBANGLA • বিজ্ঞান সাময়িকী</text>
+  <text x="96" y="275" font-family="'Noto Sans Bengali', sans-serif" font-size="84" font-weight="700" fill="#0B1F3A">জীববিজ্ঞান</text>
+  <line x1="96" y1="315" x2="280" y2="315" stroke="#0F766E" stroke-width="4"/>
+  <text x="96" y="380" font-family="'Noto Sans Bengali', sans-serif" font-size="36" font-weight="500" fill="#1E293B">বিজ্ঞানের নতুন আবিষ্কার, বাংলায় সহজ ব্যাখ্যা।</text>
+  <text x="96" y="450" font-family="'Noto Sans Bengali', sans-serif" font-size="24" fill="#475569">অণুজীববিজ্ঞান • জিনতত্ত্ব • চিকিৎসা জীববিজ্ঞান • পরিবেশ ও বিবর্তন</text>
+  <text x="96" y="535" font-family="system-ui, sans-serif" font-size="20" fill="#64748B">অলাভজনক শিক্ষামূলক বিজ্ঞান সাংবাদিকতা প্ল্যাটফর্ম</text>
+</svg>

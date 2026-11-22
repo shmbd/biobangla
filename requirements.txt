@@ -1,0 +1,3 @@
+# জীববিজ্ঞান (biobangla) — Python 3.12 Research Automation & QC Pipeline Dependencies
+PyYAML>=6.0.2,<7.0.0
+pytest>=8.3.0,<9.0.0

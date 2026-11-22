@@ -1,0 +1,63 @@
+name: "CI — স্বয়ংক্রিয় পরীক্ষা (Python & Astro Tests)"
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - "state/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: biobangla-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-python:
+    name: "Python 3.12 Pipeline Unit Tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+
+      - name: Run pytest suite
+        run: python -m pytest -v
+
+  test-frontend:
+    name: "Astro Build, Content Schema, Search & Link Verification"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d0673f47c9b74978809276 # v4.2.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Run Astro check, build & subpath/link test suite
+        env:
+          ASTRO_TELEMETRY_DISABLED: "1"
+        run: |
+          npm run check
+          npm run build
+          npm test

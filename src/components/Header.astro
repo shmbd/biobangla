@@ -1,0 +1,195 @@
+---
+import Logo from './Logo.astro';
+import { CATEGORY_LIST } from '../lib/categories';
+import { withBase } from '../lib/urls';
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'মূল পাতা' },
+  { href: '/news', label: 'সকল গবেষণা' },
+  { href: '/categories', label: 'বিভাগসমূহ' },
+  { href: '/explainers', label: 'বিজ্ঞান সহায়িকা' },
+  { href: '/editorial-policy', label: 'সম্পাদনা নীতিমালা' },
+  { href: '/about', label: 'পরিচিতি' },
+];
+
+function isActive(href: string): boolean {
+  const target = withBase(href);
+  if (href === '/') {
+    return currentPath === target || currentPath === `${target.replace(/\/$/, '')}`;
+  }
+  return currentPath.startsWith(target);
+}
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
+  <!-- Editorial Top Strip -->
+  <div class="border-b border-slate-100 bg-slate-50 text-xs text-slate-600">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
+      <p class="font-medium text-slate-700">
+        বিজ্ঞানের নতুন আবিষ্কার, বাংলায় সহজ ব্যাখ্যা।
+      </p>
+      <div class="hidden items-center gap-4 sm:flex">
+        <span class="text-slate-500">অলাভজনক শিক্ষামূলক বিজ্ঞান সাংবাদিকতা</span>
+        <span aria-hidden="true" class="text-slate-300">|</span>
+        <a href={withBase('/sources-attribution')} class="hover:text-teal-800 hover:underline">
+          উৎস ও লাইসেন্স
+        </a>
+        <a href={withBase('/rss.xml')} class="hover:text-teal-800 hover:underline">
+          RSS ফিড
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Masthead -->
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between gap-4 sm:h-20">
+      <Logo showTagline={false} />
+
+      <!-- Desktop Primary Navigation -->
+      <nav aria-label="প্রধান নেভিগেশন" class="hidden items-center gap-1 lg:flex">
+        {
+          navLinks.map((item) => (
+            <a
+              href={withBase(item.href)}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={[
+                'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                isActive(item.href)
+                  ? 'bg-slate-100 text-[#0B1F3A] font-semibold'
+                  : 'text-slate-700 hover:bg-slate-50 hover:text-[#0B1F3A]',
+              ]}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <!-- Search & Mobile Menu Controls -->
+      <div class="flex items-center gap-2">
+        <a
+          href={withBase('/search')}
+          class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:border-teal-700 hover:text-[#0B1F3A]"
+          aria-label="গবেষণা ও প্রবন্ধ অনুসন্ধান করুন"
+        >
+          <svg class="h-4 w-4 text-teal-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" stroke-linecap="round" />
+          </svg>
+          <span class="hidden sm:inline">অনুসন্ধান</span>
+        </a>
+
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          class="inline-flex items-center justify-center rounded-md border border-slate-300 p-2 text-slate-700 hover:bg-slate-50 lg:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-nav-drawer"
+          aria-label="মেনু খুলুন বা বন্ধ করুন"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Strip -->
+  <nav
+    aria-label="বিজ্ঞানের বিভাগসমূহ"
+    class="border-t border-slate-100 bg-white"
+  >
+    <div class="mx-auto max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-8">
+      <ul class="flex items-center gap-1 py-2 text-xs font-medium whitespace-nowrap sm:gap-2 sm:text-[0.82rem]">
+        {
+          CATEGORY_LIST.map((cat) => {
+            const href = `/category/${cat.slug}`;
+            const active = isActive(href);
+            return (
+              <li>
+                <a
+                  href={withBase(href)}
+                  aria-current={active ? 'page' : undefined}
+                  class:list={[
+                    'inline-block rounded px-2.5 py-1 transition-colors',
+                    active
+                      ? 'bg-[#0B1F3A] text-white font-semibold'
+                      : 'text-slate-600 hover:bg-slate-100 hover:text-[#0B1F3A]',
+                  ]}
+                >
+                  {cat.nameBn}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    id="mobile-nav-drawer"
+    hidden
+    class="border-t border-slate-200 bg-white px-4 py-4 shadow-sm lg:hidden"
+  >
+    <nav aria-label="মোবাইল নেভিগেশন" class="space-y-1">
+      {
+        navLinks.map((item) => (
+          <a
+            href={withBase(item.href)}
+            class:list={[
+              'block rounded-md px-3 py-2 text-base font-medium',
+              isActive(item.href)
+                ? 'bg-slate-100 text-[#0B1F3A] font-semibold'
+                : 'text-slate-700 hover:bg-slate-50',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <div class="mt-3 border-t border-slate-200 pt-3">
+        <p class="px-3 pb-1 text-xs font-semibold tracking-wider text-slate-500 uppercase">
+          গুরুত্বপূর্ণ লিংক
+        </p>
+        <a href={withBase('/sources-attribution')} class="block rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50">
+          উৎস ও স্বীকৃতি
+        </a>
+        <a href={withBase('/contact')} class="block rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50">
+          যোগাযোগ ও সংশোধনী
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const drawer = document.getElementById('mobile-nav-drawer');
+    if (!toggleBtn || !drawer) return;
+
+    toggleBtn.addEventListener('click', function () {
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!expanded));
+      if (expanded) {
+        drawer.setAttribute('hidden', '');
+      } else {
+        drawer.removeAttribute('hidden');
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !drawer.hasAttribute('hidden')) {
+        drawer.setAttribute('hidden', '');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.focus();
+      }
+    });
+  })();
+</script>

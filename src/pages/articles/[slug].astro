@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const allArticles = (await getCollection('articles'))
+    .filter((a) => a.data.status === 'published' || a.data.status === 'sample')
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  const allExplainers = (await getCollection('explainers')).filter(
+    (e) => e.data.status === 'published' || e.data.status === 'sample'
+  );
+
+  return allArticles.map((article) => {
+    const sameCategory = allArticles.filter(
+      (other) => other.id !== article.id && other.data.category === article.data.category
+    );
+    const otherRecent = allArticles.filter(
+      (other) => other.id !== article.id && other.data.category !== article.data.category
+    );
+    const relatedArticles = [...sameCategory, ...otherRecent].slice(0, 3);
+
+    const relatedExplainers = [
+      ...allExplainers.filter((e) => e.data.category === article.data.category),
+      ...allExplainers.filter((e) => e.data.category !== article.data.category),
+    ].slice(0, 2);
+
+    return {
+      params: { slug: article.id },
+      props: {
+        article,
+        relatedArticles,
+        relatedExplainers,
+      },
+    };
+  });
+}
+
+const { article, relatedArticles, relatedExplainers } = Astro.props;
+const { Content, headings } = await render(article);
+---
+
+<ArticleLayout
+  article={article}
+  headings={headings}
+  relatedArticles={relatedArticles}
+  relatedExplainers={relatedExplainers}
+>
+  <Content />
+</ArticleLayout>

@@ -1,0 +1,154 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import CssIllustration from '../components/CssIllustration.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCategoryMeta } from '../lib/categories';
+import {
+  estimateReadingTimeMinutes,
+  formatBanglaDate,
+  formatReadingTimeBn,
+} from '../lib/formatters';
+import { withBase } from '../lib/urls';
+
+interface Props {
+  explainer: CollectionEntry<'explainers'>;
+  relatedArticles: CollectionEntry<'articles'>[];
+}
+
+const { explainer, relatedArticles } = Astro.props;
+const { data, body } = explainer;
+const categoryMeta = getCategoryMeta(data.category);
+const readingMinutes = estimateReadingTimeMinutes(body || data.description);
+const motif = data.illustration_motif || categoryMeta.illustration;
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  ogType="article"
+  publishedTime={data.date.toISOString()}
+  indexForSearch={true}
+>
+  <article class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <nav aria-label="পৃষ্ঠা অবস্থান" class="mb-6 text-xs text-slate-500 sm:text-sm">
+      <ol class="flex flex-wrap items-center gap-2">
+        <li><a href={withBase('/')} class="hover:text-teal-800 hover:underline">মূল পাতা</a></li>
+        <li aria-hidden="true">/</li>
+        <li>
+          <a href={withBase('/explainers')} class="font-medium text-teal-800 hover:underline">
+            বিজ্ঞান সহায়িকা
+          </a>
+        </li>
+        <li aria-hidden="true">/</li>
+        <li class="text-slate-700" aria-current="page">{categoryMeta.nameBn}</li>
+      </ol>
+    </nav>
+
+    <header>
+      <div class="mb-3 flex flex-wrap items-center gap-2 text-xs">
+        <span class="rounded border border-teal-200 bg-teal-50 px-2.5 py-0.5 font-semibold text-teal-900">
+          বিজ্ঞান সহায়িকা (Explainer)
+        </span>
+        <span class="rounded border border-slate-200 bg-slate-100 px-2.5 py-0.5 font-medium text-slate-700">
+          পাঠস্তর: {data.difficulty}
+        </span>
+        <a
+          href={withBase(`/category/${categoryMeta.slug}`)}
+          class="font-semibold text-teal-800 hover:underline"
+        >
+          {categoryMeta.nameBn}
+        </a>
+      </div>
+
+      <h1
+        data-pagefind-meta="title"
+        class="text-2xl font-bold leading-snug text-[#0B1F3A] sm:text-4xl"
+      >
+        {data.title}
+      </h1>
+
+      <p class="mt-4 text-lg leading-relaxed text-slate-700">
+        {data.description}
+      </p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-4 border-y border-slate-200 py-3 text-xs text-slate-600 sm:text-sm">
+        <span>রচনায়: <strong class="text-slate-800">{data.desk}</strong></span>
+        <span>হালনাগাদ: <time datetime={data.date.toISOString()}>{formatBanglaDate(data.date)}</time></span>
+        <span class="font-medium text-teal-800">{formatReadingTimeBn(readingMinutes)}</span>
+      </div>
+    </header>
+
+    <div class="my-8">
+      <CssIllustration motif={motif} title={data.title} />
+    </div>
+
+    <div class="editorial-prose">
+      <slot />
+    </div>
+
+    {
+      data.key_terms.length > 0 && (
+        <section
+          aria-labelledby="glossary-box-heading"
+          class="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-6"
+        >
+          <h2 id="glossary-box-heading" class="text-lg font-bold text-[#0B1F3A]">
+            গুরুত্বপূর্ণ বৈজ্ঞানিক পরিভাষা
+          </h2>
+          <dl class="mt-4 space-y-3 text-sm">
+            {data.key_terms.map((item) => (
+              <div class="border-b border-slate-200/70 pb-3 last:border-b-0 last:pb-0">
+                <dt class="font-bold text-slate-900">
+                  {item.bn} <span class="font-mono text-xs font-normal text-teal-800">({item.en})</span>
+                </dt>
+                <dd class="mt-1 text-slate-700">{item.meaning}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )
+    }
+
+    {
+      data.references.length > 0 && (
+        <section class="mt-8 rounded-lg border border-slate-200 bg-white p-5 text-sm">
+          <h2 class="font-bold text-[#0B1F3A]">তথ্যসূত্র ও অধিকতর পাঠ</h2>
+          <ul class="mt-3 list-disc space-y-1.5 pl-5 text-slate-700">
+            {data.references.map((ref) => (
+              <li>
+                <a
+                  href={ref.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-teal-800 underline hover:text-[#0B1F3A]"
+                >
+                  {ref.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      relatedArticles.length > 0 && (
+        <section
+          aria-labelledby="explainer-related-articles"
+          class="mt-14 border-t border-slate-200 pt-10"
+          data-pagefind-ignore
+        >
+          <h2 id="explainer-related-articles" class="mb-6 text-xl font-bold text-[#0B1F3A]">
+            এই বিষয়ের গবেষণা প্রতিবেদনসমূহ
+          </h2>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {relatedArticles.map((art) => (
+              <ArticleCard article={art} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>

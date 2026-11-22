@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="উৎস ও স্বীকৃতি (Sources & Attribution)"
+  description="জীববিজ্ঞান (biobangla)-এ ব্যবহৃত বৈজ্ঞানিক ডেটাবেস, ওপেন-অ্যাক্সেস এপিআই, আরএসএস ফিড এবং কপিরাইট ও লাইসেন্স নীতিমালা।"
+  indexForSearch={true}
+>
+  <div class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <span class="text-xs font-bold tracking-wider text-teal-800 uppercase">উন্মুক্ত বিজ্ঞান ও কপিরাইট</span>
+    <h1 data-pagefind-meta="title" class="mt-1 text-3xl font-bold text-[#0B1F3A] sm:text-4xl">
+      উৎস, লাইসেন্স ও স্বীকৃতি নীতিমালা
+    </h1>
+
+    <div class="editorial-prose mt-6">
+      <p>
+        জীববিজ্ঞান (biobangla) উন্মুক্ত বিজ্ঞান (Open Science) এবং বৌদ্ধিক সম্পদের আইনি ও নৈতিক সুরক্ষার প্রতি
+        পূর্ণ শ্রদ্ধাশীল। আমরা কেবল অনুমোদিত পাবলিক এপিআই এবং উন্মুক্ত আরএসএস ফিড থেকে গবেষণার মেটাডেটা ও সারসংক্ষেপের তথ্য
+        সংগ্রহ করি।
+      </p>
+
+      <h2>অনুমোদিত বৈজ্ঞানিক তথ্যসূত্রসমূহ</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>উৎস / ডেটাবেস</th>
+            <th>ব্যবহৃত মাধ্যম</th>
+            <th>পিয়ার-রিভিউ ও লাইসেন্স নোট</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Europe PMC</strong></td>
+            <td>অফিশিয়াল REST API</td>
+            <td>ওপেন-অ্যাক্সেস মেটাডেটা, লাইসেন্স ফ্ল্যাগ এবং পিয়ার-রিভিউ/প্রিপ্রিন্ট শনাক্তকরণ।</td>
+          </tr>
+          <tr>
+            <td><strong>PubMed (NCBI)</strong></td>
+            <td>NCBI E-utilities</td>
+            <td>বায়োমেডিক্যাল জার্নাল মেটাডেটা ও PMID শনাক্তকারী (রেট-লিমিট ও টুল নীতি অনুসৃত)।</td>
+          </tr>
+          <tr>
+            <td><strong>Crossref</strong></td>
+            <td>Polite Pool REST API</td>
+            <td>DOI যাচাইকরণ, প্রকাশক মেটাডেটা এবং লাইসেন্স ইউআরএল পরীক্ষা।</td>
+          </tr>
+          <tr>
+            <td><strong>PLOS Journals</strong></td>
+            <td>PLOS API ও Atom Feed</td>
+            <td>পিয়ার-রিভিউকৃত ওপেন-অ্যাক্সেস গবেষণা (সাধারণত <code>CC BY 4.0</code>)।</td>
+          </tr>
+          <tr>
+            <td><strong>eLife</strong></td>
+            <td>পাবলিক RSS/XML Feed</td>
+            <td>ওপেন-অ্যাক্সেস জীববিজ্ঞান গবেষণা (<code>CC BY 4.0</code>)।</td>
+          </tr>
+          <tr>
+            <td><strong>bioRxiv</strong></td>
+            <td>অফিশিয়াল bioRxiv API</td>
+            <td>সর্বদা <strong>প্রিপ্রিন্ট (অ-পর্যালোচিত)</strong> হিসেবে চিহ্নিত।</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>কপিরাইট ও চিত্র ব্যবহারের কঠোর নিয়ম</h2>
+      <ul>
+        <li>আমরা কখনোই কোনো পে-ওয়াল অতিক্রম করি না বা সংরক্ষিত পূর্ণাঙ্গ গবেষণাপত্র ডাউনলোড ও পুনঃপ্রকাশ করি না।</li>
+        <li>মূল অ্যাবস্ট্রাক্ট বা প্রবন্ধের হুবহু অনুবাদ প্রকাশ করা হয় না; কেবল তথ্যের ভিত্তিতে মৌলিক বাংলা সাংবাদিকতা রচিত হয়।</li>
+        <li>
+          অনুমতি ছাড়া কোনো প্রকাশকের কপিরাইটযুক্ত চিত্র ব্যবহার করা হয় না। ওয়েবসাইটে ব্যবহৃত ডায়াগ্রামগুলো আমাদের নিজস্ব মৌলিক
+          <code>SVG/CSS</code> বৈজ্ঞানিক রেখাচিত্র, অথবা সুস্পষ্ট উন্মুক্ত লাইসেন্সযুক্ত (<code>CC0</code>, <code>CC BY</code>,{' '}
+          <code>CC BY-SA</code>) চিত্র যার পূর্ণ স্বীকৃতি (Attribution) নিবন্ধে উল্লেখ থাকে।
+        </li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

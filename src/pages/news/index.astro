@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { toBanglaDigits } from '../../lib/formatters';
+
+const articles = (await getCollection('articles'))
+  .filter((a) => a.data.status === 'published' || a.data.status === 'sample')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout
+  title="সকল গবেষণা সংবাদ আর্কাইভ"
+  description="জীববিজ্ঞান (biobangla) প্ল্যাটফর্মে প্রকাশিত সকল মৌলিক গবেষণা, পর্যালোচনামূলক প্রবন্ধ ও প্রিপ্রিন্ট বিশ্লেষণের সম্পূর্ণ আর্কাইভ।"
+>
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <header class="border-b border-slate-200 pb-6">
+      <span class="text-xs font-bold tracking-wider text-teal-800 uppercase">গবেষণা সংরক্ষণাগার</span>
+      <h1 class="mt-1 text-3xl font-bold text-[#0B1F3A] sm:text-4xl">সকল গবেষণা প্রতিবেদন</h1>
+      <p class="mt-2 max-w-3xl text-base text-slate-600">
+        মোট {toBanglaDigits(articles.length)}টি প্রতিবেদন সংরক্ষিত রয়েছে। গবেষণার ধরন অনুযায়ী নিচের বাটন ব্যবহার করে
+        মৌলিক গবেষণা, রিভিউ প্রবন্ধ এবং অ-পর্যালোচিত প্রিপ্রিন্ট আলাদাভাবে দেখতে পারেন।
+      </p>
+
+      <!-- Accessible Client-side Filter by Research Type -->
+      <div
+        role="group"
+        aria-label="গবেষণার ধরন অনুযায়ী ফিল্টার"
+        class="mt-5 flex flex-wrap gap-2"
+      >
+        <button
+          type="button"
+          data-filter="all"
+          aria-pressed="true"
+          class="archive-filter-btn rounded-md border border-[#0B1F3A] bg-[#0B1F3A] px-3.5 py-1.5 text-xs font-semibold text-white"
+        >
+          সকল প্রতিবেদন ({toBanglaDigits(articles.length)})
+        </button>
+        <button
+          type="button"
+          data-filter="original-research"
+          aria-pressed="false"
+          class="archive-filter-btn rounded-md border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-teal-700"
+        >
+          মৌলিক গবেষণা
+        </button>
+        <button
+          type="button"
+          data-filter="review"
+          aria-pressed="false"
+          class="archive-filter-btn rounded-md border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-teal-700"
+        >
+          পর্যালোচনামূলক প্রবন্ধ (Review)
+        </button>
+        <button
+          type="button"
+          data-filter="preprint"
+          aria-pressed="false"
+          class="archive-filter-btn rounded-md border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-teal-700"
+        >
+          প্রিপ্রিন্ট (অ-পর্যালোচিত)
+        </button>
+      </div>
+    </header>
+
+    <div id="archive-grid" class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        articles.map((article) => (
+          <div data-research-type={article.data.research_type}>
+            <ArticleCard article={article} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var buttons = document.querySelectorAll('.archive-filter-btn');
+    var cards = document.querySelectorAll('#archive-grid > [data-research-type]');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var selected = btn.getAttribute('data-filter') || 'all';
+        buttons.forEach(function (b) {
+          var active = b === btn;
+          b.setAttribute('aria-pressed', String(active));
+          b.className = active
+            ? 'archive-filter-btn rounded-md border border-[#0B1F3A] bg-[#0B1F3A] px-3.5 py-1.5 text-xs font-semibold text-white'
+            : 'archive-filter-btn rounded-md border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-teal-700';
+        });
+        cards.forEach(function (card) {
+          var type = card.getAttribute('data-research-type');
+          if (selected === 'all' || type === selected) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  })();
+</script>

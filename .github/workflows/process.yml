@@ -1,0 +1,93 @@
+name: "২. বাংলা বিজ্ঞান নিবন্ধ প্রস্তুত ও মান নিয়ন্ত্রণ (Process & QC)"
+
+on:
+  schedule:
+    - cron: "45 */12 * * *"
+  workflow_dispatch:
+    inputs:
+      max_articles:
+        description: "একবারে সর্বোচ্চ প্রক্রিয়াকৃত নিবন্ধ সংখ্যা"
+        required: false
+        default: "3"
+        type: string
+      dry_run:
+        description: "শুধু যাচাই করুন (ফাইল সংরক্ষণ ছাড়া Dry Run)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biobangla-content-pipeline
+  cancel-in-progress: false
+
+jobs:
+  process:
+    name: "Generate Bangla Journalism & Enforce Quality Gates"
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Set up Node.js 22 for Astro schema verification
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d0673f47c9b74978809276 # v4.2.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          npm ci
+
+      - name: Run AI writer, independent QC validator & publisher
+        env:
+          AI_PROVIDER: ${{ secrets.AI_PROVIDER || 'mock' }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          AI_TEMPERATURE: "0.2"
+          MAX_ARTICLES_TO_PUBLISH: ${{ inputs.max_articles || '3' }}
+          PIPELINE_DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+        run: python scripts/run_process.py
+
+      - name: Validate Astro Content Schemas before committing
+        env:
+          ASTRO_TELEMETRY_DISABLED: "1"
+        run: npm run check
+
+      - name: Upload QC & publication audit logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: processing-qc-logs-${{ github.run_id }}
+          path: |
+            state/logs/last_process_report.json
+            state/logs/publication_log.jsonl
+            state/review_queue/
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Commit PASS articles & REVIEW queue safely
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "biobangla-editorial[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/articles/ state/review_queue/ state/logs/publication_log.jsonl state/logs/last_process_report.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No new PASS articles or REVIEW items to commit."
+            exit 0
+          fi
+          git commit -m "content(publish): add QC-verified Bangla research summaries"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

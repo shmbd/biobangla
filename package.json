@@ -1,0 +1,35 @@
+{
+  "name": "biobangla",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "জীববিজ্ঞান (biobangla) — বিজ্ঞানের নতুন আবিষ্কার, বাংলায় সহজ ব্যাখ্যা। Educational Bangla biological science journalism platform.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build:astro": "astro build",
+    "build:search": "pagefind --site dist",
+    "build": "node scripts/build_site.mjs build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "node scripts/build_site.mjs check",
+    "test:frontend": "node tests/frontend/verify_build.mjs",
+    "test": "node tests/frontend/verify_build.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.3.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "astro": "^5.5.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/node": "^22.13.0",
+    "pagefind": "^1.3.0",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

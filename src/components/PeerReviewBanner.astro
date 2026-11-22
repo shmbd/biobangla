@@ -1,0 +1,86 @@
+---
+import {
+  RESEARCH_TYPE_LABELS,
+  STUDY_MODEL_LABELS,
+  type PublicationStatus,
+  type ResearchType,
+  type StudyModel,
+} from '../lib/formatters';
+
+interface Props {
+  researchType: ResearchType;
+  peerReviewed: boolean;
+  publicationStatus: PublicationStatus;
+  studyModel?: StudyModel;
+  journal: string;
+  isSample?: boolean;
+}
+
+const {
+  researchType,
+  peerReviewed,
+  publicationStatus,
+  studyModel = 'multi-study',
+  journal,
+  isSample = false,
+} = Astro.props;
+
+const isPreprint =
+  researchType === 'preprint' || publicationStatus === 'preprint' || !peerReviewed;
+const typeMeta = RESEARCH_TYPE_LABELS[researchType] || RESEARCH_TYPE_LABELS['original-research'];
+const studyModelText = STUDY_MODEL_LABELS[studyModel] || STUDY_MODEL_LABELS['multi-study'];
+---
+
+<aside
+  aria-label="বৈজ্ঞানিক যাচাই ও প্রকাশনার অবস্থা"
+  class:list={[
+    'my-6 rounded-lg border p-4 sm:p-5',
+    isPreprint
+      ? 'border-amber-300 bg-amber-50/80 text-amber-950'
+      : 'border-teal-200 bg-teal-50/50 text-slate-900',
+  ]}
+>
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+    <div>
+      <p class="text-xs font-bold tracking-wider uppercase">
+        {
+          isPreprint
+            ? 'সতর্কবার্তা: প্রিপ্রিন্ট গবেষণা (এখনও পিয়ার-রিভিউকৃত নয়)'
+            : `বৈজ্ঞানিক যাচাইকরণ: পিয়ার-রিভিউকৃত (${typeMeta.labelBn})`
+        }
+      </p>
+      <p class="mt-1.5 text-sm leading-relaxed">
+        {
+          isPreprint ? (
+            <>
+              এই প্রতিবেদনটি <strong>{journal}</strong> সার্ভারে প্রকাশিত একটি{' '}
+              <strong>প্রিপ্রিন্ট (Preprint)</strong> পাণ্ডুলিপির ওপর ভিত্তি করে রচিত। এটি এখনও স্বাধীন সমকক্ষ
+              বিজ্ঞানীদের দ্বারা আনুষ্ঠানিক পিয়ার-রিভিউ প্রক্রিয়া সম্পন্ন করেনি। তাই এর ফলাফলগুলো প্রাথমিক বৈজ্ঞানিক
+              তথ্য হিসেবে বিবেচ্য এবং ক্লিনিক্যাল সিদ্ধান্তের ভিত্তি হিসেবে ব্যবহারযোগ্য নয়।
+            </>
+          ) : (
+            <>
+              এই প্রতিবেদনটি আন্তর্জাতিক বৈজ্ঞানিক জার্নাল <strong>{journal}</strong>-এ প্রকাশিত{' '}
+              <strong>পিয়ার-রিভিউকৃত ({typeMeta.labelEn})</strong> গবেষণাপত্রের মূল তথ্যের ভিত্তিতে সহজ বাংলায় প্রস্তুত
+              করা হয়েছে।
+            </>
+          )
+        }
+      </p>
+    </div>
+
+    <div class="shrink-0 rounded border border-slate-200 bg-white px-3 py-2 text-xs text-slate-700">
+      <span class="block font-semibold text-slate-900">গবেষণার ধরন ও পরিধি:</span>
+      <span class="mt-0.5 block">{studyModelText}</span>
+    </div>
+  </div>
+
+  {
+    isSample && (
+      <p class="mt-3 border-t border-slate-200/80 pt-2.5 text-xs text-slate-700">
+        <strong>নমুনা নিবন্ধ বিজ্ঞপ্তি:</strong> প্ল্যাটফর্মের কাঠামো প্রদর্শনের জন্য এটি একটি সুস্পষ্টভাবে চিহ্নিত
+        শিক্ষামূলক নমুনা প্রতিবেদন। এতে উদ্ধৃত মূল গবেষণাপত্র, লেখক ও DOI বাস্তব ও যাচাইযোগ্য বৈজ্ঞানিক সাহিত্য থেকে নেওয়া হয়েছে।
+      </p>
+    )
+  }
+</aside>

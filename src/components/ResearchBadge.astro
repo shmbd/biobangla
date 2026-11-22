@@ -1,0 +1,55 @@
+---
+import { RESEARCH_TYPE_LABELS, type ResearchType } from '../lib/formatters';
+
+interface Props {
+  researchType: ResearchType;
+  peerReviewed: boolean;
+  isSample?: boolean;
+  compact?: boolean;
+}
+
+const { researchType, peerReviewed, isSample = false, compact = false } = Astro.props;
+const meta = RESEARCH_TYPE_LABELS[researchType] || RESEARCH_TYPE_LABELS['original-research'];
+---
+
+<div class="inline-flex flex-wrap items-center gap-1.5">
+  <span
+    class:list={[
+      'inline-flex items-center rounded border px-2 py-0.5 font-medium',
+      compact ? 'text-[0.72rem]' : 'text-xs',
+      meta.badgeClass,
+    ]}
+  >
+    {meta.labelBn}
+  </span>
+
+  {
+    researchType !== 'preprint' && (
+      <span
+        class:list={[
+          'inline-flex items-center rounded border px-2 py-0.5 font-medium',
+          compact ? 'text-[0.72rem]' : 'text-xs',
+          peerReviewed
+            ? 'border-emerald-200 bg-emerald-50 text-emerald-900'
+            : 'border-amber-300 bg-amber-50 text-amber-900',
+        ]}
+      >
+        {peerReviewed ? 'পিয়ার-রিভিউকৃত' : 'অ-পর্যালোচিত'}
+      </span>
+    )
+  }
+
+  {
+    isSample && (
+      <span
+        class:list={[
+          'inline-flex items-center rounded border border-slate-300 bg-slate-100 px-2 py-0.5 font-medium text-slate-700',
+          compact ? 'text-[0.72rem]' : 'text-xs',
+        ]}
+        title="প্ল্যাটফর্ম প্রদর্শনের জন্য বাস্তব গবেষণাপত্রভিত্তিক নমুনা শিক্ষামূলক প্রতিবেদন"
+      >
+        নমুনা নিবন্ধ
+      </span>
+    )
+  }
+</div>

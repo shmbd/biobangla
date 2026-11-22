@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+  canonicalHref: string;
+}
+
+const { title, canonicalHref } = Astro.props;
+const encodedUrl = encodeURIComponent(canonicalHref);
+const encodedTitle = encodeURIComponent(`${title} — জীববিজ্ঞান (biobangla)`);
+---
+
+<div
+  class="no-print mt-8 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-slate-200 bg-white px-4 py-3.5"
+  aria-label="নিবন্ধ শেয়ার ও সংরক্ষণ নিয়ন্ত্রণ"
+>
+  <span class="text-sm font-semibold text-slate-700">এই গবেষণা ব্যাখ্যাটি শেয়ার করুন:</span>
+
+  <div class="flex flex-wrap items-center gap-2">
+    <button
+      type="button"
+      data-copy-url={canonicalHref}
+      class="copy-article-link inline-flex items-center gap-1.5 rounded border border-slate-300 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-800 transition-colors hover:border-teal-700 hover:bg-teal-50"
+    >
+      <span>লিংক কপি করুন</span>
+    </button>
+
+    <a
+      href={`mailto:?subject=${encodedTitle}&body=${encodedTitle}%0A${encodedUrl}`}
+      class="inline-flex items-center gap-1.5 rounded border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-teal-700 hover:text-[#0B1F3A]"
+    >
+      ইমেইল করুন
+    </a>
+
+    <button
+      type="button"
+      onclick="window.print()"
+      class="inline-flex items-center gap-1.5 rounded border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-teal-700 hover:text-[#0B1F3A]"
+    >
+      প্রিন্ট / PDF সংরক্ষণ
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('.copy-article-link').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var url = btn.getAttribute('data-copy-url') || window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          var label = btn.querySelector('span');
+          if (label) {
+            var prev = label.textContent;
+            label.textContent = 'লিংক কপি হয়েছে ✓';
+            setTimeout(function () {
+              label.textContent = prev;
+            }, 2200);
+          }
+        });
+      }
+    });
+  });
+</script>

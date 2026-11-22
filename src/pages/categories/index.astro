@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CssIllustration from '../../components/CssIllustration.astro';
+import { CATEGORY_LIST } from '../../lib/categories';
+import { toBanglaDigits } from '../../lib/formatters';
+import { withBase } from '../../lib/urls';
+
+const articles = (await getCollection('articles')).filter(
+  (a) => a.data.status === 'published' || a.data.status === 'sample'
+);
+---
+
+<BaseLayout
+  title="জীববিজ্ঞানের সকল বিভাগসমূহ"
+  description="অণুজীববিজ্ঞান, জীবপ্রযুক্তি, জিনতত্ত্ব, চিকিৎসা জীববিজ্ঞান, রোগপ্রতিরোধবিদ্যা, পরিবেশ, সামুদ্রিক জীববিজ্ঞান, উদ্ভিদবিজ্ঞান, প্রাণিবিজ্ঞান ও বিবর্তন বিভাগ।"
+>
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <header class="border-b border-slate-200 pb-6">
+      <span class="text-xs font-bold tracking-wider text-teal-800 uppercase">বিষয়ভিত্তিক সূচি</span>
+      <h1 class="mt-1 text-3xl font-bold text-[#0B1F3A] sm:text-4xl">
+        গবেষণার দশটি বিশেষায়িত বিভাগ
+      </h1>
+      <p class="mt-2 max-w-3xl text-base text-slate-600">
+        আধুনিক জীববিজ্ঞান ও বায়োমেডিক্যাল বিজ্ঞানের প্রতিটি প্রধান শাখার সাম্প্রতিক গবেষণা সহজ বাংলায় পড়তে আপনার পছন্দের
+        বিভাগ নির্বাচন করুন।
+      </p>
+    </header>
+
+    <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        CATEGORY_LIST.map((cat) => {
+          const count = articles.filter((a) => a.data.category === cat.slug).length;
+          return (
+            <a
+              href={withBase(`/category/${cat.slug}`)}
+              class="editorial-card group flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5"
+            >
+              <div>
+                <CssIllustration motif={cat.illustration} title={cat.nameBn} compact={true} class="mb-4" />
+                <div class="flex items-center justify-between text-xs text-slate-500">
+                  <span>{cat.nameEn}</span>
+                  <span class="rounded bg-slate-100 px-2 py-0.5 font-semibold text-slate-700">
+                    {toBanglaDigits(count)}টি প্রতিবেদন
+                  </span>
+                </div>
+                <h2 class="mt-2 text-xl font-bold text-[#0B1F3A] group-hover:text-teal-800">
+                  {cat.nameBn}
+                </h2>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">{cat.descriptionBn}</p>
+              </div>
+              <span class="mt-4 inline-block text-sm font-semibold text-teal-800 group-hover:underline">
+                এই বিভাগের সকল প্রবন্ধ দেখুন →
+              </span>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</BaseLayout>

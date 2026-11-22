@@ -1,0 +1,337 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedArticle from '../components/FeaturedArticle.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import NewsletterBox from '../components/NewsletterBox.astro';
+import CssIllustration from '../components/CssIllustration.astro';
+import { CATEGORY_LIST, getCategoryMeta } from '../lib/categories';
+import { formatBanglaDate, toBanglaDigits } from '../lib/formatters';
+import { withBase } from '../lib/urls';
+
+const allArticles = (await getCollection('articles'))
+  .filter((a) => a.data.status === 'published' || a.data.status === 'sample')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const allExplainers = (await getCollection('explainers'))
+  .filter((e) => e.data.status === 'published' || e.data.status === 'sample')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const featuredArticle = allArticles.find((a) => a.data.featured) || allArticles[0];
+const latestArticles = allArticles.filter((a) => a.id !== featuredArticle?.id).slice(0, 6);
+const digestArticles = allArticles.slice(0, 5);
+
+// Derive trending/active research topics strictly from actual published tags
+const tagCounts = new Map<string, number>();
+for (const article of allArticles) {
+  for (const tag of article.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  }
+}
+const trendingTags = [...tagCounts.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 10)
+  .map(([tag]) => tag);
+
+// Highlight 4 key category sections on the homepage
+const spotlightSlugs = [
+  'microbiology',
+  'genetics-genomics',
+  'biomedical-science',
+  'environment-biodiversity',
+] as const;
+---
+
+<BaseLayout
+  title="জীববিজ্ঞান (biobangla) — বিজ্ঞানের নতুন আবিষ্কার, বাংলায় সহজ ব্যাখ্যা।"
+  description="জীববিজ্ঞান (biobangla) একটি অলাভজনক শিক্ষামূলক বাংলা বিজ্ঞান সাময়িকী। অণুজীববিজ্ঞান, জিনতত্ত্ব, জীবপ্রযুক্তি, চিকিৎসা জীববিজ্ঞান ও পরিবেশ বিজ্ঞানের সাম্প্রতিক গবেষণার তথ্যনিষ্ঠ বাংলা ব্যাখ্যা।"
+>
+  <div class="mx-auto max-w-7xl space-y-16 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <!-- Sample Content Transparency Strip -->
+    <div
+      role="region"
+      aria-label="সম্পাদকীয় স্বচ্ছতা বিজ্ঞপ্তি"
+      class="flex flex-col justify-between gap-3 rounded-lg border border-teal-200 bg-teal-50/60 px-4 py-3 text-xs text-slate-800 sm:flex-row sm:items-center sm:text-sm"
+    >
+      <p>
+        <strong>স্বাগতম জীববিজ্ঞান সাময়িকীতে:</strong> বর্তমানে প্রদর্শিত প্রতিবেদনগুলো বাস্তব ও যাচাইযোগ্য বৈজ্ঞানিক
+        গবেষণাপত্রের ওপর রচিত সুস্পষ্টভাবে চিহ্নিত <em>নমুনা শিক্ষামূলক নিবন্ধ</em>।
+      </p>
+      <a
+        href={withBase('/editorial-policy')}
+        class="shrink-0 font-semibold text-teal-900 underline hover:text-[#0B1F3A]"
+      >
+        সম্পাদনা নীতিমালা দেখুন →
+      </a>
+    </div>
+
+    <!-- Featured Research Story -->
+    {featuredArticle && <FeaturedArticle article={featuredArticle} />}
+
+    <!-- Trending Scientific Topics + Quick Search Bar -->
+    <section
+      aria-labelledby="trending-topics-heading"
+      class="rounded-lg border border-slate-200 bg-white p-5"
+    >
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex flex-wrap items-center gap-2">
+          <h2
+            id="trending-topics-heading"
+            class="mr-2 text-xs font-bold tracking-wider text-[#0B1F3A] uppercase sm:text-sm"
+          >
+            আলোচিত গবেষণার বিষয়:
+          </h2>
+          {
+            trendingTags.map((tag) => (
+              <a
+                href={`${withBase('/search')}?q=${encodeURIComponent(tag)}`}
+                class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 transition-colors hover:border-teal-700 hover:bg-teal-50 hover:text-teal-950"
+              >
+                {tag}
+              </a>
+            ))
+          }
+        </div>
+
+        <form action={withBase('/search')} method="get" role="search" class="flex w-full gap-2 lg:w-80">
+          <label for="home-quick-search" class="sr-only">গবেষণা অনুসন্ধান করুন</label>
+          <input
+            id="home-quick-search"
+            name="q"
+            type="search"
+            placeholder="বাংলা বা ইংরেজি পরিভাষা লিখুন..."
+            class="w-full rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-teal-700"
+          />
+          <button
+            type="submit"
+            class="shrink-0 rounded-md bg-[#0B1F3A] px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-teal-800"
+          >
+            খুঁজুন
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Latest Research Grid + Weekly Digest -->
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
+      <section aria-labelledby="latest-research-heading" class="lg:col-span-8">
+        <div class="mb-6 flex items-baseline justify-between border-b border-slate-200 pb-3">
+          <h2 id="latest-research-heading" class="text-2xl font-bold text-[#0B1F3A]">
+            সাম্প্রতিক গবেষণা বিশ্লেষণ
+          </h2>
+          <a
+            href={withBase('/news')}
+            class="text-sm font-semibold text-teal-800 hover:text-[#0B1F3A] hover:underline"
+          >
+            সকল প্রতিবেদন দেখুন →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {latestArticles.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </section>
+
+      <!-- Weekly Digest Column -->
+      <aside aria-labelledby="weekly-digest-heading" class="space-y-8 lg:col-span-4">
+        <div class="rounded-lg border border-slate-200 bg-slate-50/80 p-6">
+          <div class="border-b border-slate-200 pb-3">
+            <span class="text-xs font-bold tracking-wider text-teal-800 uppercase">
+              সংকলন • সাপ্তাহিক ডাইজেস্ট
+            </span>
+            <h2 id="weekly-digest-heading" class="mt-1 text-xl font-bold text-[#0B1F3A]">
+              নির্বাচিত গবেষণা সারসংক্ষেপ
+            </h2>
+          </div>
+
+          <ol class="mt-5 space-y-5">
+            {
+              digestArticles.map((item, idx) => {
+                const cat = getCategoryMeta(item.data.category);
+                return (
+                  <li class="flex gap-3.5 border-b border-slate-200/70 pb-4 last:border-b-0 last:pb-0">
+                    <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded bg-[#0B1F3A] text-xs font-bold text-white">
+                      {toBanglaDigits(idx + 1)}
+                    </span>
+                    <div>
+                      <span class="text-xs font-semibold text-teal-800">{cat.nameBn}</span>
+                      <h3 class="mt-0.5 text-sm font-bold leading-snug text-slate-900">
+                        <a
+                          href={withBase(`/articles/${item.id}`)}
+                          class="hover:text-teal-800 hover:underline"
+                        >
+                          {item.data.title}
+                        </a>
+                      </h3>
+                      <p class="mt-1 text-xs text-slate-500">
+                        {item.data.journal} • {formatBanglaDate(item.data.date)}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })
+            }
+          </ol>
+        </div>
+
+        <!-- Editorial Integrity Promise -->
+        <div class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-base font-bold text-[#0B1F3A]">আমাদের বৈজ্ঞানিক অঙ্গীকার</h2>
+          <ul class="mt-3 space-y-2.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+            <li>• প্রতিটি নিবন্ধে মূল জার্নাল, গবেষক ও <strong>DOI</strong> উল্লেখ করা হয়।</li>
+            <li>• <strong>প্রিপ্রিন্ট</strong> পাণ্ডুলিপি কখনোই পিয়ার-রিভিউকৃত গবেষণা হিসেবে দেখানো হয় না।</li>
+            <li>• কোষীয় পরীক্ষা (<em>In-vitro</em>), প্রাণী মডেল ও মানব ট্রায়ালের পার্থক্য স্পষ্ট রাখা হয়।</li>
+            <li>• কোনো অতিরঞ্জিত দাবি বা চিকিৎসা পরামর্শ প্রকাশ করা হয় না।</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Popular Educational Explainers -->
+    <section
+      aria-labelledby="popular-explainers-heading"
+      class="rounded-xl border border-slate-200 bg-slate-50/60 p-6 sm:p-8"
+    >
+      <div class="mb-6 flex flex-col justify-between gap-2 border-b border-slate-200 pb-4 sm:flex-row sm:items-end">
+        <div>
+          <span class="text-xs font-bold tracking-wider text-teal-800 uppercase">
+            বৈজ্ঞানিক ধারণা ও পরিভাষা
+          </span>
+          <h2 id="popular-explainers-heading" class="mt-1 text-2xl font-bold text-[#0B1F3A]">
+            জনপ্রিয় বিজ্ঞান সহায়িকা (Explainers)
+          </h2>
+        </div>
+        <a
+          href={withBase('/explainers')}
+          class="text-sm font-semibold text-teal-800 hover:underline"
+        >
+          সকল বিজ্ঞান সহায়িকা দেখুন →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          allExplainers.slice(0, 4).map((exp) => {
+            const cat = getCategoryMeta(exp.data.category);
+            return (
+              <article class="editorial-card flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-4">
+                <div>
+                  <CssIllustration
+                    motif={exp.data.illustration_motif || cat.illustration}
+                    title={exp.data.title}
+                    compact={true}
+                    class="mb-3"
+                  />
+                  <span class="text-xs font-semibold text-teal-800">
+                    সহায়িকা • {exp.data.difficulty}
+                  </span>
+                  <h3 class="mt-1.5 text-base font-bold leading-snug text-[#0B1F3A]">
+                    <a href={withBase(`/explainers/${exp.id}`)} class="hover:text-teal-800">
+                      {exp.data.title}
+                    </a>
+                  </h3>
+                  <p class="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-600">
+                    {exp.data.description}
+                  </p>
+                </div>
+                <a
+                  href={withBase(`/explainers/${exp.id}`)}
+                  class="mt-3 inline-block text-xs font-semibold text-teal-800 hover:underline"
+                >
+                  ব্যাখ্যা পড়ুন →
+                </a>
+              </article>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <!-- Category Sections Overview -->
+    <section aria-labelledby="categories-directory-heading">
+      <div class="mb-6 flex items-baseline justify-between border-b border-slate-200 pb-3">
+        <h2 id="categories-directory-heading" class="text-2xl font-bold text-[#0B1F3A]">
+          জীববিজ্ঞানের দশটি বিশেষায়িত বিভাগ
+        </h2>
+        <a href={withBase('/categories')} class="text-sm font-semibold text-teal-800 hover:underline">
+          বিভাগ নির্দেশিকা →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {
+          CATEGORY_LIST.map((cat) => {
+            const count = allArticles.filter((a) => a.data.category === cat.slug).length;
+            return (
+              <a
+                href={withBase(`/category/${cat.slug}`)}
+                class="editorial-card group flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-4"
+              >
+                <div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-medium text-slate-500">{cat.nameEn}</span>
+                    <span class="rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">
+                      {toBanglaDigits(count)}টি প্রবন্ধ
+                    </span>
+                  </div>
+                  <h3 class="mt-2 text-base font-bold text-[#0B1F3A] group-hover:text-teal-800">
+                    {cat.nameBn}
+                  </h3>
+                  <p class="mt-1.5 text-xs leading-relaxed text-slate-600">
+                    {cat.shortNoteBn}
+                  </p>
+                </div>
+                <span class="mt-3 text-xs font-semibold text-teal-800 group-hover:underline">
+                  বিভাগে যান →
+                </span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <!-- Spotlight Category Rows -->
+    <section aria-label="নির্বাচিত বিভাগীয় গবেষণা" class="space-y-10">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {
+          spotlightSlugs.map((slug) => {
+            const cat = getCategoryMeta(slug);
+            const items = allArticles.filter((a) => a.data.category === slug).slice(0, 2);
+            return (
+              <div class="rounded-lg border border-slate-200 bg-white p-5">
+                <div class="mb-4 flex items-center justify-between border-b border-slate-100 pb-2.5">
+                  <h2 class="text-lg font-bold text-[#0B1F3A]">{cat.nameBn}</h2>
+                  <a
+                    href={withBase(`/category/${cat.slug}`)}
+                    class="text-xs font-semibold text-teal-800 hover:underline"
+                  >
+                    সব দেখুন →
+                  </a>
+                </div>
+                <div class="space-y-4">
+                  {items.map((art) => (
+                    <article>
+                      <h3 class="text-base font-semibold leading-snug text-slate-900">
+                        <a
+                          href={withBase(`/articles/${art.id}`)}
+                          class="hover:text-teal-800 hover:underline"
+                        >
+                          {art.data.title}
+                        </a>
+                      </h3>
+                      <p class="mt-1 line-clamp-2 text-xs text-slate-600">{art.data.description}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <!-- Newsletter & Feed Box -->
+    <NewsletterBox />
+  </div>
+</BaseLayout>

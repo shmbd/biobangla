@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/urls';
+---
+
+<BaseLayout
+  title="৪০৪ — পাতাটি পাওয়া যায়নি"
+  description="অনুরোধকৃত পাতাটি জীববিজ্ঞান (biobangla) ওয়েবসাইটে খুঁজে পাওয়া যায়নি।"
+  noindex={true}
+>
+  <div class="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 lg:px-8">
+    <p class="font-mono text-sm font-bold tracking-widest text-teal-800 uppercase">ত্রুটি ৪০৪ • 404 Not Found</p>
+    <h1 class="mt-3 text-3xl font-bold text-[#0B1F3A] sm:text-4xl">
+      অনুসন্ধানকৃত পাতাটি পাওয়া যায়নি
+    </h1>
+    <p class="mt-4 text-base leading-relaxed text-slate-600">
+      আপনি যে ঠিকানায় প্রবেশ করতে চেয়েছেন তা সম্ভবত স্থানান্তরিত হয়েছে অথবা বানানে কোনো ত্রুটি রয়েছে। নিচের লিংকগুলো থেকে
+      কাঙ্ক্ষিত গবেষণা বা বিভাগ খুঁজে নিন।
+    </p>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href={withBase('/')}
+        class="rounded-md bg-[#0B1F3A] px-5 py-2.5 text-sm font-semibold text-white hover:bg-teal-800"
+      >
+        মূল পাতায় ফিরে যান
+      </a>
+      <a
+        href={withBase('/search')}
+        class="rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-teal-700"
+      >
+        গবেষণা অনুসন্ধান করুন
+      </a>
+      <a
+        href={withBase('/news')}
+        class="rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-teal-700"
+      >
+        সকল প্রতিবেদন আর্কাইভ
+      </a>
+    </div>
+  </div>
+</BaseLayout>

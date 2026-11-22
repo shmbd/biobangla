@@ -1,0 +1,70 @@
+---
+import { withBase } from '../lib/urls';
+
+interface Props {
+  showTagline?: boolean;
+  inverse?: boolean;
+}
+
+const { showTagline = false, inverse = false } = Astro.props;
+---
+
+<a
+  href={withBase('/')}
+  class="group inline-flex items-center gap-3 focus-visible:outline-teal-600"
+  aria-label="জীববিজ্ঞান (biobangla) — মূল পাতা"
+>
+  <span
+    class:list={[
+      'flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-colors',
+      inverse
+        ? 'border-slate-700 bg-slate-900 text-teal-300'
+        : 'border-slate-200 bg-[#0B1F3A] text-teal-300 group-hover:border-teal-700',
+    ]}
+    aria-hidden="true"
+  >
+    <svg viewBox="0 0 36 36" class="h-6 w-6" fill="none">
+      <path
+        d="M9 7C15 7 21 13 27 13M27 7C21 7 15 13 9 13M9 18C15 18 21 24 27 24M27 18C21 18 15 24 9 24M9 29C14 29 19 29 27 29"
+        stroke="currentColor"
+        stroke-width="2.3"
+        stroke-linecap="round"
+      />
+      <circle cx="9" cy="7" r="2" fill="#2DD4BF" />
+      <circle cx="27" cy="24" r="2" fill="#F8FAFC" />
+    </svg>
+  </span>
+
+  <span class="flex flex-col">
+    <span class="flex items-baseline gap-2">
+      <span
+        class:list={[
+          'text-2xl font-bold tracking-tight sm:text-[1.65rem]',
+          inverse ? 'text-white' : 'text-[#0B1F3A]',
+        ]}
+      >
+        জীববিজ্ঞান
+      </span>
+      <span
+        class:list={[
+          'text-xs font-semibold uppercase tracking-widest',
+          inverse ? 'text-teal-300' : 'text-teal-700',
+        ]}
+      >
+        biobangla
+      </span>
+    </span>
+    {
+      showTagline && (
+        <span
+          class:list={[
+            'text-xs leading-snug sm:text-[0.8rem]',
+            inverse ? 'text-slate-300' : 'text-slate-600',
+          ]}
+        >
+          বিজ্ঞানের নতুন আবিষ্কার, বাংলায় সহজ ব্যাখ্যা।
+        </span>
+      )
+    }
+  </span>
+</a>

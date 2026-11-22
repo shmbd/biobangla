@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/urls';
+
+const pagefindBundlePath = withBase('/pagefind/');
+---
+
+<BaseLayout
+  title="গবেষণা ও প্রবন্ধ অনুসন্ধান"
+  description="বাংলা এবং ইংরেজি বৈজ্ঞানিক পরিভাষা, জিন বা প্রজাতির নাম কিংবা DOI দিয়ে জীববিজ্ঞান (biobangla)-এর সকল গবেষণা অনুসন্ধান করুন।"
+>
+  <link rel="stylesheet" href={withBase('/pagefind/pagefind-ui.css')} />
+
+  <div class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+    <header class="border-b border-slate-200 pb-6">
+      <span class="text-xs font-bold tracking-wider text-teal-800 uppercase">পূর্ণাঙ্গ পাঠ অনুসন্ধান</span>
+      <h1 class="mt-1 text-3xl font-bold text-[#0B1F3A] sm:text-4xl">গবেষণা অনুসন্ধান করুন</h1>
+      <p class="mt-2 text-base text-slate-600">
+        বাংলা শব্দ (যেমন: <em>জিন সম্পাদনা</em>, <em>প্রবাল</em>, <em>মাইক্রোবায়োম</em>) অথবা ইংরেজি বৈজ্ঞানিক পরিভাষা
+        (যেমন: <code>CRISPR</code>, <code>mRNA</code>, <code>Ideonella</code>, <code>DOI</code>) লিখে অনুসন্ধান করুন।
+      </p>
+    </header>
+
+    <div class="mt-8 rounded-xl border border-slate-200 bg-slate-50/60 p-5 sm:p-6">
+      <div id="biobangla-search"></div>
+      <noscript>
+        <p class="mt-4 rounded border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950">
+          পূর্ণাঙ্গ স্ট্যাটিক অনুসন্ধান ব্যবহারের জন্য ব্রাউজারে জাভাস্ক্রিপ্ট সক্রিয় থাকা প্রয়োজন। বিকল্প হিসেবে আপনি{' '}
+          <a href={withBase('/news')} class="font-semibold underline">সকল গবেষণা আর্কাইভ</a> অথবা{' '}
+          <a href={withBase('/categories')} class="font-semibold underline">বিভাগসমূহ</a> ব্রাউজ করতে পারেন।
+        </p>
+      </noscript>
+    </div>
+
+    <section class="mt-8 text-sm text-slate-600">
+      <h2 class="font-bold text-[#0B1F3A]">জনপ্রিয় অনুসন্ধান সংকেত:</h2>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {
+          ['CRISPR-Cas9', 'মাইক্রোবায়োম', 'mRNA', 'প্রিপ্রিন্ট', 'প্রবাল প্রাচীর', 'জিনোম', 'পরাগায়ন'].map(
+            (term) => (
+              <a
+                href={`${withBase('/search')}?q=${encodeURIComponent(term)}`}
+                class="rounded border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 hover:border-teal-700 hover:text-teal-900"
+              >
+                {term}
+              </a>
+            )
+          )
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script is:inline src={withBase('/pagefind/pagefind-ui.js')}></script>
+<script is:inline define:vars={{ pagefindBundlePath }}>
+  window.addEventListener('DOMContentLoaded', function () {
+    var container = document.getElementById('biobangla-search');
+    if (!container) return;
+
+    if (typeof window.PagefindUI === 'undefined') {
+      container.innerHTML =
+        '<p class="rounded border border-slate-200 bg-white p-4 text-sm text-slate-600">অনুসন্ধান সূচি প্রোডাকশন বিল্ডের (`npm run build`) সময় স্বয়ংক্রিয়ভাবে তৈরি হয়। ডেভেলপমেন্ট মোডে সূচি তৈরি করতে একবার `npm run build` চালান।</p>';
+      return;
+    }
+
+    var searchUI = new window.PagefindUI({
+      element: '#biobangla-search',
+      bundlePath: pagefindBundlePath,
+      showSubResults: true,
+      showImages: false,
+      resetStyles: false,
+      translations: {
+        placeholder: 'বাংলা বা ইংরেজি বৈজ্ঞানিক শব্দ লিখুন...',
+        clear_search: 'মুছে ফেলুন',
+        load_more: 'আরও ফলাফল দেখুন',
+        search_label: 'গবেষণা অনুসন্ধান',
+        filters_label: 'ফিল্টার',
+        zero_results: '“[SEARCH_TERM]” বিষয়ে কোনো প্রতিবেদন পাওয়া যায়নি। বানান বা বিকল্প পরিভাষা চেষ্টা করুন।',
+        many_results: '“[SEARCH_TERM]” বিষয়ে [COUNT]টি ফলাফল পাওয়া গেছে',
+        one_result: '“[SEARCH_TERM]” বিষয়ে ১টি ফলাফল পাওয়া গেছে',
+        searching: '“[SEARCH_TERM]” অনুসন্ধান করা হচ্ছে...',
+      },
+    });
+
+    var params = new URLSearchParams(window.location.search);
+    var initialQuery = params.get('q');
+    if (initialQuery && searchUI && typeof searchUI.triggerSearch === 'function') {
+      searchUI.triggerSearch(initialQuery);
+    }
+  });
+</script>

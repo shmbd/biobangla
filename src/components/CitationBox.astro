@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  authors: string[];
+  journal: string;
+  doi?: string;
+  sourceUrl: string;
+  license: string;
+  peerReviewed: boolean;
+}
+
+const { title, authors, journal, doi, sourceUrl, license, peerReviewed } = Astro.props;
+const cleanDoi = doi ? doi.replace(/^https?:\/\/doi\.org\//i, '').trim() : '';
+const doiHref = cleanDoi ? `https://doi.org/${cleanDoi}` : '';
+---
+
+<section
+  aria-labelledby="source-citation-heading"
+  class="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-5 sm:p-6"
+>
+  <h2 id="source-citation-heading" class="text-lg font-bold text-[#0B1F3A]">
+    মূল গবেষণাপত্র, DOI ও উৎস স্বীকৃতি
+  </h2>
+
+  <dl class="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-12">
+    <dt class="font-semibold text-slate-700 sm:col-span-3">বিশ্লেষিত বিষয়:</dt>
+    <dd class="text-slate-900 sm:col-span-9">{title}</dd>
+
+    <dt class="font-semibold text-slate-700 sm:col-span-3">মূল জার্নাল / সার্ভার:</dt>
+    <dd class="text-slate-900 sm:col-span-9">
+      <span class="font-medium">{journal}</span>
+      <span class="ml-2 text-xs text-slate-600">
+        ({peerReviewed ? 'পিয়ার-রিভিউকৃত প্রকাশনা' : 'প্রিপ্রিন্ট সার্ভার — পিয়ার-রিভিউ-পূর্ব'})
+      </span>
+    </dd>
+
+    <dt class="font-semibold text-slate-700 sm:col-span-3">গবেষকবৃন্দ:</dt>
+    <dd class="text-slate-800 sm:col-span-9">{authors.join(', ')}</dd>
+
+    {
+      cleanDoi && (
+        <>
+          <dt class="font-semibold text-slate-700 sm:col-span-3">DOI শনাক্তকারী:</dt>
+          <dd class="font-mono text-xs sm:col-span-9 sm:text-sm">
+            <a
+              href={doiHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-teal-800 underline hover:text-[#0B1F3A]"
+            >
+              https://doi.org/{cleanDoi}
+            </a>
+          </dd>
+        </>
+      )
+    }
+
+    <dt class="font-semibold text-slate-700 sm:col-span-3">মূল প্রবন্ধের লিংক:</dt>
+    <dd class="break-all sm:col-span-9">
+      <a
+        href={sourceUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-teal-800 underline hover:text-[#0B1F3A]"
+      >
+        {sourceUrl}
+      </a>
+    </dd>
+
+    <dt class="font-semibold text-slate-700 sm:col-span-3">উৎস লাইসেন্স ও স্বত্ব:</dt>
+    <dd class="text-slate-700 sm:col-span-9">
+      মূল গবেষণাপত্রের লাইসেন্স: <span class="font-medium">{license}</span>। এই বাংলা প্রতিবেদনটি মূল প্রবন্ধের
+      হুবহু অনুবাদ নয়; বরং শিক্ষামূলক উদ্দেশ্যে রচিত মৌলিক বাংলা বিজ্ঞান সাংবাদিকতা।
+    </dd>
+  </dl>
+</section>

@@ -1,0 +1,92 @@
+# জীববিজ্ঞান (biobangla) — গবেষণা উৎস ও এপিআই কনফিগারেশন (Research Sources Configuration)
+# শুধুমাত্র অনুমোদিত ওপেন-অ্যাক্সেস এপিআই এবং পাবলিক আরএসএস ফিড ব্যবহৃত হয়।
+# কোনো পে-ওয়াল অতিক্রম বা কপিরাইটযুক্ত পূর্ণাঙ্গ প্রবন্ধ পুনঃপ্রকাশ করা হয় না।
+
+version: "1.0"
+
+politeness:
+  user_agent: "biobangla-research-collector/1.0 (+https://biobangla.org/editorial-policy; educational non-commercial science journalism)"
+  respect_robots_txt: true
+  default_timeout_seconds: 25
+  max_retries: 3
+  backoff_base_seconds: 2.0
+
+sources:
+  europe_pmc:
+    enabled: true
+    name: "Europe PMC"
+    type: "rest_api"
+    endpoint: "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
+    rate_limit_per_second: 2.0
+    default_query: '(OPEN_ACCESS:y) AND (SRC:MED OR SRC:PPR) AND ( KW:"biology" OR KW:"genomics" OR KW:"microbiome" OR KW:"immunology" OR KW:"ecology" )'
+    page_size: 15
+    supports_license_metadata: true
+    notes: "Returns open-access metadata and abstracts with explicit license and preprint flags."
+
+  pubmed:
+    enabled: true
+    name: "PubMed (NCBI E-utilities)"
+    type: "entrez_api"
+    esearch_endpoint: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+    esummary_endpoint: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
+    efetch_endpoint: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+    rate_limit_per_second: 3.0
+    default_query: '(biology[Title/Abstract] OR genetics[Title/Abstract] OR immunology[Title/Abstract] OR biodiversity[Title/Abstract]) AND free full text[Filter]'
+    max_results: 15
+    peer_reviewed_default: true
+    notes: "Uses official NCBI E-utilities with tool and email parameters."
+
+  crossref:
+    enabled: true
+    name: "Crossref REST API"
+    type: "rest_api"
+    endpoint: "https://api.crossref.org/works"
+    rate_limit_per_second: 2.0
+    filter: "has-abstract:true,type:journal-article"
+    query: "biological science genomics microbiology ecology immunology"
+    rows: 15
+    peer_reviewed_default: true
+    notes: "Uses polite pool via mailto parameter; verifies license URLs."
+
+  biorxiv:
+    enabled: true
+    name: "bioRxiv Preprint API"
+    type: "rest_api"
+    endpoint: "https://api.biorxiv.org/details/biorxiv"
+    rate_limit_per_second: 1.0
+    lookback_days: 7
+    max_results: 15
+    peer_reviewed_default: false
+    publication_status_default: "preprint"
+    notes: "All bioRxiv records MUST be marked peer_reviewed=false and publication_status=preprint."
+
+  plos:
+    enabled: true
+    name: "PLOS Search API"
+    type: "rest_api"
+    endpoint: "https://api.plos.org/search"
+    rate_limit_per_second: 1.0
+    default_query: 'journal:"PLOS Biology" OR journal:"PLOS Pathogens" OR journal:"PLOS Genetics"'
+    rows: 15
+    peer_reviewed_default: true
+    default_license: "CC BY 4.0"
+    notes: "PLOS journals publish open-access peer-reviewed articles under CC BY 4.0."
+
+  rss_feeds:
+    enabled: true
+    name: "Open Science RSS Feeds"
+    type: "rss"
+    rate_limit_per_second: 1.0
+    feeds:
+      - id: "plos_biology"
+        name: "PLOS Biology"
+        url: "https://journals.plos.org/plosbiology/feed/atom"
+        journal: "PLOS Biology"
+        peer_reviewed: true
+        default_license: "CC BY 4.0"
+      - id: "elife_biology"
+        name: "eLife Latest Research"
+        url: "https://elifesciences.org/rss/recent.xml"
+        journal: "eLife"
+        peer_reviewed: true
+        default_license: "CC BY 4.0"
