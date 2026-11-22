@@ -24,9 +24,22 @@ def test_ai_provider_env_requires_key_for_live_providers(monkeypatch: pytest.Mon
         create_ai_provider_from_env()
 
     monkeypatch.setenv("AI_PROVIDER", "mock")
+    monkeypatch.delenv("AI_API_KEY", raising=False)
     provider = create_ai_provider_from_env()
     assert provider.provider_name == "mock"
     assert provider.is_mock is True
+
+    # Auto-detect Gemini from AIza... (AI Studio) and AQ.... (Vertex AI Express) keys
+    monkeypatch.delenv("AI_PROVIDER", raising=False)
+    monkeypatch.setenv("AI_API_KEY", "AIzaSyExampleTestKey12345")
+    gemini_provider = create_ai_provider_from_env()
+    assert gemini_provider.provider_name == "gemini"
+    assert gemini_provider.is_mock is False
+
+    monkeypatch.setenv("AI_API_KEY", "AQ.ExampleVertexExpressPlaceholderKey")
+    vertex_express_provider = create_ai_provider_from_env()
+    assert vertex_express_provider.provider_name == "gemini"
+    assert vertex_express_provider.is_mock is False
 
 
 def test_writer_and_validator_hold_mock_draft_in_review() -> None:

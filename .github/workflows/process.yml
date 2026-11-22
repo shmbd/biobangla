@@ -58,14 +58,21 @@ jobs:
 
       - name: Run AI writer, independent QC validator & publisher
         env:
-          AI_PROVIDER: ${{ secrets.AI_PROVIDER || 'mock' }}
-          AI_API_KEY: ${{ secrets.AI_API_KEY }}
-          AI_MODEL: ${{ secrets.AI_MODEL }}
-          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          AI_PROVIDER: ${{ secrets.AI_PROVIDER || vars.AI_PROVIDER || '' }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY || secrets.GEMINI_API_KEY || secrets.OPENAI_API_KEY || secrets.ANTHROPIC_API_KEY || '' }}
+          AI_MODEL: ${{ secrets.AI_MODEL || vars.AI_MODEL || '' }}
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL || vars.AI_BASE_URL || '' }}
           AI_TEMPERATURE: "0.2"
           MAX_ARTICLES_TO_PUBLISH: ${{ inputs.max_articles || '3' }}
           PIPELINE_DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
-        run: python scripts/run_process.py
+        run: |
+          python scripts/run_process.py
+          if [ -f state/logs/last_process_report.json ]; then
+            echo "### biobangla Processing & QC Summary" >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat state/logs/last_process_report.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Validate Astro Content Schemas before committing
         env:

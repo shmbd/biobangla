@@ -94,6 +94,10 @@ def main() -> int:
         for rep_file in review_dir.glob("*.report.json"):
             try:
                 rep_data = json.loads(rep_file.read_text(encoding="utf-8"))
+                # Do not let an earlier offline mock draft block a real AI provider!
+                reasons_joined = " ".join((rep_data.get("validation") or {}).get("reasons") or [])
+                if not provider.is_mock and "provider_verification" in reasons_joined:
+                    continue
                 r_doi = (rep_data.get("paper") or {}).get("doi")
                 if r_doi:
                     existing_review_dois.add(r_doi.lower())
@@ -116,8 +120,16 @@ def main() -> int:
             report = validator.validate(draft)
             publisher.process_validated_draft(draft, report)
             counts[report.outcome] += 1
-            if report.outcome == "PASS" and paper.doi:
-                corpus.dois.add(paper.doi.lower())
+            if report.outcome == "PASS":
+                if paper.doi:
+                    corpus.dois.add(paper.doi.lower())
+                # Clean up any stale mock review file for the same slug
+                for stale in (
+                    review_dir / f"{draft.slug}.md",
+                    review_dir / f"{draft.slug}.report.json",
+                ):
+                    if stale.exists() and not args.dry_run:
+                        stale.unlink()
             logging.info(
                 "Processed '%s' -> %s (%s)",
                 paper.title[:60],

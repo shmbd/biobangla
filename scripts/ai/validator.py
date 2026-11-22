@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 import re
 from typing import Any
+import unicodedata
 from urllib.parse import urlparse
 
 from scripts.collectors.base import DOI_EXTRACT_RE, normalize_doi
@@ -122,13 +123,20 @@ class ArticleQualityValidator:
                     )
                 )
             else:
-                combined_bn = f"{draft.title_bn} {draft.description_bn} {draft.body_markdown_bn}"
-                req_kw = self.rules.get("preprint_rules", {}).get(
-                    "required_disclaimer_keywords_bn", ["প্রিপ্রিন্ট", "পিয়ার-রিভিউ"]
-                )
+                combined_bn = unicodedata.normalize(
+                    "NFC",
+                    f"{draft.title_bn} {draft.description_bn} {draft.body_markdown_bn}",
+                ).replace("য়", "য়")
+                req_kw = [
+                    unicodedata.normalize("NFC", k).replace("য়", "য়")
+                    for k in self.rules.get("preprint_rules", {}).get(
+                        "required_disclaimer_keywords_bn", ["প্রিপ্রিন্ট", "পিয়ার-রিভিউ"]
+                    )
+                ]
                 forbid_phrases = self.rules.get("preprint_rules", {}).get(
                     "forbid_phrases_for_preprints", []
                 )
+                norm_no_hyphen = combined_bn.replace("-", " ")
                 if any(fp in combined_bn for fp in forbid_phrases):
                     checks.append(
                         CheckResult(
@@ -137,7 +145,7 @@ class ArticleQualityValidator:
                             "প্রিপ্রিন্ট নিবন্ধে চূড়ান্ত পিয়ার-রিভিউকৃত প্রমাণের বিভ্রান্তিকর দাবি পাওয়া গেছে।",
                         )
                     )
-                elif all(kw in combined_bn for kw in req_kw):
+                elif all(kw.replace("-", " ") in norm_no_hyphen for kw in req_kw):
                     checks.append(
                         CheckResult(
                             "preprint_integrity",

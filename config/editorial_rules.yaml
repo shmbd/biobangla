@@ -3,7 +3,7 @@
 version: "1.0"
 
 article_requirements:
-  min_word_count: 220
+  min_word_count: 175
   max_word_count: 1800
   min_bangla_character_ratio: 0.45
   required_sections:

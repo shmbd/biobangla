@@ -2,9 +2,14 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 import json
+import logging
 import os
+import time
 from typing import Any
+import urllib.error
 import urllib.request
+
+logger = logging.getLogger("biobangla.ai")
 
 
 class AIProviderError(RuntimeError):
@@ -44,8 +49,50 @@ def _extract_json_object(raw_text: str) -> dict[str, Any]:
     return parsed
 
 
+def _post_json_with_retries(
+    url: str,
+    body_dict: dict[str, Any],
+    headers: dict[str, str],
+    timeout: int = 120,
+    max_retries: int = 3,
+) -> dict[str, Any]:
+    data = json.dumps(body_dict).encode("utf-8")
+    for attempt in range(max_retries + 1):
+        req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            err_body = ""
+            try:
+                err_body = exc.read().decode("utf-8", errors="replace")[:300]
+            except Exception:
+                pass
+            if exc.code in (429, 500, 502, 503, 504) and attempt < max_retries:
+                delay = 5.0 * (2**attempt)
+                logger.warning(
+                    "Transient AI HTTP %d (attempt %d/%d); retrying in %.1fs...",
+                    exc.code,
+                    attempt + 1,
+                    max_retries,
+                    delay,
+                )
+                time.sleep(delay)
+                continue
+            raise AIProviderError(
+                f"AI HTTP {exc.code}: {err_body or exc.reason}"
+            ) from exc
+        except (urllib.error.URLError, TimeoutError) as exc:
+            if attempt < max_retries:
+                delay = 4.0 * (2**attempt)
+                time.sleep(delay)
+                continue
+            raise AIProviderError(f"AI network timeout/error: {exc}") from exc
+    raise AIProviderError("Exhausted AI request retries.")
+
+
 class OpenAICompatibleProvider(AIProvider):
-    """Supports OpenAI and any OpenAI-compatible Chat Completions endpoint."""
+    """Supports OpenAI, Groq, OpenRouter, and any OpenAI-compatible Chat Completions endpoint."""
 
     provider_name = "openai_compatible"
 
@@ -55,7 +102,7 @@ class OpenAICompatibleProvider(AIProvider):
         model: str = "gpt-4o-mini",
         base_url: str = "https://api.openai.com/v1",
         temperature: float = 0.2,
-        timeout: int = 60,
+        timeout: int = 120,
     ) -> None:
         if not api_key:
             raise AIProviderError("AI_API_KEY is required for OpenAI-compatible provider.")
@@ -67,8 +114,9 @@ class OpenAICompatibleProvider(AIProvider):
 
     def generate_json(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:
         url = f"{self.base_url}/chat/completions"
-        body = json.dumps(
-            {
+        payload = _post_json_with_retries(
+            url=url,
+            body_dict={
                 "model": self.model_name,
                 "temperature": self.temperature,
                 "response_format": {"type": "json_object"},
@@ -76,20 +124,13 @@ class OpenAICompatibleProvider(AIProvider):
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
-            }
-        ).encode("utf-8")
-
-        req = urllib.request.Request(
-            url,
-            data=body,
+            },
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
             },
-            method="POST",
+            timeout=self.timeout,
         )
-        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-            payload = json.loads(resp.read().decode("utf-8"))
         content = payload["choices"][0]["message"]["content"]
         return _extract_json_object(content)
 
@@ -104,7 +145,7 @@ class GeminiProvider(AIProvider):
         api_key: str,
         model: str = "gemini-2.5-flash",
         temperature: float = 0.2,
-        timeout: int = 60,
+        timeout: int = 120,
     ) -> None:
         if not api_key:
             raise AIProviderError("AI_API_KEY is required for Gemini provider.")
@@ -114,31 +155,54 @@ class GeminiProvider(AIProvider):
         self.timeout = timeout
 
     def generate_json(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:
-        url = (
-            f"https://generativelanguage.googleapis.com/v1beta/models/"
-            f"{self.model_name}:generateContent?key={self.api_key}"
-        )
-        body = json.dumps(
-            {
-                "systemInstruction": {"parts": [{"text": system_prompt}]},
-                "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
-                "generationConfig": {
-                    "temperature": self.temperature,
-                    "responseMimeType": "application/json",
-                },
-            }
-        ).encode("utf-8")
+        models_to_try = [self.model_name]
+        if self.model_name != "gemini-2.0-flash":
+            models_to_try.append("gemini-2.0-flash")
 
-        req = urllib.request.Request(
-            url,
-            data=body,
-            headers={"Content-Type": "application/json"},
-            method="POST",
-        )
-        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-            payload = json.loads(resp.read().decode("utf-8"))
-        text = payload["candidates"][0]["content"]["parts"][0]["text"]
-        return _extract_json_object(text)
+        is_vertex_express = self.api_key.startswith("AQ.")
+        last_err: Exception | None = None
+        for candidate_model in models_to_try:
+            if is_vertex_express:
+                url = (
+                    f"https://aiplatform.googleapis.com/v1/publishers/google/models/"
+                    f"{candidate_model}:generateContent"
+                )
+            else:
+                url = (
+                    f"https://generativelanguage.googleapis.com/v1beta/models/"
+                    f"{candidate_model}:generateContent"
+                )
+            try:
+                payload = _post_json_with_retries(
+                    url=url,
+                    body_dict={
+                        "systemInstruction": {"parts": [{"text": system_prompt}]},
+                        "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
+                        "generationConfig": {
+                            "temperature": self.temperature,
+                            "responseMimeType": "application/json",
+                        },
+                    },
+                    headers={
+                        "Content-Type": "application/json",
+                        "x-goog-api-key": self.api_key,
+                    },
+                    timeout=self.timeout,
+                )
+                self.model_name = candidate_model
+                text = payload["candidates"][0]["content"]["parts"][0]["text"]
+                return _extract_json_object(text)
+            except AIProviderError as exc:
+                last_err = exc
+                if "HTTP 404" in str(exc) and candidate_model != models_to_try[-1]:
+                    logger.warning(
+                        "Model %s returned 404; falling back to %s",
+                        candidate_model,
+                        models_to_try[-1],
+                    )
+                    continue
+                raise
+        raise AIProviderError(str(last_err))
 
 
 class AnthropicProvider(AIProvider):
@@ -151,7 +215,7 @@ class AnthropicProvider(AIProvider):
         api_key: str,
         model: str = "claude-3-5-haiku-latest",
         temperature: float = 0.2,
-        timeout: int = 60,
+        timeout: int = 120,
     ) -> None:
         if not api_key:
             raise AIProviderError("AI_API_KEY is required for Anthropic provider.")
@@ -162,28 +226,22 @@ class AnthropicProvider(AIProvider):
 
     def generate_json(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:
         url = "https://api.anthropic.com/v1/messages"
-        body = json.dumps(
-            {
+        payload = _post_json_with_retries(
+            url=url,
+            body_dict={
                 "model": self.model_name,
                 "max_tokens": 4096,
                 "temperature": self.temperature,
                 "system": system_prompt,
                 "messages": [{"role": "user", "content": user_prompt}],
-            }
-        ).encode("utf-8")
-
-        req = urllib.request.Request(
-            url,
-            data=body,
+            },
             headers={
                 "x-api-key": self.api_key,
                 "anthropic-version": "2023-06-01",
                 "Content-Type": "application/json",
             },
-            method="POST",
+            timeout=self.timeout,
         )
-        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-            payload = json.loads(resp.read().decode("utf-8"))
         text = payload["content"][0]["text"]
         return _extract_json_object(text)
 
@@ -215,19 +273,19 @@ class MockJournalismProvider(AIProvider):
 
         body = f"""## গবেষণার প্রেক্ষাপট
 
-জীববিজ্ঞান ও আণবিক গবেষণার সমসাময়িক ধারায় **{title_en}** শীর্ষক গবেষণাটি একটি গুরুত্বপূর্ণ বৈজ্ঞানিক প্রশ্ন সামনে এনেছে। {preprint_note}গবেষকেরা মূলত সংশ্লিষ্ট জৈবিক প্রক্রিয়ার আণবিক ও পরিবেশগত ভিত্তি নির্ণয় করতে চেয়েছেন, যাতে পূর্ববর্তী জ্ঞানের সীমাবদ্ধতা অতিক্রম করা যায়।
+জীববিজ্ঞান ও আণবিক গবেষণার সমসাময়িক ধারায় **{title_en}** শীর্ষক গবেষণাটি একটি গুরুত্বপূর্ণ বৈজ্ঞানিক প্রশ্ন সামনে এনেছে। {preprint_note}গবেষকেরা মূলত সংশ্লিষ্ট জৈবিক প্রক্রিয়ার আণবিক ও পরিবেশগত ভিত্তি নির্ণয় করতে চেয়েছেন, যাতে পূর্ববর্তী জ্ঞানের সীমাবদ্ধতা অতিক্রম করা যায় এবং ভবিষ্যৎ গবেষণার পথ সুগম হয়।
 
 ## গবেষণা পদ্ধতি
 
-এই গবেষণায় ব্যবহৃত প্রধান পরীক্ষামূলক কাঠামো ছিল **{study_model}** পর্যায়ের বিশ্লেষণ। গবেষক দল নিয়ন্ত্রিত নমুনা সংগ্রহ, পরিমাণগত পরিমাপ এবং পরিসংখ্যানগত যাচাইকরণের মাধ্যমে প্রতিটি চলকের প্রভাব পরীক্ষা করেছেন। গবেষণাপত্রের মূল শনাক্তকারী সূত্র {f'DOI: `{doi}`' if doi else journal} অনুযায়ী সকল পদ্ধতিগত ধাপ নথিভুক্ত করা হয়েছে।
+এই গবেষণায় ব্যবহৃত প্রধান পরীক্ষামূলক কাঠামো ছিল **{study_model}** পর্যায়ের সুশৃঙ্খল বিশ্লেষণ। গবেষক দল নিয়ন্ত্রিত নমুনা সংগ্রহ, পরিমাণগত পরিমাপ এবং পরিসংখ্যানগত যাচাইকরণের মাধ্যমে প্রতিটি চলকের প্রভাব পরীক্ষা করেছেন। গবেষণাপত্রের মূল শনাক্তকারী সূত্র {f'DOI: `{doi}`' if doi else journal} অনুযায়ী সকল পদ্ধতিগত ধাপ বিস্তারিতভাবে নথিভুক্ত করা হয়েছে।
 
 ## প্রধান ফলাফল
 
-উপাত্ত বিশ্লেষণে দেখা গেছে যে পরীক্ষিত জৈবিক উপাদানগুলোর মধ্যে সুনির্দিষ্ট কাঠামোগত ও কার্যকরী সম্পর্ক বিদ্যমান। নিয়ন্ত্রিত গ্রুপের তুলনায় পরীক্ষামূলক নমুনায় পরিমাপযোগ্য পরিবর্তন লক্ষ্য করা গেছে, যা লেখকদের প্রাথমিক বৈজ্ঞানিক অনুমানকে সমর্থন করে। তবে পর্যবেক্ষণমূলক সহসম্পর্ক এবং প্রত্যক্ষ কার্যকারণ সম্পর্কের পার্থক্য বজায় রেখেই ফলাফলগুলো ব্যাখ্যা করা হয়েছে।
+উপাত্ত বিশ্লেষণে দেখা গেছে যে পরীক্ষিত জৈবিক উপাদানগুলোর মধ্যে সুনির্দিষ্ট কাঠামোগত ও কার্যকরী সম্পর্ক বিদ্যমান। নিয়ন্ত্রিত গ্রুপের তুলনায় পরীক্ষামূলক নমুনায় পরিমাপযোগ্য পরিবর্তন লক্ষ্য করা গেছে, যা লেখকদের প্রাথমিক বৈজ্ঞানিক অনুমানকে সমর্থন করে। তবে পর্যবেক্ষণমূলক সহসম্পর্ক এবং প্রত্যক্ষ কার্যকারণ সম্পর্কের পার্থক্য বজায় রেখেই ফলাফলগুলো সতর্কতার সাথে ব্যাখ্যা করা হয়েছে।
 
 ## বৈজ্ঞানিক গুরুত্ব
 
-সংশ্লিষ্ট জীববিজ্ঞান শাখায় এই ফলাফল ভবিষ্যৎ মৌলিক গবেষণা ও পদ্ধতিগত উন্নয়নে সহায়ক তথ্যভাণ্ডার হিসেবে কাজ করবে। অন্যান্য স্বাধীন গবেষণাগারে এই ফলাফল পুনরুৎপাদিত হলে বিষয়টির তাত্ত্বিক ভিত্তি আরও সুদৃঢ় হবে।
+সংশ্লিষ্ট জীববিজ্ঞান শাখায় এই ফলাফল ভবিষ্যৎ মৌলিক গবেষণা ও পদ্ধতিগত উন্নয়নে সহায়ক তথ্যভাণ্ডার হিসেবে কাজ করবে। অন্যান্য স্বাধীন গবেষণাগারে এই ফলাফল পুনরুৎপাদিত হলে বিষয়টির তাত্ত্বিক ও ব্যবহারিক ভিত্তি আরও সুদৃঢ় হবে।
 
 ## সীমাবদ্ধতা ও সতর্কতা
 
@@ -245,12 +303,57 @@ class MockJournalismProvider(AIProvider):
         }
 
 
+def _infer_provider_from_key(api_key: str) -> tuple[str, str, str]:
+    """Infers (provider_kind, default_model, default_base_url) from common API key prefixes."""
+    if api_key.startswith("AIza") or api_key.startswith("AQ."):
+        return ("gemini", "gemini-2.5-flash", "")
+    if api_key.startswith("sk-ant-"):
+        return ("anthropic", "claude-3-5-haiku-latest", "")
+    if api_key.startswith("gsk_"):
+        return ("openai_compatible", "llama-3.3-70b-versatile", "https://api.groq.com/openai/v1")
+    if api_key.startswith("sk-or-"):
+        return ("openai_compatible", "google/gemini-2.5-flash", "https://openrouter.ai/api/v1")
+    return ("openai", "gpt-4o-mini", "https://api.openai.com/v1")
+
+
 def create_ai_provider_from_env() -> AIProvider:
-    provider_kind = os.getenv("AI_PROVIDER", "mock").strip().lower()
-    api_key = os.getenv("AI_API_KEY", "").strip()
+    raw_provider = os.getenv("AI_PROVIDER", "").strip().lower()
+    api_key = (
+        os.getenv("AI_API_KEY", "").strip()
+        or os.getenv("GEMINI_API_KEY", "").strip()
+        or os.getenv("OPENAI_API_KEY", "").strip()
+        or os.getenv("ANTHROPIC_API_KEY", "").strip()
+        or os.getenv("GROQ_API_KEY", "").strip()
+    )
     model = os.getenv("AI_MODEL", "").strip()
     base_url = os.getenv("AI_BASE_URL", "").strip()
     temperature = float(os.getenv("AI_TEMPERATURE", "0.2"))
+
+    # If AI_PROVIDER was Explicitly set to "mock" AND no API key is provided, use Mock
+    if raw_provider == "mock" and not api_key:
+        logger.warning(
+            "AI_PROVIDER is 'mock' and no AI_API_KEY is configured. "
+            "Drafts will be held in state/review_queue/ and NOT published live."
+        )
+        return MockJournalismProvider()
+
+    # If neither AI_PROVIDER nor AI_API_KEY is set, fall back safely to Mock
+    if not raw_provider and not api_key:
+        logger.warning(
+            "No AI_API_KEY found in environment/GitHub Secrets! Falling back to 'mock' provider "
+            "(articles will be held in REVIEW queue until AI_API_KEY is added to GitHub Secrets)."
+        )
+        return MockJournalismProvider()
+
+    # If AI_API_KEY IS set, auto-detect provider when AI_PROVIDER wasn't explicitly set (or left blank)
+    if api_key and raw_provider in ("", "auto"):
+        inferred_kind, inferred_model, inferred_base = _infer_provider_from_key(api_key)
+        provider_kind = inferred_kind
+        model = model or inferred_model
+        base_url = base_url or inferred_base
+        logger.info("Auto-detected AI provider '%s' from API key prefix.", provider_kind)
+    else:
+        provider_kind = raw_provider
 
     if provider_kind == "mock":
         return MockJournalismProvider()
@@ -274,5 +377,5 @@ def create_ai_provider_from_env() -> AIProvider:
             temperature=temperature,
         )
     raise AIProviderError(
-        f"Unsupported AI_PROVIDER='{provider_kind}'. Choose mock, openai, openai_compatible, gemini, or anthropic."
+        f"Unsupported AI_PROVIDER='{provider_kind}'. Choose mock, gemini, openai, openai_compatible, or anthropic."
     )
