@@ -96,7 +96,7 @@ jobs:
         run: |
           git config user.name "biobangla-editorial[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/articles/ state/review_queue/ state/logs/publication_log.jsonl state/logs/last_process_report.json 2>/dev/null || true
+          git add content/articles/ state/review_queue/ state/logs/publication_log.jsonl 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No new PASS articles or REVIEW items to commit."
             exit 0

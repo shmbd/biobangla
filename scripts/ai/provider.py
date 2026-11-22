@@ -136,42 +136,42 @@ class OpenAICompatibleProvider(AIProvider):
 
 
 class GeminiProvider(AIProvider):
-    """Official Google Gemini REST API provider."""
+    """Official Google Gemini Developer REST API provider (supports both AIza... and AQ.... keys)."""
 
     provider_name = "gemini"
 
     def __init__(
         self,
         api_key: str,
-        model: str = "gemini-2.5-flash",
+        model: str = "gemini-3.5-flash",
         temperature: float = 0.2,
-        timeout: int = 120,
+        timeout: int = 60,
     ) -> None:
         if not api_key:
             raise AIProviderError("AI_API_KEY is required for Gemini provider.")
         self.api_key = api_key
-        self.model_name = model or "gemini-2.5-flash"
+        self.model_name = model or "gemini-3.5-flash"
         self.temperature = temperature
         self.timeout = timeout
 
     def generate_json(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:
-        models_to_try = [self.model_name]
-        if self.model_name != "gemini-2.0-flash":
-            models_to_try.append("gemini-2.0-flash")
+        models_to_try: list[str] = []
+        for m in (
+            self.model_name,
+            "gemini-3.5-flash",
+            "gemini-3.1-flash-lite",
+            "gemini-flash-latest",
+            "gemini-3.6-flash",
+        ):
+            if m and m not in models_to_try:
+                models_to_try.append(m)
 
-        is_vertex_express = self.api_key.startswith("AQ.")
         last_err: Exception | None = None
-        for candidate_model in models_to_try:
-            if is_vertex_express:
-                url = (
-                    f"https://aiplatform.googleapis.com/v1/publishers/google/models/"
-                    f"{candidate_model}:generateContent"
-                )
-            else:
-                url = (
-                    f"https://generativelanguage.googleapis.com/v1beta/models/"
-                    f"{candidate_model}:generateContent"
-                )
+        for idx, candidate_model in enumerate(models_to_try):
+            url = (
+                f"https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{candidate_model}:generateContent"
+            )
             try:
                 payload = _post_json_with_retries(
                     url=url,
@@ -188,17 +188,34 @@ class GeminiProvider(AIProvider):
                         "x-goog-api-key": self.api_key,
                     },
                     timeout=self.timeout,
+                    max_retries=1,
                 )
                 self.model_name = candidate_model
                 text = payload["candidates"][0]["content"]["parts"][0]["text"]
                 return _extract_json_object(text)
             except AIProviderError as exc:
                 last_err = exc
-                if "HTTP 404" in str(exc) and candidate_model != models_to_try[-1]:
+                err_str = str(exc)
+                is_recoverable = any(
+                    token in err_str
+                    for token in (
+                        "HTTP 404",
+                        "HTTP 429",
+                        "HTTP 500",
+                        "HTTP 502",
+                        "HTTP 503",
+                        "HTTP 504",
+                        "timeout",
+                        "no longer available",
+                        "high demand",
+                    )
+                )
+                if is_recoverable and idx < len(models_to_try) - 1:
                     logger.warning(
-                        "Model %s returned 404; falling back to %s",
+                        "Model %s unavailable/busy (%s); failing over to %s",
                         candidate_model,
-                        models_to_try[-1],
+                        err_str[:120],
+                        models_to_try[idx + 1],
                     )
                     continue
                 raise
@@ -306,7 +323,7 @@ class MockJournalismProvider(AIProvider):
 def _infer_provider_from_key(api_key: str) -> tuple[str, str, str]:
     """Infers (provider_kind, default_model, default_base_url) from common API key prefixes."""
     if api_key.startswith("AIza") or api_key.startswith("AQ."):
-        return ("gemini", "gemini-2.5-flash", "")
+        return ("gemini", "gemini-3.5-flash", "")
     if api_key.startswith("sk-ant-"):
         return ("anthropic", "claude-3-5-haiku-latest", "")
     if api_key.startswith("gsk_"):
@@ -367,7 +384,7 @@ def create_ai_provider_from_env() -> AIProvider:
     if provider_kind == "gemini":
         return GeminiProvider(
             api_key=api_key,
-            model=model or "gemini-2.5-flash",
+            model=model or "gemini-3.5-flash",
             temperature=temperature,
         )
     if provider_kind == "anthropic":
