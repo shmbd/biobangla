@@ -107,7 +107,11 @@ def test_all_repository_sample_articles_satisfy_strict_schema_and_editorial_rule
         seen_categories.add(meta["category"])
 
         assert meta["language"] == "bn"
-        assert meta["is_sample"] is True, f"Sample article {md_file.name} must be clearly labelled is_sample=True"
+        if meta["status"] == "sample":
+            assert meta["is_sample"] is True, f"Sample article {md_file.name} must have is_sample=True"
+        else:
+            assert meta["status"] == "published"
+            assert str(meta["date"]) >= "2026-01-01", f"Published article {md_file.name} must not predate 2026"
         assert meta["source_url"].startswith("https://")
 
         if meta["research_type"] == "preprint" or meta["publication_status"] == "preprint":

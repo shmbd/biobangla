@@ -14,6 +14,8 @@ if str(REPO_ROOT) not in sys.path:
 from scripts.ai.provider import create_ai_provider_from_env
 from scripts.ai.validator import ArticleQualityValidator
 from scripts.ai.writer import BanglaScienceWriter
+from scripts.collectors.oa_fulltext import enrich_with_open_access_fulltext
+from scripts.collectors.orchestrator import build_http_client
 from scripts.config_loader import load_all_configs
 from scripts.models import StandardizedPaper, utc_now_iso
 from scripts.processors.classifier import classify_paper
@@ -73,6 +75,12 @@ def main() -> int:
 
     corpus = ExistingCorpusIndex.from_articles_dir(articles_dir)
     provider = create_ai_provider_from_env()
+    http_client = build_http_client(configs["sources"])
+    min_pub_date = str(
+        configs["editorial_rules"]
+        .get("article_requirements", {})
+        .get("min_publication_date", "2026-01-01")
+    )
     writer = BanglaScienceWriter(
         provider=provider,
         glossary_config=configs["glossary"],
@@ -110,6 +118,8 @@ def main() -> int:
         if processed_so_far >= args.max_articles:
             break
         paper = StandardizedPaper.from_dict(item)
+        if paper.published_date < min_pub_date:
+            continue
         classify_paper(paper, configs["categories"])
         if not paper.is_biological:
             continue
@@ -120,6 +130,9 @@ def main() -> int:
 
         processed_so_far += 1
         try:
+            # Read full Open-Access article XML from Europe PMC when available before writing
+            if not provider.is_mock and not paper.article_body_excerpt:
+                enrich_with_open_access_fulltext(paper, http_client)
             draft = writer.write_article(paper)
             report = validator.validate(draft)
             publisher.process_validated_draft(draft, report)

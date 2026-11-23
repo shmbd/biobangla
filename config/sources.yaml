@@ -1,17 +1,79 @@
 # জীববিজ্ঞান (biobangla) — গবেষণা উৎস ও এপিআই কনফিগারেশন (Research Sources Configuration)
 # শুধুমাত্র অনুমোদিত ওপেন-অ্যাক্সেস এপিআই এবং পাবলিক আরএসএস ফিড ব্যবহৃত হয়।
 # কোনো পে-ওয়াল অতিক্রম বা কপিরাইটযুক্ত পূর্ণাঙ্গ প্রবন্ধ পুনঃপ্রকাশ করা হয় না।
+# প্রকাশের তারিখ নীতিমালা: শুধুমাত্র ২০২৬ বা তৎপরবর্তী (published_date >= 2026-01-01) গবেষণা সংগৃহীত হয়।
 
-version: "1.0"
+version: "1.1"
+min_publication_date: "2026-01-01"
 
 politeness:
-  user_agent: "biobangla-research-collector/1.0 (+https://biobangla.org/editorial-policy; educational non-commercial science journalism)"
+  user_agent: "biobangla-research-collector/1.1 (+https://biobangla.org/editorial-policy; educational non-commercial science journalism)"
   respect_robots_txt: true
   default_timeout_seconds: 25
   max_retries: 3
   backoff_base_seconds: 2.0
 
 sources:
+  priority_journals:
+    enabled: true
+    name: "Curated Premier Microbiology & Microbiome Journals"
+    type: "rest_api"
+    endpoint: "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
+    rate_limit_per_second: 2.0
+    lookback_days: 60
+    journals:
+      - id: "nature_reviews_microbiology"
+        name: "Nature Reviews Microbiology"
+        url: "https://www.nature.com/nrmicro/"
+        issns: ["1740-1526", "1740-1534"]
+        default_category: "microbiology"
+        default_research_type: "review"
+      - id: "cell_host_microbe"
+        name: "Cell Host & Microbe"
+        url: "https://www.cell.com/cell-host-microbe/home"
+        issns: ["1931-3128", "1934-6069"]
+        default_category: "microbiology"
+      - id: "nature_microbiology"
+        name: "Nature Microbiology"
+        url: "https://www.nature.com/nmicrobiol/"
+        issns: ["2058-5276"]
+        default_category: "microbiology"
+      - id: "microbiome"
+        name: "Microbiome"
+        url: "https://microbiomejournal.biomedcentral.com/"
+        issns: ["2049-2618"]
+        default_category: "microbiology"
+      - id: "gut_microbes"
+        name: "Gut Microbes"
+        url: "https://www.tandfonline.com/journals/kgmi20"
+        issns: ["1949-0976", "1949-0984"]
+        default_category: "microbiology"
+      - id: "isme_journal"
+        name: "The ISME Journal"
+        url: "https://academic.oup.com/ismej"
+        issns: ["1751-7362", "1751-7370"]
+        default_category: "environment-biodiversity"
+      - id: "mbio"
+        name: "mBio"
+        url: "https://journals.asm.org/journal/mbio"
+        issns: ["2150-7511"]
+        default_category: "microbiology"
+      - id: "microbial_biotechnology"
+        name: "Microbial Biotechnology"
+        url: "https://sfamjournals.onlinelibrary.wiley.com/journal/17517915"
+        issns: ["1751-7915"]
+        default_category: "biotechnology"
+      - id: "applied_environmental_microbiology"
+        name: "Applied and Environmental Microbiology"
+        url: "https://journals.asm.org/journal/aem"
+        issns: ["0099-2240", "1098-5336"]
+        default_category: "microbiology"
+      - id: "environmental_microbiology"
+        name: "Environmental Microbiology"
+        url: "https://ami-journals.onlinelibrary.wiley.com/journal/14622920"
+        issns: ["1462-2912", "1462-2920"]
+        default_category: "environment-biodiversity"
+
   europe_pmc:
     enabled: true
     name: "Europe PMC"
@@ -21,7 +83,7 @@ sources:
     default_query: '(OPEN_ACCESS:y) AND (SRC:MED OR SRC:PPR) AND ( KW:"biology" OR KW:"genomics" OR KW:"microbiome" OR KW:"immunology" OR KW:"ecology" )'
     page_size: 15
     supports_license_metadata: true
-    notes: "Returns open-access metadata and abstracts with explicit license and preprint flags."
+    notes: "Returns open-access metadata, abstracts, and fullTextXML for OA PMCIDs."
 
   pubmed:
     enabled: true
@@ -31,7 +93,7 @@ sources:
     esummary_endpoint: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
     efetch_endpoint: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
     rate_limit_per_second: 3.0
-    default_query: '(biology[Title/Abstract] OR genetics[Title/Abstract] OR immunology[Title/Abstract] OR biodiversity[Title/Abstract]) AND free full text[Filter]'
+    default_query: '(biology[Title/Abstract] OR genetics[Title/Abstract] OR microbiome[Title/Abstract] OR immunology[Title/Abstract] OR biodiversity[Title/Abstract]) AND free full text[Filter]'
     max_results: 15
     peer_reviewed_default: true
     notes: "Uses official NCBI E-utilities with tool and email parameters."
@@ -43,7 +105,7 @@ sources:
     endpoint: "https://api.crossref.org/works"
     rate_limit_per_second: 2.0
     filter: "has-abstract:true,type:journal-article"
-    query: "biological science genomics microbiology ecology immunology"
+    query: "microbiology microbiome genomics immunology ecology plant biology"
     rows: 15
     peer_reviewed_default: true
     notes: "Uses polite pool via mailto parameter; verifies license URLs."
@@ -74,7 +136,7 @@ sources:
 
   rss_feeds:
     enabled: true
-    name: "Open Science RSS Feeds"
+    name: "Open Science & Microbiology RSS Feeds"
     type: "rss"
     rate_limit_per_second: 1.0
     feeds:
@@ -90,3 +152,21 @@ sources:
         journal: "eLife"
         peer_reviewed: true
         default_license: "CC BY 4.0"
+      - id: "bmc_microbiome"
+        name: "Microbiome (BMC)"
+        url: "https://microbiomejournal.biomedcentral.com/articles/most-recent/rss.xml"
+        journal: "Microbiome"
+        peer_reviewed: true
+        default_license: "CC BY 4.0"
+      - id: "nature_microbiology_rss"
+        name: "Nature Microbiology"
+        url: "https://www.nature.com/nmicrobiol.rss"
+        journal: "Nature Microbiology"
+        peer_reviewed: true
+        default_license: "Publisher Copyright"
+      - id: "nature_reviews_microbiology_rss"
+        name: "Nature Reviews Microbiology"
+        url: "https://www.nature.com/nrmicro.rss"
+        journal: "Nature Reviews Microbiology"
+        peer_reviewed: true
+        default_license: "Publisher Copyright"

@@ -9,6 +9,7 @@ from scripts.collectors.biorxiv import BioRxivCollector
 from scripts.collectors.crossref import CrossrefCollector
 from scripts.collectors.europe_pmc import EuropePmcCollector
 from scripts.collectors.plos import PlosCollector
+from scripts.collectors.priority_journals import PriorityJournalsCollector
 from scripts.collectors.pubmed import PubMedCollector
 from scripts.collectors.rss import RssFeedCollector
 from scripts.http_client import PoliteHttpClient
@@ -17,6 +18,7 @@ from scripts.models import StandardizedPaper, utc_now_iso
 logger = logging.getLogger("biobangla.collectors")
 
 COLLECTOR_REGISTRY: dict[str, type[BaseCollector]] = {
+    "priority_journals": PriorityJournalsCollector,
     "europe_pmc": EuropePmcCollector,
     "pubmed": PubMedCollector,
     "crossref": CrossrefCollector,

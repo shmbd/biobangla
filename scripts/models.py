@@ -45,6 +45,7 @@ class StandardizedPaper:
     study_model: StudyModel = "multi-study"
     is_biological: bool = True
     allow_media_reuse: bool = False
+    article_body_excerpt: str = ""
     provenance: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self) -> None:

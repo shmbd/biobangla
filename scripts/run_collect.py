@@ -63,13 +63,20 @@ def main() -> int:
     )
 
     today_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    oldest_allowed_iso = (datetime.now(timezone.utc) - timedelta(days=90)).strftime("%Y-%m-%d")
+    min_pub_date = str(configs["sources"].get("min_publication_date", "2026-01-01"))
+    rolling_floor = (datetime.now(timezone.utc) - timedelta(days=90)).strftime("%Y-%m-%d")
+    oldest_allowed_iso = max(min_pub_date, rolling_floor)
 
     ready_papers = []
     rejected_non_bio = 0
     rejected_stale_or_bogus_date = 0
     for paper in unique_papers:
-        if paper.published_date > today_iso or paper.published_date < oldest_allowed_iso:
+        # Strict rule: never accept articles published before 2026-01-01 or in the future
+        if (
+            paper.published_date < min_pub_date
+            or paper.published_date < oldest_allowed_iso
+            or paper.published_date > today_iso
+        ):
             rejected_stale_or_bogus_date += 1
             continue
         classify_paper(paper, configs["categories"])
@@ -79,9 +86,14 @@ def main() -> int:
         evaluate_license(paper, configs["editorial_rules"])
         ready_papers.append(paper)
 
-    # Sort newest research first (prioritizing peer-reviewed papers on same-day ties)
+    # Sort newest research first, prioritizing curated priority journals, full-text OA, and peer-reviewed papers
     ready_papers.sort(
-        key=lambda p: (p.published_date, 1 if p.peer_reviewed else 0),
+        key=lambda p: (
+            p.published_date,
+            1 if p.provenance.get("priority_journal") else 0,
+            1 if p.article_body_excerpt else 0,
+            1 if p.peer_reviewed else 0,
+        ),
         reverse=True,
     )
     ready_candidates = [p.to_dict() for p in ready_papers]

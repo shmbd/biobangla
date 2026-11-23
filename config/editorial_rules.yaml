@@ -3,6 +3,7 @@
 version: "1.0"
 
 article_requirements:
+  min_publication_date: "2026-01-01"
   min_word_count: 175
   max_word_count: 1800
   min_bangla_character_ratio: 0.45

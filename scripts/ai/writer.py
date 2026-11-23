@@ -46,6 +46,7 @@ def build_system_prompt(
 ৬. কোনো চিকিৎসা পরামর্শ, ওষুধ সেবনের নির্দেশ বা অসমর্থিত ক্লিনিক্যাল সুপারিশ দেবেন না।
 ৭. নিবন্ধের মূল অংশে অবশ্যই নিচের পাঁচটি Markdown শিরোনাম হুবহু থাকতে হবে:
 {sections_formatted}
+৮. যদি 'article_fulltext_sections' প্রদান করা থাকে, তবে কেবল সংক্ষিপ্ত অ্যাবস্ট্রাক্টের ওপর নির্ভর না করে মূল গবেষণাপত্রের পদ্ধতি (Methods), নমুনার আকার বা জীবপ্রজাতি, প্রধান ফলাফল (Results) এবং আলোচনা ও সীমাবদ্ধতা (Discussion/Limitations) অংশগুলো মনোযোগ দিয়ে পড়ে তথ্যসমৃদ্ধ কিন্তু সহজবোধ্য বাংলা প্রতিবেদন লিখুন।
 
 প্রমিত বাংলা পরিভাষা নির্দেশিকা:
 {chr(10).join(glossary_lines)}
@@ -75,7 +76,7 @@ class BanglaScienceWriter:
         self._system_prompt = build_system_prompt(glossary_config, editorial_rules)
 
     def write_article(self, paper: StandardizedPaper) -> GeneratedArticleDraft:
-        paper_payload = {
+        paper_payload: dict[str, Any] = {
             "title": paper.title,
             "abstract": paper.abstract,
             "authors": paper.authors,
@@ -89,6 +90,8 @@ class BanglaScienceWriter:
             "study_model": paper.study_model,
             "category": paper.category,
         }
+        if paper.article_body_excerpt:
+            paper_payload["article_fulltext_sections"] = paper.article_body_excerpt
         user_prompt = (
             "নিচের গবেষণাপত্রটির মেটাডেটা ও সারসংক্ষেপ থেকে নিয়ম মেনে বাংলা বৈজ্ঞানিক প্রতিবেদন JSON আকারে তৈরি করুন:\n"
             + json.dumps(paper_payload, ensure_ascii=False, indent=2)

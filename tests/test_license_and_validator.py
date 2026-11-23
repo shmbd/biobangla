@@ -164,3 +164,23 @@ def test_validator_holds_preprint_missing_disclaimer_and_blocks_copyrighted_imag
     )
     rep_fail = validator.validate(draft_illegal_img)
     assert rep_fail.outcome == "FAIL"
+
+
+def test_validator_rejects_publication_date_before_2026() -> None:
+    rules = load_yaml_config("editorial_rules.yaml")
+    validator = ArticleQualityValidator(rules)
+    old_paper = _sample_paper(published_date="2025-12-31")
+    draft = GeneratedArticleDraft(
+        slug="pre-2026-article",
+        title_bn="পুরোনো ২০২৫ সালের গবেষণাপত্রের বাংলা বিশ্লেষণ পরীক্ষা",
+        description_bn="২০২৬ সালের পূর্বে প্রকাশিত প্রবন্ধ স্বয়ংক্রিয়ভাবে বাতিল হওয়ার পরীক্ষা।",
+        body_markdown_bn=_valid_bangla_body(),
+        tags_bn=["অণুজীববিজ্ঞান"],
+        key_findings_bn=[],
+        paper=old_paper,
+        ai_provider="gemini",
+        ai_model="gemini-3.5-flash",
+    )
+    report = validator.validate(draft)
+    assert report.outcome == "FAIL"
+    assert any(c.name == "publication_date" and c.status == "FAIL" for c in report.checks)

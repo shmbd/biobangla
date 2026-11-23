@@ -8,6 +8,7 @@ import pytest
 from scripts.collectors.biorxiv import BioRxivCollector
 from scripts.collectors.crossref import CrossrefCollector
 from scripts.collectors.europe_pmc import EuropePmcCollector
+from scripts.collectors.oa_fulltext import parse_jats_fulltext_xml
 from scripts.collectors.plos import PlosCollector
 from scripts.collectors.pubmed import PubMedCollector
 from scripts.collectors.rss import RssFeedCollector
@@ -224,3 +225,22 @@ def test_http_client_refuses_403_paywall_without_retry(monkeypatch: pytest.Monke
     with pytest.raises(AccessRestrictedError):
         client.get_text("https://publisher.example.com/paywalled-article")
     assert calls == 1  # Never retries 403 blocks
+
+
+def test_parse_jats_fulltext_xml_extracts_body_sections_and_skips_funding() -> None:
+    sample_jats = """<article><body>
+      <sec><title>Introduction</title>
+        <p>Gut microbiome communities regulate host mucosal immunity through short-chain fatty acids.</p>
+      </sec>
+      <sec><title>Results</title>
+        <p>Metagenomic sequencing across 120 human samples revealed enrichment of butyrate producers.</p>
+      </sec>
+      <sec><title>Funding</title>
+        <p>This study was supported by grant number 123456789 from an agency.</p>
+      </sec>
+    </body></article>"""
+    excerpt = parse_jats_fulltext_xml(sample_jats)
+    assert "[Introduction]" in excerpt
+    assert "[Results]" in excerpt
+    assert "butyrate producers" in excerpt
+    assert "[Funding]" not in excerpt

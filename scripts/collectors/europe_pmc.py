@@ -82,8 +82,12 @@ class EuropePmcCollector(BaseCollector):
                 "Europe PMC Indexed Authors"
             ]
 
+            nested_journal = (
+                (item.get("journalInfo") or {}).get("journal") or {}
+            ).get("title")
             journal = (
                 strip_markup(item.get("journalTitle"))
+                or strip_markup(nested_journal)
                 or strip_markup(item.get("bookOrReportDetails", {}).get("publisher"))
                 or ("Preprint Server" if is_preprint else "Europe PMC Indexed Journal")
             )

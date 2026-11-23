@@ -80,18 +80,34 @@ class ArticleQualityValidator:
         else:
             checks.append(CheckResult("doi_format", "PASS", "বিকল্প উৎস শনাক্তকারী ব্যবহৃত।"))
 
-        # 3. Date sanity check
+        # 3. Date sanity check (must not be before min_publication_date, e.g. 2026-01-01, and not in future)
+        min_pub_date_str = str(
+            self.rules.get("article_requirements", {}).get(
+                "min_publication_date", "2026-01-01"
+            )
+        )
         try:
             pub_dt = datetime.strptime(paper.published_date, "%Y-%m-%d").replace(
                 tzinfo=timezone.utc
             )
+            min_pub_dt = datetime.strptime(min_pub_date_str, "%Y-%m-%d").replace(
+                tzinfo=timezone.utc
+            )
             max_future = datetime.now(timezone.utc) + timedelta(days=3)
-            if pub_dt > max_future:
+            if pub_dt < min_pub_dt:
+                checks.append(
+                    CheckResult(
+                        "publication_date",
+                        "FAIL",
+                        f"প্রকাশের তারিখ ({paper.published_date}) ন্যূনতম অনুমোদিত সীমা ({min_pub_date_str})-এর পূর্বে।",
+                    )
+                )
+            elif pub_dt > max_future:
                 checks.append(
                     CheckResult("publication_date", "FAIL", "প্রকাশের তারিখ ভবিষ্যতের হতে পারে না।")
                 )
             else:
-                checks.append(CheckResult("publication_date", "PASS", "প্রকাশের তারিখ বৈধ।"))
+                checks.append(CheckResult("publication_date", "PASS", "প্রকাশের তারিখ বৈধ (২০২৬+)।"))
         except ValueError:
             checks.append(
                 CheckResult("publication_date", "FAIL", f"অবৈধ তারিখের বিন্যাস: {paper.published_date}")
