@@ -1,6 +1,6 @@
 {
   "summary": {
-    "collected_at": "2026-11-27T08:48:53+00:00",
+    "collected_at": "2026-11-27T21:24:43+00:00",
     "total_raw_records": 61,
     "sources": {
       "priority_journals": {
@@ -9,7 +9,7 @@
       },
       "europe_pmc": {
         "status": "ok",
-        "count": 10
+        "count": 9
       },
       "pubmed": {
         "status": "ok",
@@ -25,126 +25,141 @@
       },
       "plos": {
         "status": "ok",
-        "count": 1
+        "count": 2
       },
       "rss_feeds": {
         "status": "ok",
         "count": 10
       }
     },
-    "deduplicated_count": 58,
-    "duplicates_skipped": 3,
-    "non_biological_filtered": 11,
+    "deduplicated_count": 55,
+    "duplicates_skipped": 6,
+    "non_biological_filtered": 10,
     "stale_or_invalid_date_filtered": 0,
-    "ready_candidates_count": 47
+    "ready_candidates_count": 45
   },
   "candidates": [
     {
-      "title": "Syntaxonomy of plant communities with the South Italian narrow endemic Anthemis hydruntina",
-      "abstract": "Anthemis hydruntina is a narrowly endemic species from southern Italy, known from a few localities in three regions—Apulia, Basilicata, and Calabria—and includes two subspecies: one is assessed as Endangered at the national level, whereas for the other, which occurs only in Calabria, information remains insufficient. Given the limited information available on the plant communities harbouring this species, the present study aims to fill this knowledge gap. A total of 31 phytosociological relevés were conducted across the species’ distribution range using the Braun-Blanquet approach. These were compared, through cluster analysis and non-metric multidimensional scaling, with an additional 155 relevés representative of similar vegetation types. Indicator Species Analysis was performed to identify the floristic distinctions among the main relevé clusters. Results show that A. hydruntina occurs in two ecologically and floristically distinct plant communities belonging to different syntaxonomic classes. The Calabrian populations, assigned to the subspecies A. hydruntina subsp. silensis, grow on siliceous substrates and occur in the association Astragaletum calabrici, within the class Rumici aetnensis-Astragaletea siculi. In contrast, the populations from Basilicata and Apulia, attributed to the autonymous subspecies, are found on carbonate substrates and are associated with Mediterranean garrigue vegetation of the Centaureo subtilis-Thymbretum capitatae nom. mut. nov., for which the new subassociation anthemidetosum hydruntinae is described. This association is placed within the alliance Cytiso spinescentis-Saturejion montanae, which, in contrast to the classification adopted in the EuroVegChecklist, is here referred to the class Ononido-Rosmarinetea. These findings contribute to a better understanding of the habitat preferences of A. hydruntina and may assist in monitoring extant communities and identifying potential new occurrences, thereby supporting active conservation measures for this endangered endemic.",
+      "title": "Who truly benefits from perioperative immunotherapy in resectable gastric cancer? Biomarkers, clinical features, and dynamic treatment selection",
+      "abstract": "Background Perioperative immune checkpoint inhibitors (ICIs) are changing the management of resectable gastric and gastroesophageal junction (GEJ) adenocarcinoma, but treatment efficacy in an unselected trial population must be distinguished from biomarker-specific incremental benefit. Methods This structured narrative review considered clinical trials, biomarker investigations, and relevant regulatory information available through October 22, 2026, emphasizing the evidentiary distinction between prognosis and predictive treatment interaction. Evidence synthesis The phase III MATTERHORN trial demonstrated event-free survival (EFS) and final overall survival (OS) benefit from durvalumab plus fluorouracil, leucovorin, oxaliplatin, and docetaxel (FLOT; OS hazard ratio [HR] 0.78, 95% confidence interval [CI] 0.63–0.96; P = 0.021). KEYNOTE-585 improved pathological complete response (pCR), but its EFS result did not meet the prespecified statistical boundary and final OS was not significantly improved. Differences in chemotherapy backbone, multiplicity control, case mix, and PD-L1 assessment limit causal explanations based on cross-trial contrasts. ASTRUM-006 showed EFS benefit within a PD-L1 combined positive score (CPS) ≥5 population, without proving a biomarker–treatment interaction. Microsatellite instability-high/deficient mismatch repair (MSI-H/dMMR) indicates pronounced immunotherapy sensitivity, but randomized evidence for biomarker-specific incremental benefit remains limited. Postoperative circulating tumor DNA (ctDNA)/molecular residual disease (MRD) has substantial prognostic value for recurrence but no validated ability to identify incremental ICI benefit or guide treatment adaptation. Conclusions We distinguish trial-level survival evidence, biomarker sensitivity, recurrence prognosis, surgical safety, and regulatory context. The proposed multidomain framework is qualitative and hypothesis-generating; it must not be used as a validated clinical decision algorithm.",
       "authors": [
-        "Massimo Terzi",
-        "Carmen Gangale",
-        "Luigi Forte"
+        "Qiang Hu",
+        "Yuanshui Sun"
       ],
-      "journal": "Mediterranean Botany",
+      "journal": "Frontiers in Immunology",
       "published_date": "2026-11-27",
-      "source_url": "https://doi.org/10.5209/mbot.104216",
+      "source_url": "https://doi.org/10.3389/fimmu.2026.1999809",
       "source_adapter": "crossref",
-      "doi": "10.5209/mbot.104216",
+      "doi": "10.3389/fimmu.2026.1999809",
       "pmid": null,
       "pmcid": null,
       "research_type": "original-research",
       "peer_reviewed": true,
       "publication_status": "peer-reviewed",
-      "license": "Publisher Copyright",
-      "is_open_access": false,
-      "category": "botany",
-      "study_model": "multi-study",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "immunology",
+      "study_model": "human-clinical",
       "is_biological": true,
-      "allow_media_reuse": false,
+      "allow_media_reuse": true,
       "article_body_excerpt": "",
       "provenance": {
         "source": "Crossref",
-        "license_url": ""
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
       }
     },
     {
-      "title": "Conservation of Mediterranean Plant Species in Stable Forests",
-      "abstract": "Forests with relatively closed canopies are not common in Mediterranean areas, due to the long summer dryness. Where climate (or permanent groundwater) permits, though, such forests can provide conditions for conservation not only of the forest tree species involved but also of various herbs, shrubs, and arborescents that can grow in the understorey. These may include species targeted for special conservation efforts. The overstorey of Mediterranean forests is often not as densely closed as elsewhere, but it can still provide shade, higher humidity, and better growing conditions for smaller plants. So-called Miyawaki forest plantations may provide these beneficial attributes and are now becoming quite popular in Europe as retrofitted green space in otherwise built-up environments. Such plantations are not large in area, but even smaller forests, if stable over many years, can host and conserve smaller species. The Miyawaki technique was developed for evergreen broad-leaved forests in the humid warm-temperate climate of the southern half of Japan. Adapting it to drier situations is still a work in progress, but some experience in the Mediterranean area does exist. A plantation near Istanbul (Türkiye) already has 15 years of growth. In conservation, success involves not only species but also vegetation types and whole ecosystems, such as stable forests. This requires maintaining stable forests over many years, and identifying the right species that can adapt to and be conserved in each forest. Keywords: climax species, forest restoration, Mediterranean forests, mixed tree plantations, self-maintenance, shade tolerance, understorey species",
+      "title": "Target discovery by covalent fragment phenotypic screening in a stem cell differentiation model",
+      "abstract": "Abstract Covalent fragment screening is emerging as a powerful approach for identifying small molecules that modulate the activity of target proteins with high specificity for the purposes of drug discovery. Here, we report a phenotypic screen designed to identify signaling pathway modulators using a differentiation assay in which primed human induced pluripotent stem cells (iPS cells) were differentiated to definitive endoderm. Screening a library of covalent fragments targeting a range of amino acids identified an azetidine acrylamide analog that strongly impaired endoderm differentiation. Subsequent competitive click chemoproteomic profiling alongside biochemical and proteomic assays unambiguously identified this hit as a novel FGF receptor inhibitor that reacts with the conserved cysteine in the ATP-binding P-loop of FGF receptors. Given the application of FGF receptor inhibitors for cancer therapy, this work provides an excellent proof of concept for the use of covalent fragment phenotypic screening in human iPS cells for the discovery of therapeutically relevant compounds.",
       "authors": [
-        "Elgene Box"
+        "Berta Font-Cunill",
+        "Elliot Fellows",
+        "Karolina Narbutt",
+        "Benjamin J. Mortishire-Smith",
+        "Ioannis Riziotis",
+        "Scott G. Wilcockson",
+        "Irene Rodriguez-Hernandez",
+        "Joseph Tuersley",
+        "Thilo Werner",
+        "H. Christian Eberl",
+        "David House",
+        "Andrew J. Powell",
+        "Jacob T. Bush",
+        "Michael Howell",
+        "Caroline S. Hill"
       ],
-      "journal": "Mediterranean Botany",
+      "journal": "Nature Chemical Biology",
       "published_date": "2026-11-27",
-      "source_url": "https://doi.org/10.5209/mbot.109383",
+      "source_url": "https://doi.org/10.1038/s41589-026-02389-6",
       "source_adapter": "crossref",
-      "doi": "10.5209/mbot.109383",
+      "doi": "10.1038/s41589-026-02389-6",
       "pmid": null,
       "pmcid": null,
       "research_type": "original-research",
       "peer_reviewed": true,
       "publication_status": "peer-reviewed",
-      "license": "Publisher Copyright",
-      "is_open_access": false,
-      "category": "environment-biodiversity",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": false,
-      "article_body_excerpt": "",
-      "provenance": {
-        "source": "Crossref",
-        "license_url": ""
-      }
-    },
-    {
-      "title": "RAMPing Up GPCR Biology: Structural, Functional, and Pharmacological Insights",
-      "abstract": "Abstract Receptor activity-modifying proteins (RAMPs) were initially recognized as accessory proteins that enable the trafficking and ligand specificity of a small subset of class B1 G protein-coupled receptors (GPCRs). However, advances in structural, pharmacological, and functional evidence have fundamentally reshaped this view. In this Review, we expand on the traditional roles of RAMPs in receptor trafficking and ligand selectivity to highlight their function as complex endogenous allosteric modulators. We also discuss the nuanced, context-dependent signaling outcomes that shape receptor conformation and pharmacological identity. We further explore the structural basis of RAMP-mediated allostery revealed by existing cryo-EM studies, the expanding repertoire of RAMP interactions beyond class B1 GPCRs, and the context-dependent nature of RAMP function across tissues and physiological states. Finally, we examine the growing implications of receptor–RAMP complexes in human disease and the opportunities they present for the development of selective therapeutics. Together, these insights establish RAMPs as critical drivers of GPCR signaling diversity, emphasizing both the importance of and challenges in translating this signaling complexity into targeted therapies.",
-      "authors": [
-        "Sarfraz Ahmed",
-        "Mahek Agrawal",
-        "Amrutansu Pattanayak",
-        "Madhurjya Protim Borah",
-        "Mithu Baidya",
-        "Punita Kumari"
-      ],
-      "journal": "Biochemistry",
-      "published_date": "2026-11-27",
-      "source_url": "https://doi.org/10.1021/acs.biochem.6c00584",
-      "source_adapter": "crossref",
-      "doi": "10.1021/acs.biochem.6c00584",
-      "pmid": null,
-      "pmcid": null,
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "Publisher Copyright",
-      "is_open_access": false,
+      "license": "CC BY 4.0",
+      "is_open_access": true,
       "category": "biomedical-science",
       "study_model": "multi-study",
       "is_biological": true,
-      "allow_media_reuse": false,
+      "allow_media_reuse": true,
       "article_body_excerpt": "",
       "provenance": {
         "source": "Crossref",
-        "license_url": ""
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
       }
     },
     {
-      "title": "Hands-on time, time to result, and inter-device concordance: a prospective real-life comparison of three MALDI-TOF MS systems in the routine laboratory",
-      "abstract": "Introduction MALDI-TOF-MS is the standard method for rapid microbial identification in microbiology laboratories. Several commercial systems are available; however, comparative data for real-life applications in routine diagnostics remain limited. This prospective study evaluated three test systems for their performance in this setting: Bruker’s Biotyper sirius (“Biotyper”), Zybio’s EXS2600 (EXS), and bioMérieux’s VITEK MS PRIME (“VITEK”) regarding hands-on and measurement times, measurement confidence and inter-device concordance in a routine diagnostic setting. Methods A total of 2,433 bacterial and yeast isolates recovered in a routine laboratory were tested in parallel on all three devices, analogous to everyday procedures, resulting in 254 different identification results covering commonly encountered species. The sample preparation time, measuring time, measurement confidence, need for and impact of re-testing, and inter-device concordance at the species level were assessed. Results While sample preparation times were comparable, Biotyper demonstrated significantly shorter measurement times. With one measurement, VITEK, EXS, and Biotyper yielded high-confidence identifications (green category) at 86.3%, 88.0%, and 92.4%, respectively. This increased to 93.2%, 95.7%, and 97.7% after repeated testing of isolates with initially lower confidence or invalid results (yellow or red category). Repeated measurements led to an improvement of 39-67% in re-analyzed isolates. The overall concordance between the three devices was high (93.9% of isolates with results for all three devices). Conclusions All three MALDI-TOF MS devices yielded confident results in a high proportion of isolates. Depending on the requirements, for example, the need for the shortest possible turnaround time or for avoiding repeated measurements, different devices may be the right solution for the individual laboratory.",
+      "title": "Lipid metabolism in ischemia–reperfusion injury and fibrotic repair: cell-specific mechanisms across the heart, kidney, liver, and lung",
+      "abstract": "Ischemia–reperfusion injury (IRI) can initiate maladaptive repair, but lipid metabolism does not drive fibrosis through an identical pathway in every organ or cell population. This critical narrative review asks how lipid supply, innate immune sensing, and cell-specific metabolism connect acute injury to persistent matrix production in the heart, kidney, liver, and lung. We distinguish injured parenchymal cells from macrophages and matrix-producing fibroblasts or hepatic stellate cells. Damage-associated molecular patterns and modified lipids can sustain inflammatory signaling, whereas efferocytosis and lipid processing influence clearance and repair. These mechanisms have unequal support: renal IRI provides direct immune-metabolic evidence for delayed fibrosis, while much pulmonary lipid–macrophage evidence derives from non-IRI models. Parenchymal oxidative recovery and stromal metabolic manipulation can have different effects, and short-term adipose lipolysis inhibition cannot be equated with sustained adipocyte deletion. PPARα, miR-21, STAT6, and FATP2 are therefore considered parallel, model-dependent regulators rather than a conserved sequential circuit. A four-tier endpoint framework separates matrix deposition, structural remodeling, fibrosis-associated physiological impairment, and durable dysfunction. Acute cytoprotection or improved function alone cannot establish direct inhibition of fibrogenesis. Translation requires defined cellular targets and treatment windows, pharmacodynamic confirmation, biologically justified patient strata, and delayed structural outcomes paired with organ function. Negative clinical trials, including HERA, limit efficacy claims and identify questions about population selection and mechanistic engagement that future IRI studies must resolve.",
       "authors": [
-        "Isabel Klugherz",
-        "Hanna Greimel",
-        "Simone Friedl",
-        "Ivo Steinmetz",
-        "Karl Dichtl"
+        "Jiangwei Man",
+        "Changhong Xu",
+        "Hao Wang",
+        "Yalong Zhang",
+        "Kangyu Wang",
+        "Rui Yan",
+        "Qing Zhou",
+        "Li Yang"
       ],
-      "journal": "Frontiers in Cellular and Infection Microbiology",
+      "journal": "Frontiers in Immunology",
       "published_date": "2026-11-27",
-      "source_url": "https://doi.org/10.3389/fcimb.2026.1924481",
+      "source_url": "https://doi.org/10.3389/fimmu.2026.1957871",
       "source_adapter": "crossref",
-      "doi": "10.3389/fcimb.2026.1924481",
+      "doi": "10.3389/fimmu.2026.1957871",
+      "pmid": null,
+      "pmcid": null,
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "biomedical-science",
+      "study_model": "human-clinical",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "article_body_excerpt": "",
+      "provenance": {
+        "source": "Crossref",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    },
+    {
+      "title": "Phage-based drug delivery systems: innovations, challenges, and future directions in targeted therapy",
+      "abstract": "Bacteriophages, historically recognized as natural bacterial predators, are currently being redefined as programmable and versatile nanocarriers in the era of precision medicine. This review traces the evolution of phages from biological antibacterial agents to modular platforms of drug delivery. We firstly map the global research landscape, representing how the field has evolved from simple infection control to complex bio-nanotechnology applications. Next, we dissect the core multidimensional engineering strategies, including capsid surface display, genomic reprogramming, and chemical conjugation, which endow phages with capabilities for active tumor targeting, microenvironment-responsive release, and diverse cargo loading, ranging from small molecules to CRISPR-Cas systems. Finally, we discuss the emerging role of artificial intelligence (AI) in addressing longstanding challenges in phage design and application. We highlight how deep learning architectures are facilitating the development from labor-intensive empirical screening to data-driven rational design, specifically in predicting phage-host interactions and optimizing non-immunogenic vectors. Finally, we discuss the current translation challenges, including manufacturing standardization (CMC) and regulatory frameworks. Under the guidance of new technologies, we are committed to integrating synthetic biology and AI guided design to guide the path of future phage based nanomedicines for the treatment of multidrug-resistant infections and targeted disease treatment strategies.",
+      "authors": [
+        "Dongdong Ye",
+        "Weihuan Zeng",
+        "Qiang Gao",
+        "Jiemin Zheng",
+        "Weizheng Dong"
+      ],
+      "journal": "Frontiers in Microbiology",
+      "published_date": "2026-11-27",
+      "source_url": "https://doi.org/10.3389/fmicb.2026.1984955",
+      "source_adapter": "crossref",
+      "doi": "10.3389/fmicb.2026.1984955",
       "pmid": null,
       "pmcid": null,
       "research_type": "original-research",
@@ -163,65 +178,77 @@
       }
     },
     {
-      "title": "SATB1 regulates plasma cell differentiation during T cell-independent immune responses",
-      "abstract": "Introduction The Special AT-rich binding protein 1 (SATB1) functions as a genome organizer via its ability to modulate 3D-chromatin architecture. SATB1 regulates different programs of gene expression in multiple cell types, including T and B lymphocytes. However, its role in B cell and plasma cell differentiation is still not fully understood. Methods Here we investigated the function of SATB1 in plasma cell differentiation by analyzing Satb1 fl/fl Mb1 Cre and Satb1 fl/fl Mb1 Cre Prdm1 +/gfp mice. We performed in vivo and in vitro experiments to investigate plasma cell differentiation, assessing antibody-secreting cells by ELISpot and immunoglobulin secretion by ELISA. Furthermore, we analyzed the transcriptome of in vitro -differentiated plasma cells by RNA sequencing (RNAseq) and mapped SATB1 chromatin-binding sites by chromatin immunoprecipitation followed by sequencing (ChIPseq). Results We found that SATB1-deficiency enhances the differentiation and function of antibody secreting cells during T cell-independent immune responses. Transcriptome analysis of Satb1-deficient plasma cells revealed reduced expression of Blimp1 target genes, and SATB1 ChIP-seq. demonstrated that SATB1 directly binds to genes associated with plasma cell programming. Conclusion Taken together, these findings show that SATB1 is required to restrain plasma cell differentiation and antibody production.",
+      "title": "Temperature-based MHC class I multimer peptide exchange for human HLA-A, -B, and -C.",
+      "abstract": "T cell recognition of specific antigens presented by major histocompatibility complex class I (MHC-I) can play an important role during immune responses against pathogens and cancer cells. Detection of T cell immunity is based on assessing the presence of antigen-specific cytotoxic CD8+ T cells using MHC-I multimer technology. Previously, we have designed conditional peptides for HLA-A*02:01, H-2K b , and HLA-E that form stable peptide-MHC-I-complexes at low temperatures and dissociate when exposed to a defined elevated temperature. The resulting conditional MHC-I complex can easily and without additional handling be exchanged with a peptide of interest, allowing to exchange peptides in a ready-to-use multimer and a high-throughput manner. Here, we present data that this peptide-exchange technology is a generally applicable, ready-to-use, and fast approach to load many different peptides in MHC-I multimers for alleles of the HLA-A, HLA-B, and HLA-C loci. We describe the development of conditional peptides for HLA-A*03:01, HLA-A*11:01, HLA-B*07:02, and HLA-C*07:02 that only form stable peptide-MHC-I complexes at low temperatures, allowing peptide exchange at higher defined temperatures. We document the ease and flexibility of this technology by monitoring CD8+T cell responses to virus-specific peptide-MHC complexes in patients.",
       "authors": [
-        "Nikolay Zolotarev",
-        "Ekaterina Lupar",
-        "Senthilkumar Ramamoorthy",
-        "Rudolf Grosschedl",
-        "Virginia Andreani"
+        "Pothast CR",
+        "Derksen I",
+        "van der Plas-van Duijn A",
+        "El Hebieshy A",
+        "Huisman W",
+        "Franken KLMC",
+        "Neefjes J",
+        "Luimstra JJ",
+        "Griffioen M",
+        "Kester MGD",
+        "Vermeer MH",
+        "Ostholm M",
+        "Hadrup SR",
+        "Heemskerk MHM",
+        "Scheeren FA."
       ],
-      "journal": "Frontiers in Immunology",
-      "published_date": "2026-11-27",
-      "source_url": "https://doi.org/10.3389/fimmu.2026.1993649",
-      "source_adapter": "crossref",
-      "doi": "10.3389/fimmu.2026.1993649",
-      "pmid": null,
-      "pmcid": null,
+      "journal": "eLife",
+      "published_date": "2026-11-26",
+      "source_url": "https://doi.org/10.7554/elife.105580",
+      "source_adapter": "europe_pmc",
+      "doi": "10.7554/elife.105580",
+      "pmid": "43096153",
+      "pmcid": "PMC13811679",
       "research_type": "original-research",
       "peer_reviewed": true,
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
       "category": "immunology",
-      "study_model": "animal",
+      "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": true,
       "article_body_excerpt": "",
       "provenance": {
-        "source": "Crossref",
-        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+        "source": "Europe PMC",
+        "id": "43096153"
       }
     },
     {
-      "title": "Epigenetic-immune landscape of pancreatic ductal adenocarcinoma: From tumor biology to multimodal treatment in the surgical setting",
-      "abstract": "Pancreatic cancer, one of the most lethal malignancies, is characterized by aggressive progression, late diagnosis, and resistance to conventional therapies. Increasing evidence indicates that epigenetic alterations contribute not only to tumor progression but also to immune regulation. These epigenetic alterations regulate immune cell differentiation, infiltration, and function, thereby promoting the formation of an immunosuppressive tumor microenvironment. This narrative minireview aims to summarize the current understanding of epigenetic-immune crosstalk in pancreatic ductal adenocarcinoma and discuss its potential implications for translational research and future therapeutic development. Various epigenetic-immune interactions regulate immune checkpoints, macrophages, myeloid-derived suppressor cells, and regulatory T cells, collectively contributing to immune evasion. Combinations of epigenetic modulators and immune checkpoint inhibitors are emerging, particularly in the surgical setting. They hold promise for restoring anti-tumor immunity and overcoming resistance. This article provides an overview of epigenetic-immune crosstalk in pancreatic cancer, with implications for novel therapies in the surgical setting. However, current evidence remains predominantly preclinical, and prospective studies are warranted.",
+      "title": "SPEx enables compartment-resolved proteomics via expansion microscopy-guided microdissection.",
+      "abstract": "Cells contain different organelles and compartments that are essential for cellular function and life. These organelles and compartments need to communicate to assess cellular state in a changing environment, adapt to the new situation, and to ensure functionality and homeostasis. Moreover, organization and communication differ between cell types. However, our knowledge about these changes is still rather scarce. Subcellular spatial proteomics aims to fill this knowledge gap. While proximity labeling techniques represent a great advance, they do not provide precise spatial resolution. To overcome this limitation, we developed SPEx ( S ubcellular spatial P roteomics coupled to Ex pansion), in which we first expand cells about tenfold, laser micro-dissect regions of interest, and then perform mass spectrometry-based proteomics on these samples. We demonstrate the effectiveness of SPEx by determining the proteome of the Golgi, the nucleus, and the nucleoli. Importantly, we also identify novel components of these organelles. Combining inexpensive, already existing technologies makes SPEx readily usable by the wider scientific community.",
       "authors": [
-        "Jun-Qi Li",
-        "Hong-Guang Zhao",
-        "Hong-Qiao Cai"
+        "Franziscus CA",
+        "Ferrand A",
+        "Biehlmaier O",
+        "Schmidt A",
+        "Spang A."
       ],
-      "journal": "World Journal of Gastrointestinal Surgery",
-      "published_date": "2026-11-27",
-      "source_url": "https://doi.org/10.4240/wjgs.125757",
-      "source_adapter": "crossref",
-      "doi": "10.4240/wjgs.125757",
-      "pmid": null,
-      "pmcid": null,
+      "journal": "eLife",
+      "published_date": "2026-11-26",
+      "source_url": "https://doi.org/10.7554/elife.111393",
+      "source_adapter": "europe_pmc",
+      "doi": "10.7554/elife.111393",
+      "pmid": "43096151",
+      "pmcid": "PMC13811680",
       "research_type": "original-research",
       "peer_reviewed": true,
       "publication_status": "peer-reviewed",
-      "license": "Publisher Copyright",
-      "is_open_access": false,
-      "category": "genetics-genomics",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "biomedical-science",
       "study_model": "multi-study",
       "is_biological": true,
-      "allow_media_reuse": false,
+      "allow_media_reuse": true,
       "article_body_excerpt": "",
       "provenance": {
-        "source": "Crossref",
-        "license_url": ""
+        "source": "Europe PMC",
+        "id": "43096151"
       }
     },
     {
@@ -440,6 +467,83 @@
       }
     },
     {
+      "title": "Effects of Milk or Yogurt Supplementation on Bone Health, Body Composition, and Gut Microbiota in Canadian Young Adults: Protocol for a Three-Arm Parallel-Group Randomized Controlled Trial.",
+      "abstract": "Background Osteoporosis is a major global public health concern. Optimizing peak bone mass during young adulthood is the main preventive strategy for reducing fracture risk later in life. Dairy foods, such as milk, provide nutrients, including calcium and protein, that support bone health, while fermented dairy foods, including yogurt, may confer additional benefits through potential modulation of the gut microbiome. However, the long-term comparative effects of milk and/or yogurt supplementation compared with no dairy supplementation on bone health, body composition, and the gut microbiome in Canadian young adults remain unknown. Objective This study aims to evaluate the effects of 2-year supplementation with fermented (yogurt) and nonfermented (milk) dairy products, compared to a habitual diet, on femoral neck bone mineral density (BMD) in Canadian adults aged 19 to 30 years, and to directly compare the effects of milk versus yogurt supplementation. The secondary objectives include assessing changes in BMD at skeletal sites, including the total hip, lumbar spine, and whole body, as well as body composition, hormonal factors, bone turnover markers, and gut microbiota composition and diversity following the intervention. Methods The Fermented-Non-Fermented-Dairy trial is a 2-year, prospective, randomized, 3-arm, parallel-group controlled trial. Eligible healthy adults (N=120) aged 19 to 30 years living in Saskatoon, Canada, with calcium intake of Results Recruitment was conducted between July 2024 and July 2025, with an allocation ratio of 1:1:1 for the 3 study arms. Currently, month 12 follow-ups are ongoing. Month 24 assessments will take place from November 2026 to July 2027, followed by data analysis and dissemination of findings. Conclusions This study uses a robust methodology and multidimensional outcome assessment to evaluate the effects of dairy supplementation on skeletal and metabolic health in young adults. The findings will contribute to evidence on dairy-based nutritional strategies to optimize long-term bone health in Canadian young adults.",
+      "authors": [
+        "Uzair SA",
+        "Monroy-Valle M",
+        "Shafiee M",
+        "Longworth ZL",
+        "Karbin K",
+        "Saha M",
+        "Sharifan P",
+        "Chilibeck PD",
+        "Clarke ST",
+        "Lepp D",
+        "Ramdath DD",
+        "Erlandson MC",
+        "Lane G",
+        "Baxter-Jones ADG",
+        "Terranegra A",
+        "Siqueira WL",
+        "Vatanparast H."
+      ],
+      "journal": "JMIR research protocols",
+      "published_date": "2026-11-25",
+      "source_url": "https://doi.org/10.2196/101497",
+      "source_adapter": "europe_pmc",
+      "doi": "10.2196/101497",
+      "pmid": "43096777",
+      "pmcid": "PMC13806323",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "microbiology",
+      "study_model": "human-clinical",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "article_body_excerpt": "",
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43096777"
+      }
+    },
+    {
+      "title": "Host genomic analyses of gut microbial community structure in rabbits using an expanded mixed model to account for community interdependencies.",
+      "abstract": "Background Host genetic variation is increasingly recognized as an important determinant of gut microbial community structure, yet accurate quantification of genetic effects remains challenging because microbial abundance data are inherently compositional and interdependent among taxa. In this study, we investigated the host genetic architecture of gut microbial community structure in domestic rabbits using 16​S rRNA sequencing data integrated with single-step genomic best linear unbiased prediction models and genome-wide association analyses. To address the compositional nature of microbiome data, we proposed an expanded modeling framework that incorporates the community background as an additional random effect after centered log-ratio transformation. Results The expanded mixed model substantially improved model fit and revealed that community background effects accounted for more than 40% of phenotypic variance on average, leading to more conservative estimates of heritability. After accounting for community background effects, 146 amplicon sequence variants exhibited moderate-to-high heritabilities, with maximum and median estimates (± standard error) of 0.59 ± 0.07 and 0.15 ± 0.04, respectively. These heritable variants were non-randomly distributed across phylogenetic lineages and enriched in mucosa-associated groups, including members of Bacteroidales, Akkermansia, and Phascolarctobacterium. Association analyses identified 367 relevant genomic regions harboring 1293 positional candidate genes that were enriched in pathways related to epithelial barrier integrity, developmental signaling, immune regulation, and lipid metabolism, suggesting that host genetic effects on gut microbial community may operate through modification of the intestinal habitat and host-microbe interface. Conclusions Together, these findings demonstrate measurable host genetic effects on gut microbial community structure and provide an expanded mixed model for variance partitioning of community background effects in microbiome quantitative genetics.",
+      "authors": [
+        "Zhou J",
+        "Tian X",
+        "Sun W",
+        "Qin Y",
+        "Jia X",
+        "Chen SY."
+      ],
+      "journal": "Genetics, selection, evolution : GSE",
+      "published_date": "2026-11-25",
+      "source_url": "https://doi.org/10.1186/s12711-026-01119-9",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1186/s12711-026-01119-9",
+      "pmid": "43086598",
+      "pmcid": "PMC13811010",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "genetics-genomics",
+      "study_model": "computational",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "article_body_excerpt": "",
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43086598"
+      }
+    },
+    {
       "title": "A structure-derived contact-network responsiveness atlas of human proteins.",
       "abstract": "Protein structures encode non-local contact organization, but static coordinates do not directly quantify how a contact network responds when effective stabilizing interactions are strengthened or weakened. Here we introduce Contact-Network Responsiveness (CNR), a structure-derived framework that converts residue-level protein coordinates into density-controlled and topology-corrected response descriptors. The method is structure-source agnostic and can be applied to experimentally determined PDB structures, AlphaFold models, or other predicted structures; here, human AlphaFold models serve as the high-coverage structural substrate. Across 22,167 valid human protein models, hydrophobic non-local contact density defined a nearly exact Bethe mean-field baseline for the conformational susceptibility threshold. A graph-aware residue-level extension then revealed systematic graph-dependent deviations from this density-only prediction. We define a topology correction ratio, Rtopo=λfGraph/λfBethe, which provides an operational comparison of the two response models; empirical atlas tails define topology-facilitated, density-dominated and topology-suppressed regimes. CNR descriptors were associated with curated DisProt disorder annotations and broad-coverage UniProt/MobiDB-lite disorder fractions, supporting the interpretation that CNR captures a structural organization axis related to non-local contact availability and responsiveness.",
       "authors": [
@@ -467,6 +571,67 @@
       "provenance": {
         "source": "Europe PMC",
         "id": "43084700"
+      }
+    },
+    {
+      "title": "Gene symbol illusions in bioinformatics: An audit across 7.1 million PubMed Central papers.",
+      "abstract": "Paper mills increasingly use public datasets and bioinformatics workflows to produce original-looking articles to evade traditional integrity detection tools. Bioinformatics is attractive because producers can change the compound, gene, disease, or dataset in a pipeline without generating new experimental data or fabricating images. A common tactic is the gene symbol illusion (GSI), in which biologically distinct entities are reduced to gene-symbol lists and shared symbols are treated as evidence of a biological relationship. We developed an automated screening system centered on gene symbol illusions and recurrent workflow patterns in commercially promoted articles. After optimization in 200 articles, external validation in an intentionally enriched set of 1,223 PubMed Central Open Access bioinformatics articles yielded 88.6% sensitivity, 99.3% specificity, and 97.7% accuracy. Screening 7,113,416 PubMed Central Open Access articles identified 5,407 flagged records in total; after eight conference records were excluded from the journal and publisher analyses, 5,399 flagged journal articles remained across 605 journals and 75 publisher groups. The observed annual flag rate increased from 5.04 per 10,000 articles in 2021 to 21.04 in 2025 and 28.33 during the incomplete 2026 interval. Cross-matching with the Retraction Watch Database identified 25 retracted articles containing gene symbol illusions; 16 had \"Paper Mill\" recorded among the Retraction Watch Reason(s). These findings identify a growing research-integrity problem that can be detected during editorial triage.",
+      "authors": [
+        "Tan K."
+      ],
+      "journal": "PloS one",
+      "published_date": "2026-11-25",
+      "source_url": "https://doi.org/10.1371/journal.pone.0356036",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1371/journal.pone.0356036",
+      "pmid": "43084566",
+      "pmcid": "PMC13803863",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "biomedical-science",
+      "study_model": "multi-study",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "article_body_excerpt": "",
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43084566"
+      }
+    },
+    {
+      "title": "Genomic and transcriptomic analysis of the fluorobenzene-degrading Paraburkholderia fungorum FLU100.",
+      "abstract": "Fluorobenzene is a highly persistent environmental pollutant, with only a few bacterial strains reported to degrade it. Paraburkholderia fungorum FLU100 mineralizes fluorobenzene via initial dioxygenation followed by dehydrogenation to 3-fluorocatechol. After intradiol ring-cleavage, defluorination of 2-fluoromuconate as the critical, typically persistent metabolite, has to be accomplished. To elucidate possible downstream pathways, the genome (two chromosomes, ten plasmids, 9657 CDS) was obtained by Illumina and MinION sequencing. Phylogenetics confirmed species identity (98.8% DDH with P. fungorum ATCC BAA-463). The genome harbors an exceptional cluster of 34 fluoride riboswitches on chromosome 1 within a genomic island encoding multiple putative fluoride transporters (CrcB and CLC-type EriCF homologs), suggesting specific adaptation to fluoride-rich environments. Transcriptomics revealed upregulation of a biphenyl dioxygenase type gene cluster for initial fluorobenzene oxygenation. While an archetype chlorocatechol gene cluster was also induced, a novel gene set encoding enzymes only distantly related to known chlorocatechol dioxygenases and chloromuconate cycloisomerases (FcaB and FcaC) was massively upregulated (510- and 660-fold, respectively), strongly implicating them to be involved in 3-fluorocatechol processing. We propose that FcaC catalyzes cycloisomerization of 2-fluoromuconate to 5-fluoromuconolactone. Defluorination may occur via FcaC itself, the muconolactone isomerase of the 3-oxoadipate pathway, or CoA-dependent reactions, supported by 210- and 630-fold upregulation of an acetyl-CoA ligase and a dienoyl-CoA reductase encoding gene. Moreover, the increased expression of OmpA suggests a severe remodeling of the outer membrane toward a more rigid cell envelope. KEY POINTS: • The genome of FLU100 shows adaptations to fluoride-rich environments • Novel chlorocatechol catabolic genes were upregulated during fluorobenzene growth • Transcriptomics reveals strong fluorobenzene-dependent cell envelope remodeling.",
+      "authors": [
+        "Junca H",
+        "Vilchez-Vargas R",
+        "Jauregui R",
+        "Kiel M",
+        "Engesser KH",
+        "Pieper DH."
+      ],
+      "journal": "Applied microbiology and biotechnology",
+      "published_date": "2026-11-25",
+      "source_url": "https://doi.org/10.1007/s00253-026-14122-3",
+      "source_adapter": "europe_pmc",
+      "doi": "10.1007/s00253-026-14122-3",
+      "pmid": "43084106",
+      "pmcid": "PMC13809419",
+      "research_type": "original-research",
+      "peer_reviewed": true,
+      "publication_status": "peer-reviewed",
+      "license": "CC BY 4.0",
+      "is_open_access": true,
+      "category": "genetics-genomics",
+      "study_model": "computational",
+      "is_biological": true,
+      "allow_media_reuse": true,
+      "article_body_excerpt": "",
+      "provenance": {
+        "source": "Europe PMC",
+        "id": "43084106"
       }
     },
     {
@@ -502,234 +667,38 @@
       }
     },
     {
-      "title": "Male chickadees with better spatial cognition sire more extra-pair young.",
-      "abstract": "Across animal taxa, females commonly mate with more than one male, even in monogamous mating systems. These extra-pair copulations and resulting young may increase the fitness of the female via a variety of mechanisms. The 'good genes' hypothesis suggests that socially monogamous females mate outside their pair bond to increase the fitness of their offspring via indirect genetic benefits, because extra-pair males do not provide parental care. We tested this hypothesis by quantifying extra-pair paternity in nonmigratory, food-caching mountain chickadees ( Poecile gambeli ). Chickadees rely on spatial cognition to recover scattered food caches, and variation in spatial cognition is associated with increased survival, longer lifespan, and is heritable. However, less is known about the role of sexual selection on spatial cognitive abilities. In the current study, we found that (1) males with better spatial cognitive abilities sired more extra-pair young and produced heavier offspring in their own nests compared to their poorer-performing counterparts, and (2) extra-pair males had significantly better spatial cognition than the social males they cuckolded. These results suggest that sexual selection shapes the evolution of spatial cognition in food-caching chickadees and are consistent with the good genes hypothesis, which posits that females gain indirect genetic benefits via extra-pair young.",
+      "title": "The Sec61-EMC complex promotes biosynthesis of the SARS-CoV-2 non-structural proteins",
+      "abstract": "The genomic RNA of SARS-CoV-2, the virus responsible for the global COVID-19 pandemic, encodes polyproteins pp1a and pp1ab which contain 16 non-structural proteins (NSPs) that support critical steps in infection. Despite this, how the polyproteins are synthesized and membrane-inserted in the host cell is unclear. Here we demonstrate that SARS-CoV-2 exploits the Sec61-endoplasmic reticulum (ER) membrane complex (EMC) translation machinery to promote biosynthesis of the virus polyproteins, leading to successful replication and infection. The Sec61-EMC complex engages NSP3—the first transmembrane (TM) protein in pp1a/pp1ab—during active translation. Strikingly, of the four TM segments in NSP3, a marginally hydrophobic domain between TM3 and TM4 is required for EMC-binding and confers EMC-dependent expression. Our results reveal an ER-dependent mechanism for translation of the SARS-CoV-2 NSPs during virus infection, providing insights that should lead to new anti-SARS-CoV-2 therapeutic approaches. Author summary: SARS-CoV-2 viral non-structural proteins (NSPs) are necessary for several key steps of viral infection including double membrane vesicle (DMV) formation, genome replication and transcription, and immune evasion. The NSPs are initially synthesized as one large polyprotein containing several multipass transmembrane proteins that require insertion into the endoplasmic reticulum (ER) membrane for productive infection. How the host cell translates and inserts this unique client protein remains unclear. In this study, we demonstrate that the Sec61-ER membrane complex (EMC) is required for efficient NSP biosynthesis. Mechanistically, we further demonstrate that the marginally hydrophobic domain between transmembrane domains 3 and 4 of NSP3 is the molecular determinant for its EMC dependency.",
       "authors": [
-        "Branch CL",
-        "Sonnenberg BR",
-        "Welklin JF",
-        "Butcher BG",
-        "Heinen VK",
-        "Pitera AM",
-        "Benedict L",
-        "Bridge E",
-        "Lovette I",
-        "Webster MS",
-        "Pravosudov V."
+        "Whitney Reid",
+        "Yu-Jie Chen",
+        "Jeffrey M. Williams",
+        "Andrew W. Tai",
+        "Qi-Yin Chen",
+        "Hendrik Luesch",
+        "Thomas W. Bell",
+        "Billy Tsai"
       ],
-      "journal": "eLife",
+      "journal": "PLOS Pathogens",
       "published_date": "2026-11-25",
-      "source_url": "https://doi.org/10.7554/elife.110905",
-      "source_adapter": "europe_pmc",
-      "doi": "10.7554/elife.110905",
-      "pmid": "43082034",
-      "pmcid": "PMC13806715",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "evolution",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "article_body_excerpt": "",
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43082034"
-      }
-    },
-    {
-      "title": "Assessment of the Production or Protection Benefits of a Maternity Pen in Conserving Endangered Caribou in Northeastern British Columbia, Canada.",
-      "abstract": "In British Columbia, Canada, caribou numbers have declined with calf mortality from predation being one proximate cause; an ultimate manifestation of anthropogenic disturbances. Maternity pens directly protect calves from predators, but penning may also improve production of calves because pelleted foods are readily available, highly digestible, and nutrient dense potentially offsetting the energetic cost of previous-year reproduction and increasing current-year calf production. We monitored Klinse-Za caribou in northeastern BC to investigate whether an observed increase in calf recruitment resulted from: protecting calves in a maternity pen, improved calf production due to the pelleted food provided in the pen, or both. We contrasted the potential effects of previous-year reproduction (months with calf-at-heel), current- and previous-year management (penned or not), and cow age in a longitudinal study of vital rates of cows penned or left free-ranging (i.e., not penned). Most (92%) cows were pregnant, with previous-year reproduction and age contributing positive and negative influences on the probability of pregnancy, respectively. Of cows known to be pregnant, 88%-91% had successful parturition and, among penned cows, those retaining a calf-at-heel longer were most likely to have successful subsequent parturition. Overall pregnancy and parturition rates were similar for penned and free-ranging cows. Calf survival was not affected by cow age, previous-year reproduction or previous-year management. Current-year penned calves had a 3.8-fold reduction in risk of mortality compared to calves born outside the pen. Of the penned calves, 11% died mostly from accidents. Of free-ranging calves, 40% died mostly from predation. We concluded that Klinse-za caribou cows were able to maintain their reproductive performance based on natural diets and any additional benefit from ad libitum feeding in the maternity pen was not obvious. The conservation benefit provided by the maternity pen was primarily realized through protection from predators.",
-      "authors": [
-        "McNay RS",
-        "Birch L",
-        "Lamb C."
-      ],
-      "journal": "Ecology and evolution",
-      "published_date": "2026-11-24",
-      "source_url": "https://doi.org/10.1002/ece3.74706",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1002/ece3.74706",
-      "pmid": "43081272",
-      "pmcid": "PMC13795976",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "environment-biodiversity",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "article_body_excerpt": "",
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43081272"
-      }
-    },
-    {
-      "title": "Prioritization of Candidate Genes and Predicted Compounds for Presbycusis by Mendelian Randomization With Multidimensional Bioinformatics Analysis.",
-      "abstract": "To prioritize candidate genes and computationally predicted compounds for presbycusis, we integrated an exploratory expression screen with two-sample Mendelian randomization (MR) using whole-blood eQTL data from the eQTLGen Consortium and presbycusis GWAS data from the EBI database. Functional-enrichment, immune-cell-infiltration, pathway, motif, regulatory-network, and compound-perturbation analyses were performed for biological interpretation. Among 145-gene expression-presbycusis associations evaluated by primary MR, nine associations supported by at least three instrumental SNPs met the nominal IVW threshold of p 0.70 and were selected for exploratory downstream characterization. Immune-infiltration analysis showed higher neutrophil and eosinophil proportions and lower mast-cell and activated dendritic-cell proportions in the older group. GSVA linked GLIPR2 and COL9A2 mainly to WNT/ β -catenin signaling and ESPN and DPP4 to apical-surface signaling. Motif analysis identified cisbp_M6547 as the most enriched motif (NES = 5.31), with predicted enrichment for COL9A2 and ESPN. Expression analysis identified strong correlations between GLIPR2 and CYBA and between ESPN and ACTG1, and a predicted network comprising four mRNAs and 27 miRNAs was constructed. CMap analysis prioritized azacitidine, dilazep, GSK-3 inhibitor II, ivermectin, and sunitinib as compounds with expression profiles inversely correlated with the presbycusis-associated signature. These findings provide genetically informed candidates and testable hypotheses that require independent replication and experimental validation.",
-      "authors": [
-        "Yu S",
-        "Yu H",
-        "Wang W",
-        "Wang F",
-        "Wang X",
-        "Banerjee S."
-      ],
-      "journal": "Human mutation",
-      "published_date": "2026-11-24",
-      "source_url": "https://doi.org/10.1155/humu/6211958",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1155/humu/6211958",
-      "pmid": "43080946",
-      "pmcid": "PMC13794103",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "immunology",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "article_body_excerpt": "",
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43080946"
-      }
-    },
-    {
-      "title": "A theoretical and simulation-based assessment of the SNP- and haplotype-based genomic prediction in panmictic populations.",
-      "abstract": "Background We theoretically and empirically compared single nucleotide polymorphism (SNP)- and haplotype-based genomic prediction. We derived and computed the relative prediction accuracy of a quantitative trait loci (QTL) additive value based on two SNPs and a haplotype of size 2 and the relative magnitude of the maximum linkage disequilibrium (LD) values for haplotype and SNP alleles. The empirical assessment was based on two criteria, using a simulated dataset: the efficacy of SNP- and haplotype-based genomic additive relationship matrices to express genotypic similarity for identical by descent (IBD) and identical by state (IBS) alleles, and the additive and epistatic genetic values prediction accuracies over six generations of random matings, assuming seven types of digenic epistasis. Results The values of efficacy of the haplotype-based QTL additive value prediction accuracy, relative to the SNP-based, showed that the two approaches are equivalent. The maximum LD value for a haplotype allele was higher than the maximum LD value for a SNP allele in only 10% of the scenarios. The correlations between the additive and the SNP- and haplotype-based genomic additive matrices showed that haplotypes expressed better than individual SNPs the genotypic similarity for IBD alleles. Considering the efficacy of the SNP- and haplotype-based genomic additive matrices to express genotypic similarity for IBS alleles, the correlations showed that SNPs and short haplotypes are also similar. Considering the additive value prediction accuracy over generations, in the high and low LD populations the increase in the haplotype size from 2 to 10 decreased the prediction accuracy. Regarding haplotypes of size 2, the absolute differences in accuracy between the SNP- and haplotype-based approaches were insignificant. Epistasis had a negative impact on the additive value prediction accuracy. Using SNPs and haplotypes of size 2, the predictions accuracies under epistasis were lower than the accuracies under the additive-dominance model, except for duplicate genes with cumulative effects and non-epistatic gene interaction. The decreases were higher for duplicate epistasis. Conclusions Based on the theoretical and empirical assessments, SNP- and haplotype-based genomic prediction of complex traits are equivalent assuming short haplotypes, regardless of the population LD level, trait heritability, and epistasis type.",
-      "authors": [
-        "Viana JMS",
-        "Silva JPA",
-        "Dias KOG."
-      ],
-      "journal": "Genetics, selection, evolution : GSE",
-      "published_date": "2026-11-24",
-      "source_url": "https://doi.org/10.1186/s12711-026-01105-1",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1186/s12711-026-01105-1",
-      "pmid": "43079249",
-      "pmcid": "PMC13794576",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "genetics-genomics",
-      "study_model": "multi-study",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "article_body_excerpt": "",
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43079249"
-      }
-    },
-    {
-      "title": "Integrating MeSH semantics and knowledge graph topology for structure-agnostic drug-drug interaction prediction.",
-      "abstract": "Background Adverse drug-drug interactions (DDIs) cause preventable hospitalizations, but exhaustive experimental screening of all drug pairs is infeasible. Many computational predictors rely on small-molecule structural representations, limiting their direct applicability to biologic therapeutics. We present a structure-agnostic framework that combines semantic representations derived from Medical Subject Headings (MeSH) with graph-derived topology from a Drug-Target-Protein knowledge graph constructed from DrugBank and UniProt. We further examine how MeSH annotation depth is associated with predictive performance. Results In transductive evaluation, latent gated fusion achieved an overall AUROC of 0.988 and improved mean AUROC and F1 over MeSH-only across all six interaction categories. Improvements in AUROC, F1, and precision remained significant after Holm correction for Low-Mid, Mid-Mid, and Mid-Deep interactions, with the largest mean AUROC gain in Low-Mid (+0.0304). In seen-unseen inductive evaluation, each test pair contained one held-out drug and one seen drug, and all DDI edges were excluded from the feature graphs. Fusion achieved an overall AUROC of 0.937, exceeding MeSH-only by 0.045; this improvement remained significant after Holm correction. Mean AUROC gains occurred across all six categories, with recurring improvements in Low-Mid ( + 0.063) and Mid-Mid ( + 0.053) that reached nominal significance, although the inductive category-level evidence remained exploratory. Conclusions MeSH annotation depth is associated with systematic variation in DDI prediction performance that aggregate evaluation can obscure. Recurring gains for Low-Mid and Mid-Mid interactions across evaluation settings support the predictive benefit of combining MeSH semantics with graph-derived topology, with additional transductive evidence for Mid-Deep interactions. The framework provides a common, structure-agnostic representation compatible with both small-molecule and biologic therapeutics and supports first-pass DDI prioritization for subsequent expert assessment. Clinical trial number Not applicable.",
-      "authors": [
-        "Yılmaz A",
-        "Taheri G."
-      ],
-      "journal": "BMC bioinformatics",
-      "published_date": "2026-11-24",
-      "source_url": "https://doi.org/10.1186/s12859-026-06746-z",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1186/s12859-026-06746-z",
-      "pmid": "43079227",
-      "pmcid": "PMC13794423",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "biomedical-science",
-      "study_model": "human-clinical",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "article_body_excerpt": "",
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43079227"
-      }
-    },
-    {
-      "title": "Association between duodenal mucosa-associated periodontal bacteria and advanced liver fibrosis in metabolic dysfunction-associated steatotic liver disease.",
-      "abstract": "Gut microbiota and periodontal diseases are potential risk factors for duodenal mucosa-associated microbiota in fibrosis progression of metabolic dysfunction-associated steatotic liver disease; however, the specific contribution of duodenal mucosa-associated microbiota remains unclear. Therefore, in this prospective study, we investigated its association with liver stiffness to elucidate its role in disease progression. Duodenal brush samples were collected during endoscopy from patients with metabolic dysfunction-associated steatotic liver disease, classified by liver stiffness measurement into advanced (liver stiffness measurement>8.7 kPa, n = 10) and non-advanced (n = 20) groups. Extracted DNA was subjected to shotgun metagenomic sequencing. Analyses included taxonomy, diversity, differential abundance (edgeR), correlation (Spearman), and receiver operating characteristic predictive modeling, focusing on periodontal bacteria. While microbial diversity did not differ, advanced metabolic dysfunction-associated steatotic liver disease was characterized by the enrichment of the phylum Pseudomonadota and the genera Haemophilus and Klebsiella. Eight periodontal bacteria, including Campylobacter rectus, Porphyromonas gingivalis, and Fusobacterium nucleatum, were significantly enriched in patients with advanced metabolic dysfunction-associated steatotic liver disease (P < 0.05) and correlated with liver fibrosis markers. A model based on these bacteria discriminated advanced metabolic dysfunction-associated steatotic liver disease with an AUC of 0.82 (95% CI, 0.634-1.000). Duodenal mucosa-associated microbiota alterations, particularly the enrichment of eight periodontal species, were associated with fibrosis severity. These findings highlight the role of the oral-gut-liver axis in metabolic dysfunction-associated steatotic liver disease progression and suggest potential microbial biomarkers and therapeutic targets.",
-      "authors": [
-        "Niida K",
-        "Yamamoto Y",
-        "Miyake T",
-        "Hayashi M",
-        "Tange K",
-        "Watanabe T",
-        "Yoshida O",
-        "Tokumoto Y",
-        "Tomida H",
-        "Takeshita E",
-        "Ikeda Y",
-        "Hiasa Y."
-      ],
-      "journal": "PloS one",
-      "published_date": "2026-11-24",
-      "source_url": "https://doi.org/10.1371/journal.pone.0363551",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1371/journal.pone.0363551",
-      "pmid": "43077432",
-      "pmcid": "PMC13795691",
+      "source_url": "https://doi.org/10.1371/journal.ppat.1014833",
+      "source_adapter": "plos",
+      "doi": "10.1371/journal.ppat.1014833",
+      "pmid": null,
+      "pmcid": null,
       "research_type": "original-research",
       "peer_reviewed": true,
       "publication_status": "peer-reviewed",
       "license": "CC BY 4.0",
       "is_open_access": true,
       "category": "microbiology",
-      "study_model": "computational",
+      "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": true,
       "article_body_excerpt": "",
       "provenance": {
-        "source": "Europe PMC",
-        "id": "43077432"
-      }
-    },
-    {
-      "title": "Vascular modelling of peripheral ischaemic disease response.",
-      "abstract": "Ischaemic disease presents a significant challenge in medical science due to its widespread manifestations in the body and its tendency to only become overt in its late stages, beyond where current intervention methods are effective. Diseases such as coronary heart disease and peripheral artery disease (PAD) represent leading causes of death and are detrimental to quality of life. Focussing on the latter, PAD incurs an amputation rate of around 25%, largely owing to microvascular disease that prevents tissue recovery even after revascularisation. Current methods for investigating PAD either cannot chart specific vascular determinants, such as with in vivo imaging, or deform and remove subjects from longitudinal studies, such as with ex vivo tissue sampling. Presented to aid live research, computational modelling can collate information and build models of ischaemia using available information and provide a reasonable approximation of the disease's chronology and thus support understanding and advance research of PAD. Proposed here, is a 3D in silico model of ischaemic disease in the limb using a system of purpose-built platforms. Starting with a real micro-computed tomography image of the murine hindlimb, a realistic vessel bed was generated using vascular graphing software, ViGiL. From here, the model was realised in a defined pressure gradient via flow-modelling software, numPTI. With the base model of lower limb arteries, collateral vasculature was generated throughout the vessel space. This provides a bypass system for adaptation post-ischaemia. Upon ischaemic induction, the collateral bed responds to the loss of flow and successfully adapted to recover flow with similar density and distribution of diameters in collateral arterioles (p>> 0.05). Moreover, a satisfactory flow recovery of 50% was achieved after 6 days, showing that the model can reflect the specific vascular environment in which disease is incited. The proceeds of this study lay the groundwork for truly realistic ischaemic models including moving towards a predictive model than can signify when and where key indicators of PAD manifest.",
-      "authors": [
-        "Arthur L",
-        "Carrabba M",
-        "Madeddu P",
-        "McDougall S",
-        "Sboros V."
-      ],
-      "journal": "PLoS computational biology",
-      "published_date": "2026-11-24",
-      "source_url": "https://doi.org/10.1371/journal.pcbi.1014970",
-      "source_adapter": "europe_pmc",
-      "doi": "10.1371/journal.pcbi.1014970",
-      "pmid": "43077430",
-      "pmcid": "PMC13795668",
-      "research_type": "original-research",
-      "peer_reviewed": true,
-      "publication_status": "peer-reviewed",
-      "license": "CC BY 4.0",
-      "is_open_access": true,
-      "category": "evolution",
-      "study_model": "animal",
-      "is_biological": true,
-      "allow_media_reuse": true,
-      "article_body_excerpt": "",
-      "provenance": {
-        "source": "Europe PMC",
-        "id": "43077430"
+        "source": "PLOS API",
+        "article_type": "Research Article"
       }
     },
     {
@@ -1373,13 +1342,13 @@
       "study_model": "multi-study",
       "is_biological": true,
       "allow_media_reuse": true,
-      "article_body_excerpt": "",
+      "article_body_excerpt": "[Introduction]\nAcross all environments, microbes help sustain ecosystems by exchanging and transforming key elements such as nitrogen [31], carbon, and sulfur [65, 73], generating energy through chemo- or phototrophic metabolisms, and recycling nutrients. Consequently, microbes directly shape their environments by altering nutrient availability, and the composition and redox structure of the Dissolved Organic Matter (DOM) comprising the exometabolome [45, 67, 77]. In turn, microbial community composition and function are shaped by physicochemical conditions, including pH, oxygen availability, nutrient supply, and hydrodynamic connectivity [69], leading to a bidirectional relationship where each impacts the other. Comprehensive multi-omics studies, integrating metagenomics, metabolomics, and environmental measurements, are needed to resolve the intricate biogeochemical connections that shape the microbiome [31, 57, 79, 81]. Such multi-omics studies have been made possible the development of untargeted high-resolution tandem mass spectrometry of metabolomes [11] with advanced data processing tools [15, 27] and high-throughput metagenome shotgun sequencing [36, 38, 58] followed by de novo assembly and functional annotation [70]. These advances allow for increasingly detailed characterizations of potential microbe-metabolite interactions [42]. Despite these technological advances, the application of fully integrated multi-omics approaches in natural systems remains limited as the high complexity and natural variability of these systems introduce challenges that are largely absent from laboratory-based experiments [59]. Naturally stratified or physically isolated systems provide valuable opportunities to overcome some of these challenges by offering stable gradients over relatively small spatial scales [26]. Marine sinkholes can thus function as natural laboratories, as they often host sharp biogeochemical transitions.\nHere, we characterize the microbial ecology of the northern sinkholes in the Luymes Bank, located at the northeast margin of the Saba Bank in the Caribbean Sea. Several of these sinkholes were previously described by Humphreys et al. [30], characterizing their complex geological origins and physical structure. Notably, Humphreys et al. [30] described an acidic (pH ≈ 6.25) and suboxic (O2 < 60 µmol/kg) submerged ‘lake’ starting at a depth of 220 m within the sinkhole with the deepest bottom depth (306 m). This unusual environment is thought to originate from the\n\n[Methods]\nWe collected a total of 59 paired metagenomic and metabolomic samples from 21 stations on the Luymes Bank near Saba in December 2019 (Fig. 1A). Water chemistry parameters were measured as described by [30] (Supplementary Methods, Supplementary Table S3). Based on these parameters samples were clustered using Ward’s minimal variance clustering into six environments as follows: surface (n = 16), platform (n = 12), shallow sinkhole (n = 14), deep sinkhole (n = 9), acid lake (n = 6), and mesopelagic (n = 2). More detailed information on sample collection and storage can be found in the Supplementary methods.\nCharacterization of the environment: A map of Luymes Bank and integrated sinkholes (modified from Humphreys et al. 2022). B Ward’s minimal variance clustering of physicochemical parameters; rows correspond to samples and are annotated by the six defined environmental clusters (surface (n = 16), platform (n = 12), shallow sinkhole (n = 14), deep sinkhole (n = 9), acid lake (n = 6), and mesopelagic (n = 2)). Before clustering all nutrients were log10 transformed and all factors were normalized using z-scores. C Sampling depths of samples grouped by sinkhole and area (FS = far south, E = east, S = south, W = west, N = north, and O = open ocean). Colored by environmental cluster, see B. D Boxplots of measured physicochemical parameters grouped and colored by environmental cluster, see legend in B\nFlow cytometric enumeration of prokaryotes (including bacteria and archaea) and viruses was performed at the NIOZ according to the protocol by Brussaard et al. [6] and using a TE buffer at pH 8.2. Samples were diluted in TE buffer and stained with the nucleic acid-specific green fluorescence dye SYBRGreen-I (10–5 dilution of commercial stock, Sigma-Aldrich, USA) for 15 min at room temperature for prokaryotes and for 10 min at 80 °C for viruses. Samples were then analyzed using a FACSCalibur flow cytometer with a 488 nm laser (BD Biosciences, USA).\nTotal DNA was extracted from seawater using the NucleoSpin Tissue DNA extraction kit following manufacturer instructions with some small adjustments (see supplementary methods section: “DNA isolation”). The isolated DNA was measured using the Denovix DS-11, and ranged from 1.7 to 12 ng/µL. Genomic DNA libraries were subsequently prepared using the TruSeq DNA Nano LT Sample Preparation Kit (Illumina), whereby DNA was mechanically fragmented, end-repaired and 3′-adenylated, ligated to indexed adapters, size-selected by bead-ba\n\n[Results]\nThe Luymes Banks consist of a carbonate platform raised from the ocean floor, up to a depth of 60–80 m below the ocean surface and features multiple sinkholes with depths of up to 475 m below the ocean surface across their 66 km2 area [71]. We performed a characterization of seven of these sinkholes and adjacent open-ocean stations using multivariate clustering of hydrographic and biogeochemical parameters (phosphate, nitrate, nitrite, pH, depth, dissolved oxygen, transmissivity, salinity, and chlorophyll,(Fig. 1B, C). We excluded total alkalinity from the clustering analysis due to its strong collinearity with dissolved inorganic carbon (DIC, Supplementary Fig. S3). The multivariate clustering revealed six distinct environments: surface, platform, shallow sinkhole, deep sinkhole, acid lake, and mesopelagic (Fig. 1 C, D). Each cluster delineates a discrete physicochemical biome characterized by a unique combination of water column properties (Supplementary Fig. S3B), that approximately correspond to increasing depths (surface: n = 16, mean = 2.7 m, std = 3 m; platform: n = 12, mean = 70 m, std = 6 m, shallow sinkhole: n = 14, mean = 92 m, std = 10 m; deep sinkhole: n = 9, mean = 177 m, std = 47 m; acid lake: n = 6, mean = 275 m, std = 30 m; and mesopelagic: n = 2, mean = 536 m, std = 76 m). With the notable exception of the acid lake, the six different environments correspond to regular oceanographic patterns including higher nutrient levels in deeper, cooler water, and a chlorophyll max at intermediate depth [12, 40]. Samples collected near the surface (surface) were similar across all sinkholes and the open ocean, featuring high light, temperature, and dissolved oxygen with low concentrations of salinity, inorganic nutrients, and chlorophyll (Fig. 1C, D, E). Samples collected just above the platform depth at a depth of 60–80 m (platform), had higher salinity (mean = 37 ppt,std = 0.18 ppt) than the surface samples (mean = 34.7 ppt; std = 0.27 ppt), the highest chlorophyll concentrations of all environments (mean = 0.31 µg/kg, std = 0.03 µg/kg), and marginal increases in oxygen (+ 0.3 µmol/kg), nitrate (+ 0.11 µmol/kg), and nitrite (+ 0.035 µmol/kg) relative to the surface. The conditions within the sinkholes (shallow sinkhole, deep sinkhole, and acid lake) diverged from platform waters with increased salinity, nitrate, and phosphate. These patterns were consistent across both northern and southern sinkholes. The most striking deviations from the general p\n\n[Discussion]\nExploring remote habitats has become more accessible thanks to large-scale omics datasets reducing the reliance on laboratory conditions. Yet these environments pose analytical challenges that differ markedly from those encountered in well-characterized or laboratory-controlled systems. A key difficulty lies in the holistic treatment of each sample: all detected metabolites and microbial taxa are jointly associated with the same environmental context, and consequently with one another. This obscures the directionality of causal relationships, as most conclusions are limited to co-occurrences, and our current analysis is primarily correlative. This limitation means that a mechanistic explanation is currently impossible to provide, based on the correlation network alone. Instead, the identified connections should be viewed as hypothesis-generating leads that warrant targeted validation through experiments or modeling. It is also reasonable to expect that aspects of microbial adaptation involve transcriptional changes or protein-level modifications and therefore are not captured in the functional abundance analysis. Further analysis such as protein sequence comparisons or RNA sequencing is likely to reveal additional fascinating insights within this ecosystem, if such data becomes available.\nWe can contemplate how our results relate to future ocean acidification. Laboratory studies report reduced nitrification rates under acidified conditions [5], yet the acid lake demonstrates that key nitrogen-cycling lineages can persist at pH levels of ~ 6 far below end-century surface ocean projections (~ 7.7–7.8). This suggests that at least some nitrifying archaea and bacteria possess sufficient plasticity to maintain function under chronic acidification. Cyanobacteria, which were still present at a low relative abundance within the nearly aphotic deep sinkholes (mean = 0.03, SD = 0.016), were almost completely lost in the acid lake (mean = 0.0017, SD = 0.0002), suggesting that, even when taking into account the low light conditions, photosynthetic primary producers may be more vulnerable to combined acidification and deoxygenation. Naturally, we should be careful with our interpretations, as the acid lake is nearly aphotic, higher in dissolved inorganic carbon and other nutrients, and resembles a chronically stressed, hydrodynamically isolated endpoint rather than the gradual transition expected in the open ocean,",
       "provenance": {
         "source": "Europe PMC",
         "id": "43026629",
         "journal_homepage": "https://microbiomejournal.biomedcentral.com/",
         "priority_journal": true,
-        "content_depth": "abstract_only"
+        "content_depth": "full_text_open_access_xml"
       }
     },
     {
